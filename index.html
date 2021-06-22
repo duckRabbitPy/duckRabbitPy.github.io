@@ -17,22 +17,25 @@
    <body>
       <header>
          <h1>
-         Mighty Mushrooms 🍄 🍄 🍄 
+         Mighty Mushrooms 🍄 🍄 🍄
          <h1>
       </header>
-      <!-- Two column grid for content and photos -->
+      <!-- Two column grid for article content and photos -->
       <div class="grid-container">
          <!-- Content column -->
          <article>
             <h3>My fascination with fungi! 🌳🍂🌿 </h3>
-            <p>
-               Summer has a lot going for it, it's warmer, it's brighter and people tend to enjoy life more when the sun is beaming in the sky.
+            <p>Summer has a lot going for it, it's warmer, it's brighter and people tend to enjoy life more when the sun is beaming in the sky.
                <br><br>But there are many who much prefer the damp, cool, darkness of autumn, who would prefer to bury themselves in earth than face the scorching heat... I am of course talking about mushrooms!
-               <br><br>Mushrooms are really interesting lifeforms, they were here long before us (the oldest fungi fossil is dated at <a href="https://www.nationalgeographic.co.uk/science-and-technology/2020/01/worlds-oldest-fungi-found-fossils-may-rewrite-earths-early-history#:~:text=Two%20recent%20papers%2C%20however%2C%20have,that%20of%20a%20microscopic%20fungus." target="_blank"> 1 Billion years old</a>) and they may well be here long after us because they are diverse, resilient and very adaptive to different enviroments. 
-               <br><br>When I tell people I like to go foraging for mushrooms people assume that I'm the hippie type...but I feel the enjoyment of exploring for mushrooms is that i'm not looking for anything at all, you just never know what you might find under a log or peeking out from a patch of leaves, it's the element of surprise that makes it so fun. 
-               <br><br>Most mushrooms are easier on the eye than the stomach so I tend to just take pictures of them, you can check out some of my photos on this page and also in this album: ⬇️
+               
+              <br><br>Mushrooms are really interesting lifeforms, they were here long before us (the oldest fungi fossil is dated at 
+               <a href="https://www.nationalgeographic.co.uk/science-and-technology/2020/01/worlds-oldest-fungi-found-fossils-may-rewrite-earths-early-history#:~:text=Two%20recent%20papers%2C%20however%2C%20have,that%20of%20a%20microscopic%20fungus." target="_blank"> 1 Billion years old</a>) and they may well be here long after us because they are diverse, resilient and very adaptive to different enviroments. 
+               
+              <br><br>When I tell people I like to go foraging for mushrooms people assume that I'm the hippie type...but I feel the enjoyment of exploring for mushrooms is that i'm not looking for anything at all, you just never know what you might find under a log or peeking out from a patch of leaves, it's the element of surprise that makes it so fun. 
+               
+              <br><br>Most mushrooms are easier on the eye than the stomach so I tend to just take pictures of them, you can check out some of my photos on this page and also in this album: ⬇️
             </p>
-            <a href="https://photos.app.goo.gl/thM8hKguhMFkFNPt9" target="_blank"><button>Show me the shrooms!</button></a>
+            <a href="https://ibb.co/album/wB4FRp" target="_blank"><button>Show me the shrooms!</button></a>
             <p>
                Now that I have your attention, here are some other great facts about our mushie companions:
             <ol>
@@ -45,20 +48,28 @@
             <h4>Mushroom music: </h4>
             <p>In this video, the weak pulsing electrical current produced by a mushroom has been amplified and hooked up to an oscillator to create funky fungi music 🎵</p>
             <div class="youtube">
-               <iframe width="560" height="315" src="https://www.youtube.com/embed/efSXd56gMCg?start=25" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/efSXd56gMCg?start=25" title="YouTube video player" frameborder="20" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <h4>Mushroom themed books: </h4>
+            <h4 id="review_div">Mushroom themed book reviews: </h4>
             <p>You may be surprised to find that there is a wealth of literature on mushrooms and fungi, I've recently started "Entangled Life" and it is full to the brim with interesting mushroom facts, history, science and even philosophy, I would definitely reccomended it to anyone.</p>
-            <div class="books">
-               <img src="https://images-na.ssl-images-amazon.com/images/I/51-BD57CRCL._SX318_BO1,204,203,200_.jpg" alt="Entangled life bookcover">
-               <img src="https://images-na.ssl-images-amazon.com/images/I/61RDmnujryL._SX324_BO1,204,203,200_.jpg" alt="Underland bookcover">
-               <img src="https://images-na.ssl-images-amazon.com/images/I/51nA1EJLc5L._SX367_BO1,204,203,200_.jpg" alt="Fungarium bookcover">
-            </div>
+        <p id="review">Click on the book image to read reviews</p>
+            <a href="#review_div"><div class="books">
+               <img id="entangled" src="https://images-na.ssl-images-amazon.com/images/I/51-BD57CRCL._SX318_BO1,204,203,200_.jpg" alt="Entangled life bookcover">
+               <img id="underland" src="https://images-na.ssl-images-amazon.com/images/I/61RDmnujryL._SX324_BO1,204,203,200_.jpg" alt="Underland bookcover">
+               <img id="fungarium" src="https://images-na.ssl-images-amazon.com/images/I/51nA1EJLc5L._SX367_BO1,204,203,200_.jpg" alt="Fungarium bookcover">
+              <img id="alice" src="https://images-na.ssl-images-amazon.com/images/I/81M9wLnevtL.jpg" alt="Yayo Kusama illustrated alice and wonderland book">
+            </div></a>
          </article>
          
          <!-- Photo column -->
          <div class="shroom-pics">
+           <div class="controls">
+              <label for="customBackground">header color</label>
+               <input id="customBackground" type="color" name="customBackground" value="#00D0C7">
+            </div>
+   
             <div class="img-parent-elem">
+              <label>My best finds:</label>
                <a target="_blank" href="https://en.wikipedia.org/wiki/Puffball"><img id="0" src="https://lh3.googleusercontent.com/pw/ACtC-3dO0SKmd3suN6z8TojTN-psZVrPPC8pBeGF38XumHTO84tZX0AWCYsJuauqhBlp5LykVXf4HNo7KJ1HJKsLIq9Q0OCGEuPIcPFTvcJ1uRxOyUmjKrpSrOavbWV7mqyLxHu1bV5vi2eWOeUoJEahajN8_Q=w924-h1642-no?authuser=0" alt="puff ball mushroom"></a>
                <div class="mushroom-id">Puff Ball</div>
             </div>
@@ -67,7 +78,7 @@
                <div class="mushroom-id">Fly Agaric</div>
             </div>
             <div class="img-parent-elem">
-               <a target="_blank" href="https://www.wildfooduk.com/mushroom-guide/golden-scalycap/"><img img id="2" src="https://lh3.googleusercontent.com/pw/ACtC-3dUqKrdLHndFKHjCHmjqR0ewPBpIDVmUB2M2pR7idsjxZt9SaYHXmNm1qJEcS9MmodwHGeYfjQyeVsJbcbDrsORWZOWd4sPxUVnMofFWCdCG3ENe1S3Dms91K0XsyHFDGuZWRdUrZ_g22JANCBAC6w_Og=w924-h1642-no?authuser=0" alt="golden mushrooms"></a>
+               <img img id="2" src="https://lh3.googleusercontent.com/pw/ACtC-3dUqKrdLHndFKHjCHmjqR0ewPBpIDVmUB2M2pR7idsjxZt9SaYHXmNm1qJEcS9MmodwHGeYfjQyeVsJbcbDrsORWZOWd4sPxUVnMofFWCdCG3ENe1S3Dms91K0XsyHFDGuZWRdUrZ_g22JANCBAC6w_Og=w924-h1642-no?authuser=0" alt="golden mushrooms">
                <div class="mushroom-id">Golden Scalycap</div>
             </div>
             <div class="img-parent-elem">
