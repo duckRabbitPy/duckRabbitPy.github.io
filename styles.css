@@ -1,0 +1,96 @@
+:root {
+  --base: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--base);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.portfolio-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.item {
+  list-style: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+img {
+  max-width: 300px;
+  margin-left: 20px;
+}
+
+/* Nav bar */
+
+nav a:hover,
+nav a:focus {
+  color: #036;
+  background-color: #fff;
+  text-decoration: underline;
+  border-bottom: 0.1em solid #444;
+}
+
+nav a:active {
+  color: #fff;
+  background-color: #024;
+  border-bottom: 0.1em solid #444;
+}
+nav [aria-current="page"] {
+  background-color: rgb(191, 219, 250);
+  color: #000;
+  border-bottom: 0.2em solid #444;
+}
+
+nav li {
+  list-style: none;
+  color: #000;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(204, 205, 206);
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 6vw;
+  }
+  .portfolio-items {
+    font-size: 3vw;
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    max-width: 50vw;
+  }
+}
