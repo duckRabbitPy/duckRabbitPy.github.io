@@ -81,6 +81,20 @@ nav a {
   text-decoration: none;
 }
 
+/* about */
+.about-article {
+  margin: 0 2rem 0 2rem;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.about-img {
+  height: 300px;
+}
+
 @media only screen and (max-width: 500px) {
   h1 {
     font-size: 6vw;
