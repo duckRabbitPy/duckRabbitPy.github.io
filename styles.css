@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   color: black;
+  font-size: larger;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background: var(--base);
@@ -81,18 +82,72 @@ nav a {
   text-decoration: none;
 }
 
-/* about */
-.about-article {
+.about-container,
+.inclusive-container,
+.tools-container,
+.settings-container {
   margin: 0 2rem 0 2rem;
 }
 
+/* about page css */
 .about-container {
   display: flex;
   flex-direction: row;
 }
 
 .about-img {
+  margin: 2rem;
   height: 300px;
+  border-radius: 2.5%;
+}
+
+/* inclusion page css */
+.factor-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Digital-inclusion Visual-impairment Neurodiversity"
+    "Physical-health-and-ability Language Cultural-diversity";
+  width: 81.7%;
+  height: 100%;
+  justify-content: center;
+}
+
+.Neurodiversity {
+  grid-area: Neurodiversity;
+}
+
+.Physical-health-and-ability {
+  grid-area: Physical-health-and-ability;
+}
+
+.Language {
+  grid-area: Language;
+}
+
+.Cultural-diversity {
+  grid-area: Cultural-diversity;
+}
+
+.Visual-impairment {
+  grid-area: Visual-impairment;
+}
+
+.Digital-inclusion {
+  grid-area: Digital-inclusion;
+}
+
+.Neurodiversity:hover,
+.Physical-health-and-ability:hover,
+.Language:hover,
+.Cultural-diversity:hover,
+.Visual-impairment:hover,
+.Digital-inclusion:hover {
+  border: black;
+  border-style: solid;
 }
 
 @media only screen and (max-width: 500px) {
