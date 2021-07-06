@@ -85,8 +85,9 @@ nav a {
   text-decoration: none;
 }
 
-.key-nav:focus {
-  background-color: rgb(255, 196, 0);
+/* consider polyfill for focus-visible, but keyboard focus still works on safari */
+.key-nav:focus-visible {
+  background-color: rgb(244, 191, 20);
 }
 
 .about-container,
