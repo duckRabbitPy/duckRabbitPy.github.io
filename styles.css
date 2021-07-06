@@ -85,6 +85,10 @@ nav a {
   text-decoration: none;
 }
 
+.key-nav:focus {
+  background-color: rgb(255, 196, 0);
+}
+
 .about-container,
 .inclusive-container,
 .tools-container,
