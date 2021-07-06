@@ -49,7 +49,11 @@
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
 
-      <header>My internet is slow</header>
+      <header>Font</header>
+      <div class="font-family-buttons">
+        <button id="sans">Sans</button>
+        <button id="serif">Serif</button>
+      </div>
     </div>
 
     <footer>
@@ -65,7 +69,7 @@
       const themeToggle = document.querySelector(".toggle-dark");
       const fontButtons = document.querySelectorAll(".font-size-buttons");
 
-      //font buttons
+      //font size buttons
       [...fontButtons].forEach((elem) => {
         elem.addEventListener("click", (event) => {
           let targetSize = event.target.value;
@@ -74,18 +78,38 @@
         });
       });
 
+      //font-family buttons
+      const sansButton = document.getElementById("sans");
+      const serifButton = document.getElementById("serif");
+
+      //toggle button
       themeToggle.addEventListener("click", () => {
         let currentTheme =
           document.documentElement.getAttribute("current-theme");
         let targetTheme = "light-theme";
 
-        //toggle
         if (currentTheme === "light-theme" || currentTheme === null) {
           targetTheme = "dark-theme";
         }
 
         document.documentElement.setAttribute("current-theme", targetTheme);
         sessionStorage.setItem("storedColour", targetTheme);
+      });
+
+      serifButton.addEventListener("click", () => {
+        document.documentElement.style.setProperty(
+          "--font-family",
+          "'serif', 'Georgia', 'Lucida'"
+        );
+        sessionStorage.setItem("storedFontFamily", "serif");
+      });
+
+      sansButton.addEventListener("click", () => {
+        document.documentElement.style.setProperty(
+          "--font-family",
+          "-apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu, Cantarell"
+        );
+        sessionStorage.setItem("storedFontFamily", "sans");
       });
     </script>
   </body>

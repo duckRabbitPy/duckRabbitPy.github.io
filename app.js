@@ -10,6 +10,19 @@ function retrieveSettings() {
   if (storedSize) {
     document.documentElement.style.setProperty("--font-size", storedSize);
   }
+
+  let storedFontFamily = sessionStorage.getItem("storedFontFamily");
+  if (storedFontFamily === "serif") {
+    document.documentElement.style.setProperty(
+      "--font-family",
+      "'serif', 'Georgia', 'Lucida'"
+    );
+  } else if (storedFontFamily === "sans") {
+    document.documentElement.style.setProperty(
+      "--font-family",
+      "-apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu, Cantarell"
+    );
+  }
 }
 
 retrieveSettings();
