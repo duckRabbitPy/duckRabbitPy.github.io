@@ -38,6 +38,7 @@
       <h1>Settings</h1>
       <header>Font size</header>
       <header>Colours</header>
+      <button class="toggle-dark">Toggle Dark Mode</button>
       <header>Font style</header>
       <header>My internet is slow</header>
     </div>
@@ -47,5 +48,26 @@
         <span><i class="fab fa-github"></i></span>DuckRabbitPy
       </h3>
     </footer>
+    <script src="../app.js"></script>
+    <script>
+      //page specific JavaScript
+
+      //Toggle Dark mode
+      let themeToggle = document.querySelector(".toggle-dark");
+
+      themeToggle.addEventListener("click", () => {
+        let currentTheme =
+          document.documentElement.getAttribute("current-theme");
+        let targetTheme = "light-theme";
+
+        //toggle
+        if (currentTheme === "light-theme" || currentTheme === null) {
+          targetTheme = "dark-theme";
+        }
+
+        document.documentElement.setAttribute("current-theme", targetTheme);
+        sessionStorage.setItem("storedColour", targetTheme);
+      });
+    </script>
   </body>
 </html>
