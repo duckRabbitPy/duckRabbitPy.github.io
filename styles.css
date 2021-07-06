@@ -1,16 +1,19 @@
 :root {
   --background-color: white;
   --text-color: black;
+  --link-color: blue;
 }
 
 html[current-theme="light-theme"] {
   --background-color: white;
   --text-color: rgb(21, 20, 28);
+  --link-color: blue;
 }
 
 html[current-theme="dark-theme"] {
   --background-color: rgb(29, 13, 45);
   --text-color: white;
+  --link-color: yellow;
 }
 
 body {
@@ -21,6 +24,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background: var(--background-color);
+}
+body a {
+  color: var(--link-color);
 }
 
 /* landing page (index.html) */
@@ -104,61 +110,61 @@ nav a {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "Digital-inclusion Visual-impairment Neurodiversity"
-    "Physical-health-and-ability Language Cultural-diversity";
+    "digital-inclusion visual-impairment neurodiversity"
+    "physical-health-and-ability language cultural-diversity";
   width: 100%;
   height: 60%;
   justify-content: center;
 }
 
-.Neurodiversity {
-  grid-area: Neurodiversity;
+.neurodiversity {
+  grid-area: neurodiversity;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Physical-health-and-ability {
-  grid-area: Physical-health-and-ability;
+.physical-health-and-ability {
+  grid-area: physical-health-and-ability;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Language {
-  grid-area: Language;
+.language {
+  grid-area: language;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Cultural-diversity {
-  grid-area: Cultural-diversity;
+.cultural-diversity {
+  grid-area: cultural-diversity;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Visual-impairment {
-  grid-area: Visual-impairment;
+.visual-impairment {
+  grid-area: visual-impairment;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Digital-inclusion {
-  grid-area: Digital-inclusion;
+.digital-inclusion {
+  grid-area: digital-inclusion;
   display: flex;
   justify-content: center;
-  max-height: 200px;
+  max-height: 180px;
 }
 
-.Neurodiversity:hover,
-.Physical-health-and-ability:hover,
-.Language:hover,
-.Cultural-diversity:hover,
-.Visual-impairment:hover,
-.Digital-inclusion:hover {
+.neurodiversity:hover,
+.physical-health-and-ability:hover,
+.language:hover,
+.cultural-diversity:hover,
+.visual-impairment:hover,
+.digital-inclusion:hover {
   border: black;
   border-style: solid;
 }

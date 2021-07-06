@@ -58,5 +58,18 @@
       </footer>
     </div>
     <script src="app.js"></script>
+    <script>
+      //page specific JS
+      const landingSvg = document.querySelector(".landing-img");
+      function retrieveSvgTheme() {
+        let storedTheme = sessionStorage.getItem("storedColour");
+        if (storedTheme === "dark-theme") {
+          landingSvg.src = "/images/everyoneDarkTheme.svg";
+        } else {
+          landingSvg.src = "/images/everyone.svg";
+        }
+      }
+      retrieveSvgTheme();
+    </script>
   </body>
 </html>

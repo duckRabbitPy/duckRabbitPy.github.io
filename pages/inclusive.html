@@ -35,27 +35,30 @@
       <h1>Inclusive development</h1>
       <h2>Important factors:</h2>
       <div class="factor-container">
-        <div class="Neurodiversity" class="factor-img">
+        <div class="neurodiversity" class="factor-img">
           <header>Neurodiversity</header>
           <img
             src="../images/neuro.svg"
             class="factor-img"
+            id="neuro_icon"
             alt="neurodiversity icon"
           />
         </div>
-        <div class="Physical-health-and-ability">
+        <div class="physical-health-and-ability">
           <header>Physical health and ability</header>
           <img
             src="../images/hand.svg"
             class="factor-img"
+            id="hand_icon"
             alt="physical health and ability icon"
           />
         </div>
-        <div class="Language">
+        <div class="language">
           <header>Language</header>
           <img
             src="../images/language.svg"
             class="factor-img"
+            id="language_icon"
             alt="language icon"
           />
         </div>
@@ -64,6 +67,7 @@
           <img
             src="../images/diversity.svg"
             class="factor-img"
+            id="diversity_icon"
             alt="culural diversity icon"
           />
         </div>
@@ -72,14 +76,16 @@
           <img
             src="../images/visual.svg"
             class="factor-img"
+            id="visual_icon"
             alt="visual impairment icon"
           />
         </div>
-        <div class="Digital-inclusion">
+        <div class="digital-inclusion">
           <header>Digital inclusion</header>
           <img
             src="../images/digi.svg"
             class="factor-img"
+            id="digi_icon"
             alt="digital inclusion icon"
           />
         </div>
@@ -92,5 +98,37 @@
       </h3>
     </footer>
     <script src="../app.js"></script>
+    <script>
+      //page specific JavaScript
+      const neuroSvg = document.getElementById("neuro_icon");
+      const handSvg = document.getElementById("hand_icon");
+      const languageSvg = document.getElementById("language_icon");
+      const diversitySvg = document.getElementById("diversity_icon");
+      const visualSvg = document.getElementById("visual_icon");
+      const digitalSvg = document.getElementById("digi_icon");
+
+      function retrieveIconSvgTheme() {
+        let storedTheme = sessionStorage.getItem("storedColour");
+
+        //think about if can be done by mapping over node list
+        if (storedTheme === "dark-theme") {
+          neuroSvg.src = "/images/neuroDarkTheme.svg";
+          handSvg.src = "/images/handDarkTheme.svg";
+          languageSvg.src = "/images/languageDarkTheme.svg";
+          diversitySvg.src = "/images/diversityDarkTheme.svg";
+          visualSvg.src = "/images/visualDarkTheme.svg";
+          digitalSvg.src = "/images/digiDarkTheme.svg";
+        } else {
+          neuroSvg.src = "/images/neuro.svg";
+          handSvg.src = "/images/hand.svg";
+          languageSvg.src = "/images/language.svg";
+          diversitySvg.src = "/images/diversity.svg";
+          visualSvg.src = "/images/visual.svg";
+          digitalSvg.src = "/images/digi.svg";
+        }
+      }
+
+      retrieveIconSvgTheme();
+    </script>
   </body>
 </html>
