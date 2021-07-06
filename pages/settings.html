@@ -38,6 +38,12 @@
     <div class="settings-container">
       <h1>Settings</h1>
       <header>Font size</header>
+      <div class="font-size-buttons">
+        <button id="small_btn" value="medium">Small font</button>
+        <button id="medium_btn" value="large">Medium font</button>
+        <button id="large_btn" value="x-large">Large font</button>
+        <button id="extra_large_btn" value="xx-large">Extra large font</button>
+      </div>
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
 
@@ -54,7 +60,17 @@
       //page specific JavaScript
 
       //Toggle Dark mode
-      let themeToggle = document.querySelector(".toggle-dark");
+      const themeToggle = document.querySelector(".toggle-dark");
+      const fontButtons = document.querySelectorAll(".font-size-buttons");
+
+      //font buttons
+      [...fontButtons].forEach((elem) => {
+        elem.addEventListener("click", (event) => {
+          let targetSize = event.target.value;
+          document.documentElement.style.setProperty("--font-size", targetSize);
+          sessionStorage.setItem("storedFontSize", targetSize);
+        });
+      });
 
       themeToggle.addEventListener("click", () => {
         let currentTheme =
