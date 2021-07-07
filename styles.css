@@ -40,6 +40,10 @@ body a {
   align-items: center;
 }
 
+.landing-text {
+  margin: 20px;
+}
+
 .landing-img {
   max-height: 350px;
 }
@@ -53,26 +57,27 @@ nav [aria-current="page"] {
 nav li {
   list-style: none;
   color: #000;
-  padding: 0.1rem 0rem 0.1rem 0rem;
-  border-bottom: 0.2em solid rgba(244, 192, 20, 0);
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  border-bottom: 4px solid rgba(244, 192, 20, 0);
 }
 
 nav li:hover {
   background-color: rgb(244, 191, 20);
   color: #000;
-  border-bottom: 0.2em solid #444;
+  border-bottom: 3px solid #444;
 }
 
 #current-page {
-  border-bottom: 0.4em solid #444;
+  border-bottom: 5px solid #444;
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   background-color: rgb(204, 205, 206);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
 }
@@ -81,6 +86,10 @@ nav a {
   font-size: x-large;
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+i {
+  font-size: medium;
 }
 
 /* consider polyfill for focus-visible, but keyboard focus still works on safari */
@@ -117,6 +126,10 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
 }
 
+.about-article {
+  margin: 20px;
+}
+
 .about-img {
   margin: 2rem;
   height: 300px;
@@ -135,50 +148,60 @@ but becomes visible and clickable/enterable with keyboard focus */
     "digital-inclusion visual-impairment neurodiversity"
     "physical-health-and-ability language cultural-diversity";
   width: 100%;
-  height: 60%;
+  height: 100%;
   justify-content: center;
-}
-
-.neurodiversity {
-  grid-area: neurodiversity;
-  display: flex;
-  justify-content: center;
-  max-height: 180px;
-}
-
-.physical-health-and-ability {
-  grid-area: physical-health-and-ability;
-  display: flex;
-  justify-content: center;
-  max-height: 180px;
-}
-
-.language {
-  grid-area: language;
-  display: flex;
-  justify-content: center;
-  max-height: 180px;
-}
-
-.cultural-diversity {
-  grid-area: cultural-diversity;
-  display: flex;
-  justify-content: center;
-  max-height: 180px;
-}
-
-.visual-impairment {
-  grid-area: visual-impairment;
-  display: flex;
-  justify-content: center;
-  max-height: 180px;
 }
 
 .digital-inclusion {
   grid-area: digital-inclusion;
   display: flex;
-  justify-content: center;
-  max-height: 180px;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
+}
+
+.visual-impairment {
+  grid-area: visual-impairment;
+  display: flex;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
+}
+
+.neurodiversity {
+  grid-area: neurodiversity;
+  display: flex;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
+}
+
+.physical-health-and-ability {
+  grid-area: physical-health-and-ability;
+  display: flex;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
+}
+
+.language {
+  grid-area: language;
+  display: flex;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
+}
+
+.language-section {
+  margin: 20px;
+}
+
+.cultural-diversity {
+  grid-area: cultural-diversity;
+  display: flex;
+  flex-direction: column;
+  max-height: 1fr;
+  padding: 20px;
 }
 
 .neurodiversity:hover,
@@ -195,8 +218,64 @@ but becomes visible and clickable/enterable with keyboard focus */
   max-width: 200px;
 }
 
+button {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  margin: 5px;
+}
+
+/* footer styles */
 footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+#github-icon {
+  font-size: var(--font-size);
+}
+
+@media (max-width: 700px) {
+  .factor-container {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-img {
+    margin: 2rem;
+    width: 250px;
+    border-radius: 2.5%;
+  }
+
+  nav a {
+    font-size: medium;
+    margin-right: 10px;
+  }
+  i {
+    font-size: small;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(204, 205, 206);
+    margin: 0;
+    padding: 0;
+  }
+
+  .landing-img {
+    max-height: 200px;
+  }
+
+  /* ONLY for now, find better solution later */
+  #skip_to_content {
+    display: none;
+  }
 }
