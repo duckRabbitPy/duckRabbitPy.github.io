@@ -46,28 +46,25 @@ body a {
 
 /* Nav bar */
 
-nav a:hover,
-nav a:focus {
-  color: #036;
-  background-color: #fff;
-  text-decoration: underline;
-  border-bottom: 0.1em solid #444;
-}
-
-nav a:active {
-  color: #fff;
-  background-color: #024;
-  border-bottom: 0.1em solid #444;
-}
 nav [aria-current="page"] {
-  background-color: rgb(191, 219, 250);
-  color: #000;
-  border-bottom: 0.2em solid #444;
+  color: rgb(51, 51, 216);
 }
 
 nav li {
   list-style: none;
   color: #000;
+  padding: 0.1rem 0rem 0.1rem 0rem;
+  border-bottom: 0.2em solid rgba(244, 192, 20, 0);
+}
+
+nav li:hover {
+  background-color: rgb(244, 191, 20);
+  color: #000;
+  border-bottom: 0.2em solid #444;
+}
+
+#current-page {
+  border-bottom: 0.4em solid #444;
 }
 
 nav ul {

@@ -14,28 +14,33 @@
   </head>
 
   <nav>
-    <ul>
-      <li tabindex="0" class="key-nav">
-        <a href="/">Home </a><i class="fas fa-home"></i>
-      </li>
-      <li tabindex="0" class="key-nav">
-        <a href="../pages/about.html">About me </a
-        ><i class="far fa-address-card"></i>
-      </li>
-      <li tabindex="0" class="key-nav">
-        <a href="../pages/inclusive.html">Inclusive development </a
-        ><i class="fas fa-user-check"></i>
-      </li>
-      <li tabindex="0" class="key-nav">
-        <a aria-current="page" href="../pages/tools.html"
-          >Mental health tools </a
-        ><i class="fas fa-spa"></i>
-      </li>
-      <li tabindex="0" class="key-nav">
-        <a href="../pages/settings.html">Settings </a><i class="fas fa-cog"></i>
-      </li>
-    </ul>
-  </nav>
+    <nav>
+      <ul role="navigation">
+        <li tabindex="0" class="key-nav" id="skip_to_content">
+          <a href="#main_content">Skip to main content</a>
+        </li>
+        <li tabindex="0" class="key-nav">
+          <a href="/">Home </a><i class="fas fa-home" aria-hidden="true"></i>
+        </li>
+        <li tabindex="0" class="key-nav">
+          <a href="../pages/about.html">About me </a
+          ><i class="far fa-address-card" aria-hidden="true"></i>
+        </li>
+        <li tabindex="0" class="key-nav">
+          <a href="../pages/inclusive.html">Inclusive development </a
+          ><i class="fas fa-user-check" aria-hidden="true"></i>
+        </li>
+        <li tabindex="0" class="key-nav" id="current-page">
+          <a href="../pages/tools.html" aria-current="page"
+            >Mental health tools </a
+          ><i class="fas fa-spa" aria-hidden="true"></i>
+        </li>
+        <li tabindex="0" class="key-nav" >
+          <a href="../pages/settings.html" >Settings </a
+          ><i class="fas fa-cog" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
 
   <body>
     <div class="tools-container">
