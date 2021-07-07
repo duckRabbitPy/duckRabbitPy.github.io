@@ -68,19 +68,20 @@ nav [aria-current="page"] {
 nav li {
   list-style: none;
   color: #000;
-  padding: 1rem;
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 1rem;
   background-color: rgb(204, 205, 206);
   margin: 0;
   padding: 0;
 }
 
 nav a {
+  font-size: x-large;
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
@@ -88,6 +89,22 @@ nav a {
 /* consider polyfill for focus-visible, but keyboard focus still works on safari */
 .key-nav:focus-visible {
   background-color: rgb(244, 191, 20);
+}
+
+nav:focus {
+  background-color: rgb(244, 191, 20);
+}
+
+/* skip to content li is invisible to sighted readers, 
+but becomes visible and clickable/enterable with keyboard focus */
+#skip_to_content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#skip_to_content:focus {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .about-container,

@@ -10,12 +10,15 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="./duckRabbit-logo-vercel.png" />
+    <link rel="icon" type="image/png" href="./images/everyone.svg" />
     <title>Home: Oli's Founders and Coders application</title>
   </head>
   <body>
     <nav>
-      <ul>
+      <ul role="navigation">
+        <li tabindex="0" class="key-nav" id="skip_to_content">
+          <a href="#main">Skip to main content</a>
+        </li>
         <li tabindex="0" class="key-nav">
           <a href="/" aria-current="page">Home </a
           ><i class="fas fa-home" aria-hidden="true"></i>
@@ -39,7 +42,7 @@
       </ul>
     </nav>
     <div class="landing-container">
-      <main>
+      <main id="#main">
         <h1>Hello!</h1>
         <h4>
           My name is Oli and I want to make web apps that are awesome for
@@ -75,7 +78,5 @@
       }
       retrieveSvgTheme();
     </script>
-    <!-- focus-visible polyfill -->
-    <script src="/node_modules/focus-visible/dist/focus-visible.min.js"></script>
   </body>
 </html>
