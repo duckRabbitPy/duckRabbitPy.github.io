@@ -35,6 +35,13 @@ const keyNavElements = document.querySelectorAll(".key-nav");
       window.location.href = newLocation;
     }
   });
+
+  //This function ensures that any user that misses the a tag link
+  //and hits some of the surrounding li tag, that they will still be sent to correct place
+  elem.addEventListener("click", (event) => {
+    let newLocation = event.target.childNodes[1].href;
+    window.location.href = newLocation;
+  });
 });
 
 const aboutNav = document.querySelector(".key-nav-about");
