@@ -58,7 +58,10 @@ nav li {
   list-style: none;
   color: #000;
   padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  /* transparent border to keep sizing consistent on hover */
   border-bottom: 4px solid rgba(244, 192, 20, 0);
+  border-right: 0.5px solid white;
+  border-left: 0.5px solid white;
 }
 
 nav li:hover {
