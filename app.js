@@ -45,3 +45,10 @@ const keyNavElements = document.querySelectorAll(".key-nav");
 });
 
 const aboutNav = document.querySelector(".key-nav-about");
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: "en" },
+    "google_translate_element"
+  );
+}
