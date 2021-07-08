@@ -155,7 +155,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .digital-inclusion {
   grid-area: digital-inclusion;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -163,7 +164,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .visual-impairment {
   grid-area: visual-impairment;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -171,7 +173,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .neurodiversity {
   grid-area: neurodiversity;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -179,7 +182,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .physical-health-and-ability {
   grid-area: physical-health-and-ability;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -187,7 +191,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .language {
   grid-area: language;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -199,7 +204,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .cultural-diversity {
   grid-area: cultural-diversity;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
   max-height: 1fr;
   padding: 20px;
 }
@@ -210,8 +216,17 @@ but becomes visible and clickable/enterable with keyboard focus */
 .cultural-diversity:hover,
 .visual-impairment:hover,
 .digital-inclusion:hover {
-  border: black;
+  border: var(--text-color);
   border-style: solid;
+}
+
+.neurodiversity header,
+.physical-health-and-ability header,
+.language header,
+.cultural-diversity header,
+.visual-impairment header,
+.digital-inclusion header {
+  padding: 10px;
 }
 
 .factor-img {
