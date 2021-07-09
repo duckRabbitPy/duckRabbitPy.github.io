@@ -1,5 +1,6 @@
 :root {
-  --background-color: white;
+  /* --background-color: white; */
+  --background-color: #f9f9fa;
   --text-color: black;
   --link-color: blue;
   --font-size: "medium";
@@ -8,7 +9,7 @@
 }
 
 html[current-theme="light-theme"] {
-  --background-color: white;
+  --background-color: #f9f9fa;
   --text-color: rgb(21, 20, 28);
   --link-color: blue;
 }
@@ -65,7 +66,8 @@ nav li {
 }
 
 nav li:hover {
-  background-color: rgb(244, 191, 20);
+  /* background-color: rgb(244, 191, 20); */
+  background-color: rgb(158, 242, 178);
   color: #000;
   border-bottom: 3px solid #444;
 }
@@ -200,6 +202,8 @@ but becomes visible and clickable/enterable with keyboard focus */
   padding: 20px;
 }
 
+.digital-section,
+.visual-section,
 .language-section {
   margin: 20px;
 }
