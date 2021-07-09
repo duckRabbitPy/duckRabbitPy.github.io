@@ -1,4 +1,27 @@
 //page agnostic Javascript
+const scrollButton = document.querySelectorAll(".scroll-top");
+
+scrollButton.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    smoothscroll();
+  });
+});
+
+function smoothscroll() {
+  //currentScroll is the number of pixels being scrolled
+  var currentScroll =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentScroll > 0) {
+    //if the page is currently scrolling (1 or more pixels)
+    //ask the browser to fire the smoothscroll function (again) before the next repaint
+    window.requestAnimationFrame(smoothscroll);
+    //In the current call of the smoothscroll function,
+    //scroll towards the top a fraction of the number of pixels currently being scrolled
+    //this is a recursive function so will continue to be called until at the top
+    //this has the effect of 'slowing down' towards the top
+    window.scrollTo(0, currentScroll - currentScroll / 10);
+  }
+}
 
 function retrieveSettings() {
   let storedTheme = sessionStorage.getItem("storedColour");
