@@ -16,7 +16,7 @@ html[current-theme="light-theme"] {
 
 html[current-theme="dark-theme"] {
   --background-color: rgb(29, 13, 45);
-  --text-color: white;
+  --text-color: rgba(255, 255, 255, 0.934);
   --link-color: yellow;
 }
 
@@ -73,7 +73,8 @@ nav li:hover {
 }
 
 #current-page {
-  border-bottom: 5px solid #444;
+  background-color: white;
+  border-bottom: 5px solid black;
 }
 
 nav ul {
@@ -99,11 +100,11 @@ i {
 
 /* consider polyfill for focus-visible, but keyboard focus still works on safari */
 .key-nav:focus-visible {
-  background-color: rgb(244, 191, 20);
+  background-color: rgb(158, 242, 178);
 }
 
 nav:focus {
-  background-color: rgb(244, 191, 20);
+  background-color: rgb(158, 242, 178);
 }
 
 /* skip to content li is invisible to sighted readers, 
