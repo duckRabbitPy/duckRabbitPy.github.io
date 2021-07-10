@@ -2,6 +2,13 @@
 const scrollButton = document.querySelectorAll(".scroll-top");
 
 scrollButton.forEach((elem) => {
+  //want to take to main_content if using keyboard, not top of page
+  elem.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+      window.location.href = "#main_content";
+    }
+  });
+
   elem.addEventListener("click", () => {
     smoothscroll();
   });

@@ -203,9 +203,11 @@ but becomes visible and clickable/enterable with keyboard focus */
   padding: 20px;
 }
 
-.digital-section,
-.visual-section,
-.language-section {
+#digital-section,
+#visual-section,
+#neuro-section,
+#physical-section,
+#language-section {
   margin: 20px;
 }
 

@@ -47,63 +47,69 @@
       <h1 id="main_content">Inclusive development</h1>
       <h2>Important factors:</h2>
       <div class="factor-container">
-        <div class="digital-inclusion">
-          <header>Digital inclusion</header>
-          <img
-            src="../images/digi.svg"
-            class="factor-img"
-            id="digi_icon"
-            alt="digital inclusion icon"
-          />
-        </div>
-        <div class="visual-impairment">
-          <header>Visual Impairment</header>
-          <img
-            src="../images/visual.svg"
-            class="factor-img"
-            id="visual_icon"
-            alt="visual impairment icon"
-          />
-        </div>
-        <div class="neurodiversity" class="factor-img">
-          <header>Neurodiversity</header>
-          <img
-            src="../images/neuro.svg"
-            class="factor-img"
-            id="neuro_icon"
-            alt="neurodiversity icon"
-          />
-        </div>
-        <div class="physical-health-and-ability">
-          <header>Physical health and ability</header>
-          <img
-            src="../images/hand.svg"
-            class="factor-img"
-            id="hand_icon"
-            alt="physical health and ability icon"
-          />
-        </div>
-        <div class="language">
-          <header>Language</header>
-          <img
-            src="../images/language.svg"
-            class="factor-img"
-            id="language_icon"
-            alt="language icon"
-          />
-        </div>
-        <div class="cultural-diversity">
-          <header>Cultural diversity</header>
-          <img
-            src="../images/diversity.svg"
-            class="factor-img"
-            id="diversity_icon"
-            alt="culural diversity icon"
-          />
-        </div>
+        <a href="#digital-section"
+          ><div class="digital-inclusion" tabindex="0">
+            <header>Digital inclusion</header>
+            <img
+              src="../images/digi.svg"
+              class="factor-img"
+              id="digi_icon"
+              alt="digital inclusion icon"
+            /></div
+        ></a>
+        <a href="#visual-section">
+          <div class="visual-impairment" tabindex="0">
+            <header>Visual Impairment</header>
+            <img
+              src="../images/visual.svg"
+              class="factor-img"
+              id="visual_icon"
+              alt="visual impairment icon"
+            /></div
+        ></a>
+        <a href="#neuro-section"
+          ><div class="neurodiversity" tabindex="0">
+            <header>Neurodiversity</header>
+            <img
+              src="../images/neuro.svg"
+              class="factor-img"
+              id="neuro_icon"
+              alt="neurodiversity icon"
+            /></div
+        ></a>
+        <a href="#physical-section"
+          ><div class="physical-health-and-ability" tabindex="0">
+            <header>Physical health and ability</header>
+            <img
+              src="../images/hand.svg"
+              class="factor-img"
+              id="hand_icon"
+              alt="physical health and ability icon"
+            /></div
+        ></a>
+        <a href="#language-section"
+          ><div class="language" tabindex="0">
+            <header>Language</header>
+            <img
+              src="../images/language.svg"
+              class="factor-img"
+              id="language_icon"
+              alt="language icon"
+            /></div
+        ></a>
+        <a href="#culture-section"
+          ><div class="cultural-diversity" tabindex="0">
+            <header>Cultural diversity</header>
+            <img
+              src="../images/diversity.svg"
+              class="factor-img"
+              id="diversity_icon"
+              alt="culural diversity icon"
+            /></div
+        ></a>
       </div>
 
-      <section class="digital-section">
+      <section id="digital-section" tabindex="0">
         <h3>Digital inclusion</h3>
         <p>
           Digital inclusion involves making your application accessible to
@@ -111,9 +117,10 @@
           skills, or users that don't have access to the latest devices,
           up-to-date browsers or fast internet speeds.
         </p>
+        <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section class="visual-section">
+      <section id="visual-section" tabindex="0">
         <h3>Visual impairment</h3>
         <p>
           Many people who visit your website will have a type of visual
@@ -124,9 +131,50 @@
           semantic HTML and descriptive 'alternative' text are an absolute must
           for screen readers.
         </p>
+        <button class="scroll-top" tabindex="0">Scroll to top</button>
       </section>
 
-      <section class="language-section">
+      <section id="neuro-section" tabindex="0">
+        <h3>Neurodiversity</h3>
+        <p>
+          Neurodiversity is a broad term that encourages everyone to acknowledge
+          and understand that people process information differently. Sites
+          should be built with accessible typography and colour themes by
+          default. However, as the 'diversity' part of neurodiversity suggests,
+          what is clear and readable for one person might be confusing or
+          distracting to someone else. For instance some people migth enjoy
+          elaborate page transitions and movement on the page while others could
+          find vibrant flashing animations uncomfortable or overwhelming.
+        </p>
+        <p>The solution is to offer choice.</p>
+        <p>
+          CSS variables and JasvaScript make it possible to provide a set of
+          styling options or to enable and disable certain features. Giving
+          people control over their experience is something that is typically
+          limited to desktop applications but it doesn't have to be this way!
+        </p>
+        <button class="scroll-top">Scroll to top</button>
+      </section>
+
+      <section id="physical-section" tabindex="0">
+        <h3>Physical health and ability</h3>
+        <p>
+          An indvidual's physical health and ability will influence how they
+          will browse the web and interact online. Many people navigate using
+          the keyboard and will tab through the webpage instead of using the
+          mouse. Others will navigate handsfree using a voice controller.
+        </p>
+        <p>
+          Ensure that all core functionality is accessible via the keyboard and
+          provide different styling when elements are keyboard focused. Consider
+          a 'skip to main' link in your navigation bar to save users from
+          repetitive tabbing. Always give people enough time when filling out
+          forms or asking for user input.
+        </p>
+        <button class="scroll-top">Scroll to top</button>
+      </section>
+
+      <section id="language-section" tabindex="0">
         <h3>Language</h3>
         <p>
           English is a very widely spoken language, but it's not the only one!
