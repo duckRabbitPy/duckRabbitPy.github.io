@@ -165,6 +165,10 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
+
+  /* set transparent border when not hovered */
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
 }
 
 .visual-impairment {
@@ -174,6 +178,9 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
+
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
 }
 
 .neurodiversity {
@@ -183,6 +190,9 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
+
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
 }
 
 .physical-health-and-ability {
@@ -192,6 +202,9 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
+
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
 }
 
 .language {
@@ -201,14 +214,9 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
-}
 
-#digital-section,
-#visual-section,
-#neuro-section,
-#physical-section,
-#language-section {
-  margin: 20px;
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
 }
 
 .cultural-diversity {
@@ -218,6 +226,17 @@ but becomes visible and clickable/enterable with keyboard focus */
   align-content: center;
   max-height: 1fr;
   padding: 20px;
+
+  border: rgba(0, 0, 0, 0);
+  border-style: solid;
+}
+
+#digital-section,
+#visual-section,
+#neuro-section,
+#physical-section,
+#language-section {
+  margin: 20px;
 }
 
 .neurodiversity:hover,
