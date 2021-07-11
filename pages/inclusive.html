@@ -207,9 +207,12 @@
           persona generator so you can ask yourself whether your site really is
           accesible for all.
         </p>
+        <button id="random_user_btn">Generate random user</button>
+        <div>
+          <p id="user_properties"></p>
+        </div>
         <button class="scroll-top">Scroll to top</button>
       </section>
-      <button onclick="createUser()">JS test</button>
     </div>
 
     <footer>
@@ -226,6 +229,13 @@
       const diversitySvg = document.getElementById("diversity_icon");
       const visualSvg = document.getElementById("visual_icon");
       const digitalSvg = document.getElementById("digi_icon");
+
+      const randomUserBtn = document.getElementById("random_user_btn");
+      const userProperties = document.getElementById("user_properties");
+
+      randomUserBtn.addEventListener("click", () => {
+        createUser();
+      });
 
       function retrieveIconSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
@@ -250,58 +260,42 @@
 
       retrieveIconSvgTheme();
 
-      const defaultDem = "default";
+      //random user generator
 
       let user = {
         Name: "not set",
         Age: "not set",
-        MainLangauge: "not set",
         MainDevice: "not set",
         InternetSpeed: "not set",
         PreferredLanguage: "not set",
         CurrentlyLivingIn: "not set",
         AccessibilityConsideration: "not set",
 
-        randName() {
-          fetch("../data/names.json")
-            .then((res) => res.json())
-            .then((arr) => {
-              this.Name =
-                arr[Math.floor(Math.random() * arr.length)].first_name;
-            })
-            .catch((err) => {
-              throw err;
-            });
+        async randName() {
+          let nameData = await fetchData("names");
+          return nameData[Math.floor(Math.random() * nameData.length)]
+            .first_name;
+        },
+
+        async randLanguage() {
+          if (Math.random() > 0.3) {
+            let languageData = await fetchData("language");
+            return languageData[
+              Math.floor(Math.random() * languageData.length)
+            ];
+          } else {
+            return "English";
+          }
+        },
+
+        async randCountry() {
+          let countryData = await fetchData("countries");
+          return countryData[Math.floor(Math.random() * countryData.length)]
+            .name;
         },
 
         randAge() {
-          this.Age = Math.floor(Math.random() * (118 - 12) + 12);
-        },
-        randLanguage() {
-          if (Math.random() > 0.5) {
-            fetch("../data/language.json")
-              .then((res) => res.json())
-              .then((arr) => {
-                this.PreferredLanguage =
-                  arr[Math.floor(Math.random() * arr.length)];
-              })
-              .catch((err) => {
-                throw err;
-              });
-          } else {
-            this.PreferredLanguage = "English";
-          }
-        },
-        randCountry() {
-          fetch("../data/countries.json")
-            .then((res) => res.json())
-            .then((arr) => {
-              this.CurrentlyLivingIn =
-                arr[Math.floor(Math.random() * arr.length)].name;
-            })
-            .catch((err) => {
-              throw err;
-            });
+          this.Age = Math.floor(Math.random() * (110 - 12) + 12);
         },
 
         randInternetSpeed() {
@@ -319,6 +313,7 @@
             "old desktop computer",
             "android tablet",
             "ipad",
+            "library computer",
           ];
           this.MainDevice = devices[Math.floor(Math.random() * devices.length)];
         },
@@ -341,18 +336,42 @@
         },
       };
 
-      console.log(user);
+      async function fetchData(dataField) {
+        let data = await fetch(`../data/${dataField}.json`)
+          .then((res) => res.json())
+          .catch((err) => {
+            throw err;
+          });
+        return data;
+      }
 
-      function createUser() {
+      async function createUser() {
+        //create new user object
         let newUser = Object.create(user);
-        newUser.randName();
+
+        //call methods that need to collect json for their properties
+        let name = await newUser.randName();
+        let language = await newUser.randLanguage();
+        let country = await newUser.randCountry();
+
+        ////fire synchronous methods to set other properties
         newUser.randAge();
-        newUser.randLanguage();
-        newUser.randCountry();
         newUser.randInternetSpeed();
         newUser.randDevice();
         newUser.randAccessibility();
-        console.log(newUser);
+
+        Promise.all([name, language, country]).then((values) => {
+          //once asynch data has been collected, set properties on user object
+          newUser.Name = name;
+          newUser.PreferredLanguage = language;
+          newUser.CurrentlyLivingIn = country;
+
+          userProperties.innerHTML = `Name: ${newUser.Name} 
+          <br> Age: ${newUser.Age}
+          <br> Currently in: ${newUser.CurrentlyLivingIn}
+          <br> Preferred language: ${newUser.PreferredLanguage} <br> Main device: ${newUser.MainDevice} 
+          <br> Accessibility consideration: ${newUser.AccessibilityConsideration}`;
+        });
       }
     </script>
     <script
