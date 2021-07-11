@@ -47,7 +47,7 @@
       <h1 id="main_content">Inclusive development</h1>
       <h2>Important factors:</h2>
       <div class="factor-container">
-        <a href="#digital-section"
+        <a href="#digital-section" class="inclusive-link"
           ><div class="digital-inclusion" tabindex="0">
             <header>Digital inclusion</header>
             <img
@@ -57,7 +57,7 @@
               alt="digital inclusion icon"
             /></div
         ></a>
-        <a href="#visual-section">
+        <a href="#visual-section" class="inclusive-link">
           <div class="visual-impairment" tabindex="0">
             <header>Visual Impairment</header>
             <img
@@ -67,7 +67,7 @@
               alt="visual impairment icon"
             /></div
         ></a>
-        <a href="#neuro-section"
+        <a href="#neuro-section" class="inclusive-link"
           ><div class="neurodiversity" tabindex="0">
             <header>Neurodiversity</header>
             <img
@@ -77,7 +77,7 @@
               alt="neurodiversity icon"
             /></div
         ></a>
-        <a href="#physical-section"
+        <a href="#physical-section" class="inclusive-link"
           ><div class="physical-health-and-ability" tabindex="0">
             <header>Physical health and ability</header>
             <img
@@ -87,7 +87,7 @@
               alt="physical health and ability icon"
             /></div
         ></a>
-        <a href="#language-section"
+        <a href="#language-section" class="inclusive-link"
           ><div class="language" tabindex="0">
             <header>Language</header>
             <img
@@ -97,7 +97,7 @@
               alt="language icon"
             /></div
         ></a>
-        <a href="#community-section"
+        <a href="#community-section" class="inclusive-link"
           ><div class="community-diversity" tabindex="0">
             <header>Community diversity</header>
             <img
@@ -142,16 +142,17 @@
           should be built with accessible typography and colour themes by
           default. However, as the 'diversity' part of neurodiversity suggests,
           what is clear and readable for one person might be confusing or
-          distracting to someone else. For instance some people migth enjoy
+          distracting to someone else. For instance some people might enjoy
           elaborate page transitions and movement on the page while others could
           find vibrant flashing animations uncomfortable or overwhelming.
         </p>
         <p>The solution is to offer choice.</p>
         <p>
-          CSS variables and JasvaScript make it possible to provide a set of
-          styling options or to enable and disable certain features. Giving
-          people control over their experience is something that is typically
-          limited to desktop applications but it doesn't have to be this way!
+          CSS variables and JavaScript make it possible to provide a set of
+          styling options and the opportunty to enable and disable certain
+          features. Giving people control over their experience is something
+          that is typically limited to desktop applications but it doesn't have
+          to be this way!
         </p>
         <button class="scroll-top">Scroll to top</button>
       </section>
@@ -199,15 +200,16 @@
           users visiting your site every day.
         </p>
         <p>
-          Designers sometimes use 'Personas'or user profiles to guide how things
-          should look and feel for their target audience, i'm sure there are
-          some specific use cases for this approach but here i'm going to turn
-          the concept on it's head by presenting to you an inclusive persona
-          generator so you can ask yourself whether your site really is
+          Designers sometimes use 'Personas' or user profiles to guide how
+          things should look and feel for their target audience. I'm sure there
+          are some specific use cases for this approach but here i'm going to
+          turn the concept on it's head by presenting to you an inclusive
+          persona generator so you can ask yourself whether your site really is
           accesible for all.
         </p>
         <button class="scroll-top">Scroll to top</button>
       </section>
+      <button onclick="createUser()">JS test</button>
     </div>
 
     <footer>
@@ -247,6 +249,111 @@
       }
 
       retrieveIconSvgTheme();
+
+      const defaultDem = "default";
+
+      let user = {
+        Name: "not set",
+        Age: "not set",
+        MainLangauge: "not set",
+        MainDevice: "not set",
+        InternetSpeed: "not set",
+        PreferredLanguage: "not set",
+        CurrentlyLivingIn: "not set",
+        AccessibilityConsideration: "not set",
+
+        randName() {
+          fetch("../data/names.json")
+            .then((res) => res.json())
+            .then((arr) => {
+              this.Name =
+                arr[Math.floor(Math.random() * arr.length)].first_name;
+            })
+            .catch((err) => {
+              throw err;
+            });
+        },
+
+        randAge() {
+          this.Age = Math.floor(Math.random() * (118 - 12) + 12);
+        },
+        randLanguage() {
+          if (Math.random() > 0.5) {
+            fetch("../data/language.json")
+              .then((res) => res.json())
+              .then((arr) => {
+                this.PreferredLanguage =
+                  arr[Math.floor(Math.random() * arr.length)];
+              })
+              .catch((err) => {
+                throw err;
+              });
+          } else {
+            this.PreferredLanguage = "English";
+          }
+        },
+        randCountry() {
+          fetch("../data/countries.json")
+            .then((res) => res.json())
+            .then((arr) => {
+              this.CurrentlyLivingIn =
+                arr[Math.floor(Math.random() * arr.length)].name;
+            })
+            .catch((err) => {
+              throw err;
+            });
+        },
+
+        randInternetSpeed() {
+          this.InternetSpeed = `${Math.floor(Math.random() * 150)} mb/s`;
+        },
+
+        randDevice() {
+          const devices = [
+            "cheap laptop",
+            "high spec laptop",
+            "macbook",
+            "iphone",
+            "android phone",
+            "gaming PC",
+            "old desktop computer",
+            "android tablet",
+            "ipad",
+          ];
+          this.MainDevice = devices[Math.floor(Math.random() * devices.length)];
+        },
+
+        randAccessibility() {
+          const considerations = [
+            "partially sighted and uses screen reader to navigate",
+            "dislikes flashing images",
+            "struggles with font smaller than 16pt",
+            "finds precise tasks with the mouse difficult",
+            "has total hearing loss",
+            "primariliy uses keyboard to navigate",
+            "appeciates high contrast when reading",
+            "does not like bright screens",
+            "needs more time when typing",
+            "finds it hard to concentrate on large blocks of text",
+          ];
+          this.AccessibilityConsideration =
+            considerations[Math.floor(Math.random() * considerations.length)];
+        },
+      };
+
+      console.log(user);
+
+      function createUser() {
+        let newUser = Object.create(user);
+        newUser.randName();
+        newUser.randAge();
+        newUser.randLanguage();
+        newUser.randCountry();
+        newUser.randInternetSpeed();
+        newUser.randDevice();
+        newUser.randAccessibility();
+        console.log(newUser);
+      }
     </script>
     <script
       type="text/javascript"

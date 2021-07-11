@@ -259,6 +259,10 @@ but becomes visible and clickable/enterable with keyboard focus */
   padding: 10px;
 }
 
+.inclusive-link {
+  text-decoration: none;
+}
+
 .factor-img {
   max-width: 200px;
 }
