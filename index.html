@@ -53,7 +53,7 @@
         </p>
       </main>
       <img
-        src="images/everyone.svg"
+        src="images/everyone.gif"
         class="landing-img"
         alt="people of different ages and genders"
       />
@@ -75,9 +75,9 @@
       function retrieveSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
         if (storedTheme === "dark-theme") {
-          landingSvg.src = "/images/everyoneDarkTheme.svg";
+          landingSvg.src = "/images/everyoneDarkTheme.gif";
         } else {
-          landingSvg.src = "/images/everyone.svg";
+          landingSvg.src = "/images/everyone.gif";
         }
       }
       retrieveSvgTheme();

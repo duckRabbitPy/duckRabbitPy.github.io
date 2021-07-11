@@ -1,6 +1,6 @@
 :root {
   /* --background-color: white; */
-  --background-color: #f9f9fa;
+  --background-color: white;
   --text-color: black;
   --link-color: blue;
   --font-size: "medium";
@@ -10,14 +10,14 @@
 }
 
 html[current-theme="light-theme"] {
-  --background-color: #f9f9fa;
+  --background-color: white;
   --text-color: rgb(21, 20, 28);
   --link-color: blue;
 }
 
 html[current-theme="dark-theme"] {
   --background-color: rgb(29, 13, 45);
-  --text-color: rgba(255, 255, 255, 0.934);
+  --text-color: white;
   --link-color: yellow;
 }
 
