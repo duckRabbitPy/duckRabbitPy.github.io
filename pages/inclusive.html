@@ -68,7 +68,7 @@
             /></div
         ></a>
         <a href="#neuro-section" class="inclusive-link"
-          ><div class="neurodiversity" tabindex="0">
+          ><div class="neuro-diversity" tabindex="0">
             <header>Neurodiversity</header>
             <img
               src="../images/neuro.svg"
@@ -109,7 +109,7 @@
         ></a>
       </div>
 
-      <section id="digital-section" tabindex="0">
+      <section id="digital-section" tabindex="0" class="hidden">
         <h3>Digital inclusion</h3>
         <p>
           Digital inclusion involves making your application accessible to
@@ -120,7 +120,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="visual-section" tabindex="0">
+      <section id="visual-section" tabindex="0" class="hidden">
         <h3>Visual impairment</h3>
         <p>
           Many people who visit your website will have a type of visual
@@ -134,7 +134,7 @@
         <button class="scroll-top" tabindex="0">Scroll to top</button>
       </section>
 
-      <section id="neuro-section" tabindex="0">
+      <section id="neuro-section" tabindex="0" class="hidden">
         <h3>Neurodiversity</h3>
         <p>
           Neurodiversity is a broad term that encourages everyone to acknowledge
@@ -157,7 +157,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="physical-section" tabindex="0">
+      <section id="physical-section" tabindex="0" class="hidden">
         <h3>Physical health and ability</h3>
         <p>
           An indvidual's physical health and ability will influence how they
@@ -175,7 +175,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="language-section" tabindex="0">
+      <section id="language-section" tabindex="0" class="hidden">
         <h3>Language</h3>
         <p>
           English is a very widely spoken language, but it's not the only one!
@@ -191,7 +191,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="community-section" tabindex="0">
+      <section id="community-section" tabindex="0" class="hidden">
         <h3>Community diversity</h3>
         <p>
           One of the great things about the internet is that it brings an
@@ -235,8 +235,25 @@
       const userProperties = document.getElementById("user_properties");
 
       const diceNumber = document.getElementById("dice");
+      const options = document.querySelectorAll(".inclusive-link");
+      const hiddenSections = document.querySelectorAll(".hidden");
 
       retrieveIconSvgTheme();
+
+      //controls hiding and showing of sections
+      options.forEach((option) => {
+        option.addEventListener("click", (event) => {
+          let parentClass = event.target.parentNode.className;
+          let topic = parentClass.slice(0, parentClass.indexOf("-"));
+          let toShowSection = [...hiddenSections].forEach((elem) => {
+            if (elem.id.includes(topic)) {
+              elem.classList.remove("hidden");
+            } else {
+              elem.classList.add("hidden");
+            }
+          });
+        });
+      });
 
       randomUserBtn.addEventListener("click", () => {
         setTimeout(() => {

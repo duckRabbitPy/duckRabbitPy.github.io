@@ -151,14 +151,14 @@ but becomes visible and clickable/enterable with keyboard focus */
 
 /* inclusion page css */
 .factor-container {
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "digital-inclusion visual-impairment neurodiversity"
+    "digital-inclusion visual-impairment neuro-diversity"
     "physical-health-and-ability language community-diversity";
   width: 100%;
   height: 100%;
@@ -171,7 +171,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   /* set transparent border when not hovered */
   border: rgba(0, 0, 0, 0);
@@ -184,19 +184,19 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   border: rgba(0, 0, 0, 0);
   border-style: solid;
 }
 
-.neurodiversity {
-  grid-area: neurodiversity;
+.neuro-diversity {
+  grid-area: neuro-diversity;
   display: flex;
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   border: rgba(0, 0, 0, 0);
   border-style: solid;
@@ -208,7 +208,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   border: rgba(0, 0, 0, 0);
   border-style: solid;
@@ -220,7 +220,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   border: rgba(0, 0, 0, 0);
   border-style: solid;
@@ -232,7 +232,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: row;
   align-content: center;
   max-height: 1fr;
-  padding: 20px;
+  padding: 10px;
 
   border: rgba(0, 0, 0, 0);
   border-style: solid;
@@ -247,8 +247,12 @@ but becomes visible and clickable/enterable with keyboard focus */
   margin: 20px;
 }
 
-.neurodiversity:hover,
-.neurodiversity:focus-visible,
+.hidden {
+  display: none;
+}
+
+.neuro-diversity:hover,
+.neuro-diversity:focus-visible,
 .physical-health-and-ability:hover,
 .physical-health-and-ability:focus-visible,
 .language:hover,
@@ -263,7 +267,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   border-style: solid;
 }
 
-.neurodiversity header,
+.neuro-diversity header,
 .physical-health-and-ability header,
 .language header,
 .community-diversity header,
