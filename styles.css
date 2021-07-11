@@ -4,6 +4,7 @@
   --text-color: black;
   --link-color: blue;
   --font-size: "medium";
+  --secondary-color: rgb(158, 242, 178);
   --font-family: -apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu,
     Cantarell;
 }
@@ -67,7 +68,7 @@ nav li {
 
 nav li:hover {
   /* background-color: rgb(244, 191, 20); */
-  background-color: rgb(158, 242, 178);
+  background-color: var(--secondary-color);
   color: #000;
   border-bottom: 3px solid #444;
 }
@@ -98,13 +99,19 @@ i {
   font-size: medium;
 }
 
+mark {
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+  padding: 1px;
+}
+
 /* consider polyfill for focus-visible, but keyboard focus still works on safari */
 .key-nav:focus-visible {
-  background-color: rgb(158, 242, 178);
+  background-color: var(--secondary-color);
 }
 
 nav:focus {
-  background-color: rgb(158, 242, 178);
+  background-color: var(--secondary-color);
 }
 
 /* skip to content li is invisible to sighted readers, 
