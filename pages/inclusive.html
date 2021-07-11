@@ -210,6 +210,7 @@
         <button id="random_user_btn">Generate random user</button>
         <div>
           <p id="user_properties"></p>
+          <img id="dice" src="../images/1.svg" />
         </div>
         <button class="scroll-top">Scroll to top</button>
       </section>
@@ -233,8 +234,21 @@
       const randomUserBtn = document.getElementById("random_user_btn");
       const userProperties = document.getElementById("user_properties");
 
+      const diceNumber = document.getElementById("dice");
+
+      retrieveIconSvgTheme();
+
       randomUserBtn.addEventListener("click", () => {
-        createUser();
+        setTimeout(() => {
+          rollDice();
+          setTimeout(() => {
+            rollDice();
+            setTimeout(() => {
+              rollDice();
+              createUser();
+            }, 300);
+          }, 300);
+        }, 300);
       });
 
       function retrieveIconSvgTheme() {
@@ -258,7 +272,10 @@
         }
       }
 
-      retrieveIconSvgTheme();
+      function rollDice() {
+        let num = Math.floor(Math.random() * 6 + 1);
+        diceNumber.src = `../images/${num}.svg`;
+      }
 
       //random user generator
 
@@ -325,7 +342,7 @@
             "struggles with font smaller than 16pt",
             "finds precise tasks with the mouse difficult",
             "has total hearing loss",
-            "primariliy uses keyboard to navigate",
+            "primarily uses keyboard to navigate",
             "appeciates high contrast when reading",
             "does not like bright screens",
             "needs more time when typing",
@@ -366,11 +383,11 @@
           newUser.PreferredLanguage = language;
           newUser.CurrentlyLivingIn = country;
 
-          userProperties.innerHTML = `Name: ${newUser.Name} 
-          <br> Age: ${newUser.Age}
-          <br> Currently in: ${newUser.CurrentlyLivingIn}
-          <br> Preferred language: ${newUser.PreferredLanguage} <br> Main device: ${newUser.MainDevice} 
-          <br> Accessibility consideration: ${newUser.AccessibilityConsideration}`;
+          userProperties.innerHTML = `<b>Name</b>: ${newUser.Name}
+          <br> <b>Age</b>: ${newUser.Age}
+          <br> <b>Currently in </b>: ${newUser.CurrentlyLivingIn}
+          <br> <b>Preferred language </b>: ${newUser.PreferredLanguage} <br> <b>Main device</b>: ${newUser.MainDevice}
+          <br> <b> Accessibility consideration </b>: ${newUser.AccessibilityConsideration}`;
         });
       }
     </script>

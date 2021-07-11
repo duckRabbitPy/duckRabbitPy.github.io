@@ -241,11 +241,17 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .neurodiversity:hover,
+.neurodiversity:focus-visible,
 .physical-health-and-ability:hover,
+.physical-health-and-ability:focus-visible,
 .language:hover,
+.language:focus-visible,
 .community-diversity:hover,
+.community-diversity:focus-visible,
 .visual-impairment:hover,
-.digital-inclusion:hover {
+.visual-impairment:focus-visible,
+.digital-inclusion:hover,
+.digital-inclusion:focus-visible {
   border: var(--text-color);
   border-style: solid;
 }
@@ -265,6 +271,10 @@ but becomes visible and clickable/enterable with keyboard focus */
 
 .factor-img {
   max-width: 200px;
+}
+
+#dice {
+  height: 100px;
 }
 
 button {
