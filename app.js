@@ -75,7 +75,6 @@ const keyNavElements = document.querySelectorAll(".key-nav");
 });
 
 const aboutNav = document.querySelector(".key-nav-about");
-z;
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     { pageLanguage: "en" },

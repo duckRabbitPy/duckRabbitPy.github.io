@@ -53,10 +53,11 @@
         </p>
       </main>
       <img
-        src="images/everyone.gif"
+        src="images/everyone.svg"
         class="landing-img"
         alt="people of different ages and genders"
       />
+
       <footer>
         <p>
           <span><i id="github-icon" class="fab fa-github"></i></span
@@ -75,9 +76,9 @@
       function retrieveSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
         if (storedTheme === "dark-theme") {
-          landingSvg.src = "/images/everyoneDarkTheme.gif";
+          landingSvg.src = "/images/everyoneDarkTheme.svg";
         } else {
-          landingSvg.src = "/images/everyone.gif";
+          landingSvg.src = "/images/everyone.svg";
         }
       }
       retrieveSvgTheme();
