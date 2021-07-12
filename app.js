@@ -50,7 +50,7 @@ function retrieveSettings() {
   } else if (storedFontFamily === "sans") {
     document.documentElement.style.setProperty(
       "--font-family",
-      "-apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu, Cantarell"
+      "-apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell"
     );
   }
 }

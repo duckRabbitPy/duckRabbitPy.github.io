@@ -108,7 +108,7 @@
               alt="profile of Oli Jones"
             />
           </li>
-          <li>
+          <li tabindex="0" class="profile-li">
             <figure>
               <a
                 target="_blank"
@@ -123,7 +123,7 @@
               <figcaption>FreeCode Camp</figcaption>
             </figure>
           </li>
-          <li>
+          <li tabindex="0" class="profile-li">
             <figure>
               <a
                 target="_blank"
@@ -138,7 +138,7 @@
               <figcaption>Code wars</figcaption>
             </figure>
           </li>
-          <li>
+          <li tabindex="0" class="profile-li">
             <figure>
               <a
                 target="_blank"
@@ -163,6 +163,19 @@
       </p>
     </footer>
     <script src="../app.js"></script>
+    <script>
+      //page specific javaScript
+      const profileListItems = document.querySelectorAll(".profile-li");
+      [...profileListItems].forEach((elem) => {
+        elem.addEventListener("keydown", (event) => {
+          if (event.keyCode === 13) {
+            //user must have pop ups enabled for this approach to work
+            let newLocation = event.target.childNodes[1].firstElementChild.href;
+            window.open(newLocation, "_blank");
+          }
+        });
+      });
+    </script>
     <script
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"

@@ -252,6 +252,7 @@
 
       const diceNumber = document.getElementById("dice");
       const options = document.querySelectorAll(".inclusive-link");
+
       const hiddenSections = document.querySelectorAll(".hidden");
 
       retrieveIconSvgTheme();
@@ -259,31 +260,49 @@
       //controls hiding and showing of sections
       options.forEach((option) => {
         option.addEventListener("click", (event) => {
-          let parentClass = event.target.parentNode.className;
-          let topic = parentClass.slice(0, parentClass.indexOf("-"));
-          let toShowSection = [...hiddenSections].forEach((elem) => {
-            if (elem.id.includes(topic)) {
-              elem.classList.remove("hidden");
-            } else {
-              elem.classList.add("hidden");
-            }
-          });
+          var x = event.x || event.clientX;
+          var y = event.y || event.clientY;
+          if (!x && !y) {
+            //key event also emits a click event of sorts,
+            // so need to check if true mouse click
+            //key event has co-ordinates 0,0
+            return;
+          } else {
+            let parentClass = event.target.parentNode.className;
+            let topic = parentClass.slice(0, parentClass.indexOf("-"));
+            [...hiddenSections].forEach((elem) => {
+              if (elem.id.includes(topic)) {
+                elem.classList.remove("hidden");
+                elem.classList.add("onShow");
+              } else {
+                elem.classList.remove("onShow");
+                elem.classList.add("hidden");
+              }
+            });
+          }
         });
       });
 
-      randomUserBtn.addEventListener("click", () => {
-        setTimeout(() => {
-          rollDice();
-          setTimeout(() => {
-            rollDice();
-            setTimeout(() => {
-              rollDice();
-              createUser();
-            }, 300);
-          }, 300);
-        }, 300);
+      //for keyboard users
+      options.forEach((option) => {
+        option.addEventListener("keydown", (event) => {
+          if (event.keyCode === 13) {
+            let inclusiveClass = event.target.className;
+            let topic = inclusiveClass.slice(0, inclusiveClass.indexOf("-"));
+            [...hiddenSections].forEach((elem) => {
+              if (elem.id.includes(topic)) {
+                elem.classList.remove("hidden");
+                elem.classList.add("onShow");
+              } else if (!elem.id.includes(topic)) {
+                elem.classList.remove("onShow");
+                elem.classList.add("hidden");
+              }
+            });
+          }
+        });
       });
 
+      //theming with icons
       function retrieveIconSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
 
@@ -305,13 +324,26 @@
         }
       }
 
+      //dice roll 'animation'
+      randomUserBtn.addEventListener("click", () => {
+        setTimeout(() => {
+          rollDice();
+          setTimeout(() => {
+            rollDice();
+            setTimeout(() => {
+              rollDice();
+              createUser();
+            }, 300);
+          }, 300);
+        }, 300);
+      });
+
       function rollDice() {
         let num = Math.floor(Math.random() * 6 + 1);
         diceNumber.src = `../images/${num}.svg`;
       }
 
       //random user generator
-
       let user = {
         Name: "not set",
         Age: "not set",
