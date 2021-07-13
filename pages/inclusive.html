@@ -174,19 +174,72 @@
 
       <section id="physical-section" tabindex="0" class="hidden">
         <h3>Physical health and ability</h3>
-        <p>
-          An indvidual's physical health and ability will influence how they
-          will browse the web and interact online. Many people navigate using
-          the keyboard and will tab through the webpage instead of using the
-          mouse. Others will navigate handsfree using a voice controller.
-        </p>
-        <p>
-          Ensure that all core functionality is accessible via the keyboard and
-          provide different styling when elements are keyboard focused. Consider
-          a 'skip to main' link in your navigation bar to save users from
-          repetitive tabbing. Always give people enough time when filling out
-          forms or asking for user input.
-        </p>
+          <p>
+            An indvidual's physical health and ability will influence how they
+            will browse the web and interact online. Many people navigate using
+            the keyboard and will tab through the webpage instead of using the
+            mouse. Others will navigate handsfree using a voice controller.
+          </p>
+          <p>
+            I want to be a developer that ensures all core functionality is accessible 
+            via the keyboard and provides different styling when elements are keyboard focused. 
+            A 'skip to main' link in the navigation bar is a nice touch which can save users from
+            repetitive tabbing.
+          </p>
+          <button class="show-code">Show me some code!</button>
+        <aside class="codepen-aside hidden">
+  
+          <h4>Skip to main snippet:</h4>
+          <p>
+            <ol>
+              <li>To start of with I made an li element with a tab index of 0, this
+            means that if a visitor is on the page (single click on codepen frame first
+            to test), they will be able to tab through the nav links.
+              </li>
+  
+            <li> Next I
+            set the href of the 'skip to main content' to the the #main_content id
+            which is the first piece of meaningful content.
+            </li>
+  
+            <li>The opcacity of the skip link is set to 0 initially, 
+              focus:visible styling is applied when the li element has 
+              been keyboard focused and the nav becomes visible! </li>
+  
+            <li>Finally there is the issue of navigating with the keyboard, 
+              on some screen readers there is no need for JavaScript because they recognise the "a" tags
+             however it can be clunky, so to make sure I have added keydown event listeners,
+            that listen for character 13 which is the enter key. On 'enter' the event targets the element, and finds the child "a" tag and href.
+            Window.location is used to then take the user to the page. I have used this keyboard safe approach with many other elements on my site.'</a></li>
+            </ol>
+  
+          </p>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="QWvdpxE"
+            data-user="duckrabbitpy"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/duckrabbitpy/pen/QWvdpxE"> </a> by
+              duckRabbitPy (<a href="https://codepen.io/duckrabbitpy"
+                >@duckrabbitpy</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+        </aside>
         <button class="scroll-top">Scroll to top</button>
       </section>
 
@@ -241,9 +294,14 @@
       crossorigin="anonymous"
       src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces6%2Ces5"
     ></script>
+    <script
+      async
+      src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+    ></script>
     <script src="../app.js"></script>
     <script>
       //page specific JavaScript
+      //keep all selectors up top if possible
       const neuroSvg = document.getElementById("neuro_icon");
       const handSvg = document.getElementById("hand_icon");
       const languageSvg = document.getElementById("language_icon");
@@ -258,6 +316,8 @@
       const options = document.querySelectorAll(".inclusive-link");
 
       const hiddenSections = document.querySelectorAll(".hidden");
+      const codePenBtn = document.querySelectorAll(".show-code");
+      const codePens = document.querySelectorAll(".codepen-aside");
 
       retrieveIconSvgTheme();
 
@@ -327,6 +387,14 @@
           digitalSvg.src = "/images/digi.svg";
         }
       }
+
+      //codepen buttons
+      console.log([...codePenBtn]);
+      [...codePenBtn].forEach((btn) => {
+        btn.addEventListener("click", () => {
+          codePens.forEach((pen) => pen.classList.toggle("onShow"));
+        });
+      });
 
       //dice roll 'animation'
       randomUserBtn.addEventListener("click", () => {

@@ -75,10 +75,10 @@ const keyNavElements = document.querySelectorAll(".key-nav");
   });
 });
 
-const aboutNav = document.querySelector(".key-nav-about");
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     { pageLanguage: "en" },
     "google_translate_element"
   );
 }
+console.log("Note: Syntax error on 120, 38 is internal to codepen");
