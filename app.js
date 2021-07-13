@@ -15,20 +15,21 @@ scrollButton.forEach((elem) => {
 });
 
 function smoothscroll() {
-  //currentScroll is the number of pixels being scrolled
   var currentScroll =
     document.documentElement.scrollTop || document.body.scrollTop;
   if (currentScroll > 0) {
-    //if the page is currently scrolling (1 or more pixels)
-    //ask the browser to fire the smoothscroll function (again) before the next repaint
     window.requestAnimationFrame(smoothscroll);
-    //In the current call of the smoothscroll function,
-    //scroll towards the top a fraction of the number of pixels currently being scrolled
-    //this is a recursive function so will continue to be called until at the top
-    //this has the effect of 'slowing down' towards the top
     window.scrollTo(0, currentScroll - currentScroll / 10);
   }
 }
+
+//Real life use recursive function
+//currentScroll is the current distance that the page has been scrolled down the page. If the page is not at the top (currentScroll = 1 or more pixels) ask the browser to call the smoothscroll function (again) before the next repaint by passing it to window.requestAnimationFrame().
+
+//In the current call of the smoothscroll function, scroll towards the top a fraction of the distance from the top of the page. The scrollTo function takes two arguments, new X co-ordinate and new Y co-ordinate. We are setting the new Y co-ordinate (vertical co-ordinate) to be reduced by a tenth of the remaining distance from top of page in the current smoothscroll execution.
+
+//Although there is no return value, this is a recursive function in that it will effectively call itself through requestAnimation frame until the viewer is at the top (currentScroll = 0). currentScroll === 0 is the limit condition for the function, but it could in theory scroll billions of pixels if there was an extremlely long web page.
+//As you are scrolling up by an amount determined by currentScroll, and currentScroll is an ever decreasing value, this has the effect of 'slowing down' towards the top and therefore creating the smooth scroll effect.
 
 function retrieveSettings() {
   let storedTheme = sessionStorage.getItem("storedColour");
