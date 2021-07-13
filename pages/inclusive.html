@@ -237,6 +237,10 @@
         <span><i id="github-icon" class="fab fa-github"></i></span>DuckRabbitPy
       </p>
     </footer>
+    <script
+      crossorigin="anonymous"
+      src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces6%2Ces5"
+    ></script>
     <script src="../app.js"></script>
     <script>
       //page specific JavaScript
@@ -442,18 +446,22 @@
         newUser.randDevice();
         newUser.randAccessibility();
 
-        Promise.all([name, language, country]).then((values) => {
-          //once asynch data has been collected, set properties on user object
-          newUser.Name = name;
-          newUser.PreferredLanguage = language;
-          newUser.CurrentlyLivingIn = country;
+        Promise.all([name, language, country])
+          .then((values) => {
+            //once asynch data has been collected, set properties on user object
+            newUser.Name = name;
+            newUser.PreferredLanguage = language;
+            newUser.CurrentlyLivingIn = country;
 
-          userProperties.innerHTML = `<b>Name</b>: ${newUser.Name}
+            userProperties.innerHTML = `<b>Name</b>: ${newUser.Name}
           <br> <b>Age</b>: ${newUser.Age}
           <br> <b>Currently in </b>: ${newUser.CurrentlyLivingIn}
           <br> <b>Preferred language </b>: ${newUser.PreferredLanguage} <br> <b>Main device</b>: ${newUser.MainDevice}
           <br> <b> Accessibility consideration </b>: ${newUser.AccessibilityConsideration}`;
-        });
+          })
+          .catch((err) => {
+            throw err;
+          });
       }
     </script>
     <script
