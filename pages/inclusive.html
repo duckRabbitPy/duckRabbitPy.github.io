@@ -125,13 +125,18 @@
           helpful for new vistors.
         </p>
         <p>
-          Developers can also help by making their website responsive and
-          performant on all devices, utilising media queries to serve smaller
-          images and videos to mobile users. Backwards compatability can be
-          achieved using polyfills or compilers such as 'Babel' which transpile
-          new programming language features into the syntax suitable for older
-          browser versions.
+          Designers sometimes use 'Personas' or user profiles to guide how
+          things should look and feel for their target audience. I'm sure there
+          are some specific use cases for this approach but here i'm going to
+          turn the concept on it's head by presenting to you an inclusive
+          persona generator so you can ask yourself whether your site really is
+          accessible for all.
         </p>
+        <button id="random_user_btn">Generate random user</button>
+        <div class="user-container">
+          <p id="user_properties"></p>
+          <img id="dice" src="../images/1.svg" alt="dice roll animation" />
+        </div>
         <button class="scroll-top">Scroll to top</button>
       </section>
 
@@ -154,9 +159,10 @@
             <button data-filter="vignette" class="filter-btn">Tunnel vision</button>
             <button data-filter="grayscale(80)" class="filter-btn">Achromatopsia</button>
             <button data-filter="blur(2px)" class="filter-btn">Blurry</button>
-            <button data-filter="contrast(65%)" class="filter-btn">Low contrast</button>
+            <button data-filter="contrast(55%)" class="filter-btn">Low contrast</button>
             <button data-filter="none" class="filter-btn">No filter</button>
-          </div>
+            </div>
+
             <div class="comparison-container">
             <img class="multi_coloured" class="colour-filter" src="../images/vibes.png" alt="Easy read written in different fonts, styles and colours">
             <img class="multi_coloured" class="colour-filter" src="../images/easy.png" alt="Easy read written in simple clear font  and colours">
@@ -292,19 +298,6 @@
           If your web application is successful you could have thousands of
           users visiting your site every day.
         </p>
-        <p>
-          Designers sometimes use 'Personas' or user profiles to guide how
-          things should look and feel for their target audience. I'm sure there
-          are some specific use cases for this approach but here i'm going to
-          turn the concept on it's head by presenting to you an inclusive
-          persona generator so you can ask yourself whether your site really is
-          accessible for all.
-        </p>
-        <button id="random_user_btn">Generate random user</button>
-        <div class="user-container">
-          <p id="user_properties"></p>
-          <img id="dice" src="../images/1.svg" alt="dice roll animation" />
-        </div>
         <button class="scroll-top">Scroll to top</button>
       </section>
     </div>
