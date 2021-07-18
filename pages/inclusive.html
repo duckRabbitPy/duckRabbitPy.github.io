@@ -151,21 +151,38 @@
           semantic HTML and descriptive 'alternative' text are an absolute must
           for screen readers.
         </p>
+        
         <button class="show-code">Toggle more info</button>
         <aside class="example-aside hidden">
+          <h4>Visual accessbility simulator</h4>
+          <p>
+            Use the buttons below to explore how differences in visual perception changes the readability of the images.
+            You can check the accessibility of your own images by inputting the url to a PNG or JPEG image in the input field below.
+          </p>
+          <form id="get_ImageUrl">
+          <label for="customUrl">Add your image Url:</label>
+          <input type="url" id="customUrl" name="userImage"> 
+          <button type="submit">Get image</button>
+          </form>
+
           <div class="colourB-container">
             <div class="filter-btn-container">
             <button data-filter="hue-rotate(35deg) saturate(60%) sepia(5%)" class="filter-btn">Protanopia</button>
-            <button data-filter="vignette" class="filter-btn">Tunnel vision</button>
             <button data-filter="grayscale(80)" class="filter-btn">Achromatopsia</button>
             <button data-filter="blur(2px)" class="filter-btn">Blurry</button>
             <button data-filter="contrast(55%)" class="filter-btn">Low contrast</button>
-            <button data-filter="none" class="filter-btn">No filter</button>
+            <button data-filter="sightLoss" class="filter-btn">Sight Loss</button>
+            <button data-filter="none" class="filter-btn">Unaltered</button>
             </div>
 
             <div class="comparison-container">
-            <img class="multi_coloured" class="colour-filter" src="../images/vibes.png" alt="Easy read written in different fonts, styles and colours">
+            <figure>
+            <img class="multi_coloured" class="colour-filter" id="cutomisable_Img" src="../images/vibes.png" alt="Easy read written in different fonts, styles and colours">
+            </figure>
+            <figure>
             <img class="multi_coloured" class="colour-filter" src="../images/easy.png" alt="Easy read written in simple clear font  and colours">
+            <figcaption>Easy read? Image a has screen reader friendly figcaption</figcaption>
+            </figure>
           </div>
         </div>
         </aside>
@@ -335,8 +352,12 @@
       const hiddenSections = document.querySelectorAll(".hidden");
       const showCodeBtn = document.querySelectorAll(".show-code");
       const asides = document.querySelectorAll(".example-aside");
+
       const filterBtns = document.querySelectorAll(".filter-btn");
       const multiCImg = document.querySelectorAll(".multi_coloured");
+      const getImgBtn = document.getElementById("get_ImageUrl")
+      const customUrl = document.getElementById("customUrl")
+      const customImg = document.getElementById("cutomisable_Img")
 
       retrieveIconSvgTheme();
 
@@ -418,12 +439,12 @@
       [...filterBtns].forEach((elem) => {
         elem.addEventListener("click", (event) => {
           let filter = event.target.dataset.filter;
-          if(filter === "vignette"){
-            multiCImg.forEach(elem => elem.classList.add("vignette"))
+          if(filter === "sightLoss"){
+            multiCImg.forEach(elem => elem.classList.add("sightLoss"))
           }
           else{
           document.documentElement.style.setProperty("--vision-filter", filter);
-          multiCImg.forEach(elem => elem.classList.remove("vignette"))
+          multiCImg.forEach(elem => elem.classList.remove("sightLoss"))
           }
         });
       });
@@ -564,6 +585,14 @@
             throw err;
           });
       }
+
+      getImgBtn.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let newSrc = customUrl.value;
+        customImg.src = newSrc;
+        customUrl.value = "";
+      })
+
     </script>
     <script
       type="text/javascript"
