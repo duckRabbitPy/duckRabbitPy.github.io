@@ -23,7 +23,7 @@ function smoothscroll() {
   }
 }
 
-//Real life use recursive function
+//Smooth scroll is a real life recursive function
 //currentScroll is the current distance that the page has been scrolled down the page. If the page is not at the top (currentScroll = 1 or more pixels) ask the browser to call the smoothscroll function (again) before the next repaint by passing it to window.requestAnimationFrame().
 
 //In the current call of the smoothscroll function, scroll towards the top a fraction of the distance from the top of the page. The scrollTo function takes two arguments, new X co-ordinate and new Y co-ordinate. We are setting the new Y co-ordinate (vertical co-ordinate) to be reduced by a tenth of the remaining distance from top of page in the current smoothscroll execution.
@@ -36,8 +36,8 @@ function retrieveSettings() {
   if (storedTheme) {
     document.documentElement.setAttribute("current-theme", storedTheme);
   }
-  let storedSize = sessionStorage.getItem("storedFontSize");
 
+  let storedSize = sessionStorage.getItem("storedFontSize");
   if (storedSize) {
     document.documentElement.style.setProperty("--font-size", storedSize);
   }
@@ -51,8 +51,10 @@ function retrieveSettings() {
   } else if (storedFontFamily === "sans") {
     document.documentElement.style.setProperty(
       "--font-family",
-      "-apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell"
+      "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
     );
+  } else if (storedFontFamily === "openD") {
+    document.documentElement.style.setProperty("--font-family", "openDyslexic");
   }
 }
 

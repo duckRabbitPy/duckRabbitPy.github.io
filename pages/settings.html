@@ -34,7 +34,7 @@
           <a href="../pages/tools.html">Digital health </a
           ><i class="fas fa-spa" aria-hidden="true"></i>
         </li>
-        <li tabindex="0" class="key-nav" id="current-page">
+        <li tabindex="0" class="key-nav" id="current_page">
           <a href="../pages/settings.html" aria-current="page">Settings </a
           ><i class="fas fa-cog" aria-hidden="true"></i>
         </li>
@@ -45,10 +45,10 @@
       <h1 id="main_content">Settings</h1>
       <header>Font size</header>
       <div class="font-size-buttons">
-        <button id="medium_btn" value="medium">Regular font</button>
-        <button id="large_btn" value="large">Large font</button>
-        <button id="xl_btn" value="x-large">Extra large font</button>
-        <button id="xxl_btn" value="xx-large">Max size font</button>
+        <button id="medium_btn" value="large">Smaller font</button>
+        <button id="large_btn" value="x-large">Large font</button>
+        <button id="xl_btn" value="xx-large">Extra large font</button>
+        <button id="xxl_btn" value="xxx-large">Max size font</button>
       </div>
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
@@ -57,6 +57,7 @@
       <div class="font-family-buttons">
         <button id="sans">Sans</button>
         <button id="serif">Serif</button>
+        <button id="open_D">OpenDyslexic</button>
       </div>
       <header>Language</header>
       <div id="google_translate_element"></div>
@@ -95,6 +96,7 @@
       //font-family buttons
       const sansButton = document.getElementById("sans");
       const serifButton = document.getElementById("serif");
+      const openDButton = document.getElementById("open_D");
 
       //toggle button
       themeToggle.addEventListener("click", () => {
@@ -121,9 +123,17 @@
       sansButton.addEventListener("click", () => {
         document.documentElement.style.setProperty(
           "--font-family",
-          "-apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu, Cantarell"
+          "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
         );
         sessionStorage.setItem("storedFontFamily", "sans");
+      });
+
+      openDButton.addEventListener("click", () => {
+        document.documentElement.style.setProperty(
+          "--font-family",
+          "openDyslexic"
+        );
+        sessionStorage.setItem("storedFontFamily", "openD");
       });
     </script>
   </body>

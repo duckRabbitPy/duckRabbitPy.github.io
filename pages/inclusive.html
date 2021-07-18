@@ -26,7 +26,7 @@
         <a href="../pages/about.html">About me </a
         ><i class="far fa-address-card" aria-hidden="true"></i>
       </li>
-      <li tabindex="0" class="key-nav" id="current-page">
+      <li tabindex="0" class="key-nav" id="current_page">
         <a href="../pages/inclusive.html" aria-current="page"
           >Inclusive development </a
         ><i class="fas fa-user-check" aria-hidden="true"></i>
@@ -189,24 +189,32 @@
           <button class="show-code">Show me some code!</button>
         <aside class="codepen-aside hidden">
   
-          <h4>Skip to main snippet:</h4>
+          <h4>Building an accessible navbar:</h4>
           <p>
             <ol>
-              <li>To start of with I made an li element with a tab index of 0, this
-            means that if a visitor is on the page (single click on codepen frame first
-            to test), they will be able to tab through the nav links.
+              <li class="nav-tut">To get started I wrap li tags with a tag children in a nav element.
+                Semantic HTML helps screen readers iterate through the options.
+                To help people with colour blindness, I ensured that a change in hover state
+                changes the border as well as the colour of the nav element. The aria="current"
+                attribute tells screen readers what page they are on and i've also used it to set
+                some unique styling for the current tab.
+              </li>
+
+
+              <li class="nav-tut">I then gave each nav li element a tab index of 0, this
+            means that if a visitor is on the page, they will be able to tab through the nav links.
               </li>
   
-            <li> Next I
+            <li class="nav-tut"> Next I
             set the href of the 'skip to main content' to the the #main_content id
             which is the first piece of meaningful content.
             </li>
   
-            <li>The opcacity of the skip link is set to 0 initially, 
+            <li class="nav-tut">The opacacity of the skip link is set to 0 initially. 
               focus:visible styling is applied when the li element has 
-              been keyboard focused and the nav becomes visible! </li>
+              been keyboard focused making the skip link visible! </li>
   
-            <li>Finally there is the issue of navigating with the keyboard, 
+            <li class="nav-tut">Finally there is the issue of navigating with the keyboard, 
               on some screen readers there is no need for JavaScript because they recognise the "a" tags
              however it can be clunky, so to make sure I have added keydown event listeners,
             that listen for character 13 which is the enter key. On 'enter' the event targets the element, and finds the child "a" tag and href.

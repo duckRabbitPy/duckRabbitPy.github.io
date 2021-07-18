@@ -1,13 +1,18 @@
+@font-face {
+  font-family: "openDyslexic";
+  src: url("./OpenDyslexic-Regular.woff");
+}
+
 :root {
   /* --background-color: white; */
   --background-color: white;
   --text-color: black;
   --link-color: blue;
-  --font-size: "medium";
+  --font-size: "large";
   --secondary-color: rgb(158, 242, 178);
   --tertiary-color: #b5e6ffcb;
-  --font-family: -apple-system, BlinkMacSystemFont Roboto, Oxygen, Ubuntu,
-    Cantarell;
+  --font-family: "-apple-system", "BlinkMacSystemFont", "Arial", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell";
 }
 
 html[current-theme="light-theme"] {
@@ -124,7 +129,7 @@ nav li:hover {
   border-bottom: 3px solid #444;
 }
 
-#current-page {
+#current_page {
   background-color: white;
   border-bottom: 5px solid black;
 }
@@ -176,6 +181,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   pointer-events: all;
 }
 
+/* about page css */
 .about-container,
 .inclusive-container,
 .tools-container,
@@ -183,7 +189,6 @@ but becomes visible and clickable/enterable with keyboard focus */
   margin: 0 2rem 0 2rem;
 }
 
-/* about page css */
 .about-container {
   display: flex;
   flex-direction: row;
@@ -360,6 +365,10 @@ but becomes visible and clickable/enterable with keyboard focus */
 .visual-impairment header,
 .digital-inclusion header {
   padding: 10px;
+}
+
+.nav-tut {
+  margin: 1rem;
 }
 
 .inclusive-link {
