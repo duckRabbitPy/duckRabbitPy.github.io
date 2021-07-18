@@ -146,6 +146,23 @@
           semantic HTML and descriptive 'alternative' text are an absolute must
           for screen readers.
         </p>
+        <button class="show-code">Toggle more info</button>
+        <aside class="example-aside hidden">
+          <div class="colourB-container">
+            <div class="filter-btn-container">
+            <button data-filter="hue-rotate(35deg) saturate(60%) sepia(5%)" class="filter-btn">Protanopia</button>
+            <button data-filter="vignette" class="filter-btn">Tunnel vision</button>
+            <button data-filter="grayscale(80)" class="filter-btn">Achromatopsia</button>
+            <button data-filter="blur(2px)" class="filter-btn">Blurry</button>
+            <button data-filter="contrast(65%)" class="filter-btn">Low contrast</button>
+            <button data-filter="none" class="filter-btn">No filter</button>
+          </div>
+            <div class="comparison-container">
+            <img class="multi_coloured" class="colour-filter" src="../images/vibes.png" alt="Easy read written in different fonts, styles and colours">
+            <img class="multi_coloured" class="colour-filter" src="../images/easy.png" alt="Easy read written in simple clear font  and colours">
+          </div>
+        </div>
+        </aside>
         <button class="scroll-top" tabindex="0">Scroll to top</button>
       </section>
 
@@ -186,8 +203,8 @@
             A 'skip to main' link in the navigation bar is a nice touch which can save users from
             repetitive tabbing.
           </p>
-          <button class="show-code">Show me some code!</button>
-        <aside class="codepen-aside hidden">
+          <button class="show-code">Toggle more info</button>
+        <aside class="example-aside hidden">
   
           <h4>Building an accessible navbar:</h4>
           <p>
@@ -199,7 +216,6 @@
                 attribute tells screen readers what page they are on and i've also used it to set
                 some unique styling for the current tab.
               </li>
-
 
               <li class="nav-tut">I then gave each nav li element a tab index of 0, this
             means that if a visitor is on the page, they will be able to tab through the nav links.
@@ -324,8 +340,10 @@
       const options = document.querySelectorAll(".inclusive-link");
 
       const hiddenSections = document.querySelectorAll(".hidden");
-      const codePenBtn = document.querySelectorAll(".show-code");
-      const codePens = document.querySelectorAll(".codepen-aside");
+      const showCodeBtn = document.querySelectorAll(".show-code");
+      const asides = document.querySelectorAll(".example-aside");
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const multiCImg = document.querySelectorAll(".multi_coloured");
 
       retrieveIconSvgTheme();
 
@@ -396,13 +414,27 @@
         }
       }
 
-      //codepen buttons
-      console.log([...codePenBtn]);
-      [...codePenBtn].forEach((btn) => {
+      //show example buttons
+      [...showCodeBtn].forEach((btn) => {
         btn.addEventListener("click", () => {
-          codePens.forEach((pen) => pen.classList.toggle("onShow"));
+          asides.forEach((aside) => aside.classList.toggle("onShow"));
         });
       });
+
+
+      [...filterBtns].forEach((elem) => {
+        elem.addEventListener("click", (event) => {
+          let filter = event.target.dataset.filter;
+          if(filter === "vignette"){
+            multiCImg.forEach(elem => elem.classList.add("vignette"))
+          }
+          else{
+          document.documentElement.style.setProperty("--vision-filter", filter);
+          multiCImg.forEach(elem => elem.classList.remove("vignette"))
+          }
+        });
+      });
+
 
       //dice roll 'animation'
       randomUserBtn.addEventListener("click", () => {

@@ -45,10 +45,10 @@
       <h1 id="main_content">Settings</h1>
       <header>Font size</header>
       <div class="font-size-buttons">
-        <button id="medium_btn" value="large">Smaller font</button>
-        <button id="large_btn" value="x-large">Large font</button>
-        <button id="xl_btn" value="xx-large">Extra large font</button>
-        <button id="xxl_btn" value="xxx-large">Max size font</button>
+        <button id="medium_btn" data-size="large">Regular font</button>
+        <button id="large_btn" data-size="x-large">Large font</button>
+        <button id="xl_btn" data-size="xx-large">Extra large font</button>
+        <button id="xxl_btn" data-size="xxx-large">Max size font</button>
       </div>
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
@@ -87,7 +87,7 @@
       //font size buttons
       [...fontButtons].forEach((elem) => {
         elem.addEventListener("click", (event) => {
-          let targetSize = event.target.value;
+          let targetSize = event.target.dataset.size;
           document.documentElement.style.setProperty("--font-size", targetSize);
           sessionStorage.setItem("storedFontSize", targetSize);
         });
@@ -112,6 +112,7 @@
         sessionStorage.setItem("storedColour", targetTheme);
       });
 
+      //font buttons
       serifButton.addEventListener("click", () => {
         document.documentElement.style.setProperty(
           "--font-family",
