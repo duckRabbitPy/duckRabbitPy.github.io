@@ -160,9 +160,13 @@
             You can check the accessibility of your own images by inputting the url to a PNG or JPEG image in the input field below.
           </p>
           <form id="get_ImageUrl">
-          <label for="customUrl">Add your image Url:</label>
+          <div>
+          <label for="customUrl">Add your image URL:</label>
           <input type="url" id="customUrl" name="userImage"> 
-          <button type="submit">Get image</button>
+          </div>
+          <label for="custom_upload">Or upload from device:</label>
+          <input type="file" id="custom_upload" name="userUpload" accept="image/png, image/gif, image/jpeg" />
+          <button type="submit">Set image</button>
           </form>
 
           <div class="colourB-container">
@@ -170,7 +174,7 @@
             <button data-filter="hue-rotate(35deg) saturate(60%) sepia(5%)" class="filter-btn">Protanopia</button>
             <button data-filter="grayscale(80)" class="filter-btn">Achromatopsia</button>
             <button data-filter="blur(2px)" class="filter-btn">Blurry</button>
-            <button data-filter="contrast(55%)" class="filter-btn">Low contrast</button>
+            <button data-filter="contrast(25%)" class="filter-btn">Low contrast</button>
             <button data-filter="sightLoss" class="filter-btn">Sight Loss</button>
             <button data-filter="none" class="filter-btn">Unaltered</button>
             </div>
@@ -181,7 +185,7 @@
             </figure>
             <figure>
             <img class="multi_coloured" class="colour-filter" src="../images/easy.png" alt="Easy read written in simple clear font  and colours">
-            <figcaption>Easy read? Image a has screen reader friendly figcaption</figcaption>
+            <figcaption>Easy read? This image has a screen reader friendly figcaption</figcaption>
             </figure>
           </div>
         </div>
@@ -358,6 +362,8 @@
       const getImgBtn = document.getElementById("get_ImageUrl")
       const customUrl = document.getElementById("customUrl")
       const customImg = document.getElementById("cutomisable_Img")
+
+      const customUpload = document.getElementById("custom_upload")
 
       retrieveIconSvgTheme();
 
@@ -588,9 +594,19 @@
 
       getImgBtn.addEventListener('submit', (event) => {
         event.preventDefault()
+        if(customUpload.value){
+          let localFileSrc = window.URL.createObjectURL(customUpload.files[0])
+          customImg.src = localFileSrc;
+          //clear
+          customUpload.value = "";
+        }
+        else if(customUrl.value){
         let newSrc = customUrl.value;
         customImg.src = newSrc;
+        //clear
         customUrl.value = "";
+        }
+     
       })
 
     </script>
