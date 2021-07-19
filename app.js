@@ -83,4 +83,6 @@ function googleTranslateElementInit() {
     "google_translate_element"
   );
 }
-console.log("Note: Syntax error on 120, 38 is internal to codepen");
+console.log(
+  "Note to console detectives: Syntax error on 119, 38 is internal to codepen"
+);

@@ -217,11 +217,11 @@
         <button class="show-code">Toggle more info</button>
         <aside class="example-aside hidden">
         <h4>Using session storage</h4>
-        <p>CSS variables are fantastic for enabling instant style changes across your application.
-          But what about if a user refreshes the page? Not a problem. Once settings are applied,
-          a function is fired which stores the CSS variable name in session storage (locally on your device).
-          RetrieveSettings() is called whenvever app.js is run, which first checks for the existence of stored settings,
-          then sets the CSS variables and properites using setAttribute() and setProperty. </p>
+        <p>CSS variables are fantastic for enabling instant style changes across an entire application.
+          But what about if a user refreshes the page? Not a problem. When the settings are applied,
+          i've created a series of functions that can store the CSS variable or CSS property in session storage (locally on your device).
+          Another function called RetrieveSettings() is called whenvever app.js is run, which first checks for the existence of stored settings, and
+          then sets the CSS variables and properites using setAttribute() and setProperty() thereby maintaining 'state' upon page refresh! </p>
         <script src="https://gist.github.com/duckRabbitPy/217780da9e881face4c3294b968d9ce6.js"></script>
         <button class="scroll-top">Scroll to top</button>
         </aside>
@@ -238,8 +238,9 @@
           <p>
             I want to be a developer that ensures all core functionality is accessible 
             via the keyboard and provides different styling when elements are keyboard focused. 
-            A 'skip to main' link in the navigation bar is a nice touch which can save users from
-            repetitive tabbing.
+            Reading up about accessibility options I came across creating a 'skip to main' link 
+            in the navigation bar which can save users from repetitive tabbing. Toggle more information
+            to see how I built my accessible nav bar.
           </p>
           <button class="show-code">Toggle more info</button>
         <aside class="example-aside hidden">
@@ -247,21 +248,23 @@
           <h4>Building an accessible navbar:</h4>
           <p>
             <ol>
-              <li class="nav-tut">To get started I wrap li tags with a tag children in a nav element.
-                Semantic HTML helps screen readers iterate through the options.
-                To help people with colour blindness, I ensured that a change in hover state
+              <li class="nav-tut">To started off with I positioned 'a tags' within an unordered list
+                and wrapped the code block in a semantic 'nav' element. Nav elements can help screen 
+                readers know when they are iterating through options in a menu.
+                <br><br>
+                To help people with colour blindness, I ensured that a change in mouse hover state
                 changes the border as well as the colour of the nav element. The aria="current"
                 attribute tells screen readers what page they are on and i've also used it to set
                 some unique styling for the current tab.
               </li>
 
-              <li class="nav-tut">I then gave each nav li element a tab index of 0, this
+              <li class="nav-tut">Next I gave each nav li element a tab index of 0, this
             means that if a visitor is on the page, they will be able to tab through the nav links.
               </li>
   
             <li class="nav-tut"> Next I
-            set the href of the 'skip to main content' to the the #main_content id
-            which is the first piece of meaningful content.
+            set the href of the 'skip to main content' to the #main_content id
+            which is the location of the first piece of meaningful content on the page (outside the nav).
             </li>
   
             <li class="nav-tut">The opacacity of the skip link is set to 0 initially. 
@@ -327,24 +330,30 @@
         <p>
           One of the great things about the internet is that it brings an
           incredibly diverse community of people together from around the world.
-          If your web application is successful you could have thousands of
-          users visiting your site every day including people of different ages, 
-          genders, ethnicities, cultures, identities, experiences, beliefs, interests
-          and needs.
+          A successful web application could have thousands of people of different communities,
+          genders, ethnicities, personal histories, identities and political struggles visiting 
+          the site every day. 
         </p>
         <p>
-          One of the key ways to create inclusive software is to hire
-          a diverse team of developers who are keen to make use of their own experience. 
-          But that's only the beginning, a team will always have limited knowledge and experience compared to that of
-          the community.
+          It's clear to me 
+          that people should have the opportunity to be actively involved in the
+          development of the technology that they use and depend on. 
+          
+          In my work at the McPin Foundation, the primary goal was to
+          bring 'experts by experience' into mental health research, in the hope that by doing
+          so the research will better serve the community.
+          
+          I'd like to continue this practice by being the type of developer that
+          actively engages with the vast and diverse digital community in a meaningful
+          and inclusive way.
         </p>
         <p>
-          I've learnt from my public involvement in research work that incorporation of 
-          feedback and opinion is absolutely key to inclusive and meaningful research.
-          I think the same holds true for development.
+          What do you think?
         </p>
-        <p>Here is some of the feedback I received while developing this site.</p>
-        <p>Please feel free to add your own!</p>
+        <button class="show-code">Toggle more info</button>
+        <aside class="example-aside hidden">
+          Hello
+        </aside>
         <button class="scroll-top">Scroll to top</button>
       </section>
     </div>
