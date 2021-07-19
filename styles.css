@@ -252,7 +252,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   grid-auto-flow: row;
   grid-template-areas:
     "digital-inclusion visual-impairment neuro-diversity"
-    "physical-health-and-ability language community-diversity";
+    "physical-health-and-ability language-area community-diversity";
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -307,8 +307,8 @@ but becomes visible and clickable/enterable with keyboard focus */
   border-style: solid;
 }
 
-.language {
-  grid-area: language;
+.language-area {
+  grid-area: language-area;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -352,8 +352,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 .neuro-diversity:focus-visible,
 .physical-health-and-ability:hover,
 .physical-health-and-ability:focus-visible,
-.language:hover,
-.language:focus-visible,
+.language-area:hover,
+.language-area:focus-visible,
 .community-diversity:hover,
 .community-diversity:focus-visible,
 .visual-impairment:hover,
@@ -367,7 +367,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 
 .neuro-diversity header,
 .physical-health-and-ability header,
-.language header,
+.language-area header,
 .community-diversity header,
 .visual-impairment header,
 .digital-inclusion header {

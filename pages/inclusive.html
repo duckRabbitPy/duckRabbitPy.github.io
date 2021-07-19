@@ -88,7 +88,7 @@
             /></div
         ></a>
         <a href="#language-section" class="inclusive-link"
-          ><div class="language" tabindex="0">
+          ><div class="language-area" tabindex="0">
             <header>Language</header>
             <img
               src="../images/language.svg"
@@ -328,8 +328,23 @@
           One of the great things about the internet is that it brings an
           incredibly diverse community of people together from around the world.
           If your web application is successful you could have thousands of
-          users visiting your site every day.
+          users visiting your site every day including people of different ages, 
+          genders, ethnicities, cultures, identities, experiences, beliefs, interests
+          and needs.
         </p>
+        <p>
+          One of the key ways to create inclusive software is to hire
+          a diverse team of developers who are keen to make use of their own experience. 
+          But that's only the beginning, a team will always have limited knowledge and experience compared to that of
+          the community.
+        </p>
+        <p>
+          I've learnt from my public involvement in research work that incorporation of 
+          feedback and opinion is absolutely key to inclusive and meaningful research.
+          I think the same holds true for development.
+        </p>
+        <p>Here is some of the feedback I received while developing this site.</p>
+        <p>Please feel free to add your own!</p>
         <button class="scroll-top">Scroll to top</button>
       </section>
     </div>
@@ -384,8 +399,8 @@
           var x = event.x || event.clientX;
           var y = event.y || event.clientY;
           if (!x && !y) {
-            //key event also emits a click event of sorts,
-            // so need to check if true mouse click
+            //key event also emits a click event if element is in focus,
+            //so need to check if 'true' mouse click
             //key event has co-ordinates 0,0
             return;
           } else {
