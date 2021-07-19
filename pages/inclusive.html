@@ -208,15 +208,23 @@
         </p>
         <p>The solution is to offer choice.</p>
         <p>
-          CSS variables and JavaScript make it possible to provide a set of
-          styling options and the opportunty to enable and disable certain
-          features. Giving people control over their experience is something
+          Giving people control over their experience is something
           that is typically limited to desktop applications but it doesn't have
           to be this way!
 
           Check out the options available for this site in <a href="./settings.html">Settings</a>.
         </p>
+        <button class="show-code">Toggle more info</button>
+        <aside class="example-aside hidden">
+        <h4>Using session storage</h4>
+        <p>CSS variables are fantastic for enabling instant style changes across your application.
+          But what about if a user refreshes the page? Not a problem. Once settings are applied,
+          a function is fired which stores the CSS variable name in session storage (locally on your device).
+          RetrieveSettings() is called whenvever app.js is run, which first checks for the existence of stored settings,
+          then sets the CSS variables and properites using setAttribute() and setProperty. </p>
+        <script src="https://gist.github.com/duckRabbitPy/217780da9e881face4c3294b968d9ce6.js"></script>
         <button class="scroll-top">Scroll to top</button>
+        </aside>
       </section>
 
       <section id="physical-section" tabindex="0" class="hidden">
