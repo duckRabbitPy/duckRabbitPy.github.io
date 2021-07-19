@@ -28,6 +28,12 @@ html[current-theme="dark-theme"] {
   --link-color: yellow;
 }
 
+html[current-theme="easy-read-theme"] {
+  --background-color: #f9f7d8;
+  --text-color: #003275;
+  --link-color: #1f9c39;
+}
+
 body {
   margin: 0;
   padding: 0;

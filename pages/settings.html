@@ -52,6 +52,7 @@
       </div>
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
+      <button class="toggle-easy">Toggle Pastel Mode</button>
 
       <header>Font</header>
       <div class="font-family-buttons">
@@ -80,8 +81,8 @@
     <script>
       //page specific JavaScript
 
-      //Toggle Dark mode
       const themeToggle = document.querySelector(".toggle-dark");
+      const easyToggle = document.querySelector(".toggle-easy");
       const fontButtons = document.querySelectorAll(".font-size-buttons");
 
       //font size buttons
@@ -104,8 +105,29 @@
           document.documentElement.getAttribute("current-theme");
         let targetTheme = "light-theme";
 
-        if (currentTheme === "light-theme" || currentTheme === null) {
+        if (
+          currentTheme === "light-theme" ||
+          currentTheme === "easy-read-theme" ||
+          currentTheme === null
+        ) {
           targetTheme = "dark-theme";
+        }
+
+        document.documentElement.setAttribute("current-theme", targetTheme);
+        sessionStorage.setItem("storedColour", targetTheme);
+      });
+
+      easyToggle.addEventListener("click", () => {
+        let currentTheme =
+          document.documentElement.getAttribute("current-theme");
+        let targetTheme = "light-theme";
+
+        if (
+          currentTheme === "light-theme" ||
+          currentTheme === "dark-theme" ||
+          currentTheme === null
+        ) {
+          targetTheme = "easy-read-theme";
         }
 
         document.documentElement.setAttribute("current-theme", targetTheme);
