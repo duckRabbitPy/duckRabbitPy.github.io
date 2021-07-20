@@ -112,7 +112,7 @@
         ></a>
       </div>
 
-      <section id="digital-section" tabindex="0" class="hidden">
+      <section id="digital-section" tabindex="0" class="hidden fade-in-content">
         <h3>Digital inclusion</h3>
         <p>
           Digital inclusion involves making your application accessible to
@@ -143,7 +143,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="visual-section" tabindex="0" class="hidden">
+      <section id="visual-section" tabindex="0" class="hidden fade-in-content">
         <h3>Visual impairment</h3>
         <p>
           Many people who visit your website will have a type of visual
@@ -155,8 +155,6 @@
           for screen readers.
         </p>
         
-        <button class="show-code">Toggle more info</button>
-        <aside class="example-aside hidden">
           <h4>Visual accessbility simulator</h4>
           <p>
             Use the buttons below to explore how differences in visual perception change the readability of the images.
@@ -173,7 +171,7 @@
           <button type="submit">Set image</button>
           </form>
 
-          <div class="colourB-container">
+          <div class="colourB-container fade-in-content">
             <div class="filter-btn-container">
             <button data-filter="hue-rotate(35deg) saturate(60%) sepia(5%)" class="filter-btn">Protanopia</button>
             <button data-filter="grayscale(80)" class="filter-btn">Achromatopsia</button>
@@ -193,11 +191,10 @@
             </figure>
           </div>
         </div>
-        </aside>
         <button class="scroll-top" tabindex="0">Scroll to top</button>
       </section>
 
-      <section id="neuro-section" tabindex="0" class="hidden">
+      <section id="neuro-section" tabindex="0" class="hidden fade-in-content">
         <h3>Neurodiversity</h3>
         <p>
           Neurodiversity is a broad term that encourages everyone to acknowledge
@@ -217,8 +214,6 @@
 
           Check out the options available for this site in <a href="./settings.html">Settings</a>.
         </p>
-        <button class="show-code">Toggle more info</button>
-        <aside class="example-aside hidden">
         <h4>Using session storage</h4>
         <p>CSS variables are fantastic for enabling instant style changes across an entire application.
           But what about if a user refreshes the page? Not a problem. When the settings are applied,
@@ -227,10 +222,9 @@
           then sets the CSS variables and properites using setAttribute() and setProperty() thereby maintaining 'state' upon page refresh! </p>
         <script src="https://gist.github.com/duckRabbitPy/217780da9e881face4c3294b968d9ce6.js"></script>
         <button class="scroll-top">Scroll to top</button>
-        </aside>
       </section>
 
-      <section id="physical-section" tabindex="0" class="hidden">
+      <section id="physical-section" tabindex="0" class="hidden fade-in-content">
         <h3>Physical health and ability</h3>
           <p>
             An indvidual's physical health and ability will influence how they
@@ -245,8 +239,6 @@
             in the navigation bar which can save users from repetitive tabbing. Toggle more information
             to see how I built my accessible nav bar.
           </p>
-          <button class="show-code">Toggle more info</button>
-        <aside class="example-aside hidden">
   
           <h4>Building an accessible navbar:</h4>
           <p>
@@ -307,11 +299,10 @@
               >) on <a href="https://codepen.io">CodePen</a>.</span
             >
           </p>
-        </aside>
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="language-section" tabindex="0" class="hidden">
+      <section id="language-section" tabindex="0" class="hidden fade-in-content">
         <h3>Language</h3>
         <p>
           English is a very widely spoken language, but it's not the only one!
@@ -328,7 +319,7 @@
         <button class="scroll-top">Scroll to top</button>
       </section>
 
-      <section id="community-section" tabindex="0" class="hidden">
+      <section id="community-section" tabindex="0" class="hidden fade-in-content">
         <h3>Community diversity</h3>
         <p>
           One of the great things about the internet is that it brings an
@@ -353,10 +344,6 @@
         <p>
           What do you think?
         </p>
-        <button class="show-code">Toggle more info</button>
-        <aside class="example-aside hidden">
-          Hello
-        </aside>
         <button class="scroll-top">Scroll to top</button>
       </section>
     </div>
@@ -471,14 +458,6 @@
           digitalSvg.src = "/images/digi.svg";
         }
       }
-
-      //show example buttons
-      [...showCodeBtn].forEach((btn) => {
-        btn.addEventListener("click", () => {
-          asides.forEach((aside) => aside.classList.toggle("onShow"));
-        });
-      });
-
 
       [...filterBtns].forEach((elem) => {
         elem.addEventListener("click", (event) => {

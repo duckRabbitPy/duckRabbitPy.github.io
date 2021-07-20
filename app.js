@@ -23,43 +23,6 @@ function smoothscroll() {
   }
 }
 
-//Smooth scroll is a real life recursive function
-//currentScroll is the current distance that the page has been scrolled down the page. If the page is not at the top (currentScroll = 1 or more pixels) ask the browser to call the smoothscroll function (again) before the next repaint by passing it to window.requestAnimationFrame().
-
-//In the current call of the smoothscroll function, scroll towards the top a fraction of the distance from the top of the page. The scrollTo function takes two arguments, new X co-ordinate and new Y co-ordinate. We are setting the new Y co-ordinate (vertical co-ordinate) to be reduced by a tenth of the remaining distance from top of page in the current smoothscroll execution.
-
-//Although there is no return value, this is a recursive function in that it will effectively call itself through requestAnimation frame until the viewer is at the top (currentScroll = 0). currentScroll === 0 is the limit condition for the function, but it could in theory scroll billions of pixels if there was an extremlely long web page.
-//As you are scrolling up by an amount determined by currentScroll, and currentScroll is an ever decreasing value, this has the effect of 'slowing down' towards the top and therefore creating the smooth scroll effect.
-
-// function retrieveSettings() {
-//   let storedTheme = sessionStorage.getItem("storedColour");
-//   if (storedTheme) {
-//     document.documentElement.setAttribute("current-theme", storedTheme);
-//   }
-
-//   let storedSize = sessionStorage.getItem("storedFontSize");
-//   if (storedSize) {
-//     document.documentElement.style.setProperty("--font-size", storedSize);
-//   }
-
-//   let storedFontFamily = sessionStorage.getItem("storedFontFamily");
-//   if (storedFontFamily === "serif") {
-//     document.documentElement.style.setProperty(
-//       "--font-family",
-//       "'serif', 'Georgia', 'Lucida'"
-//     );
-//   } else if (storedFontFamily === "sans") {
-//     document.documentElement.style.setProperty(
-//       "--font-family",
-//       "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
-//     );
-//   } else if (storedFontFamily === "openD") {
-//     document.documentElement.style.setProperty("--font-family", "openDyslexic");
-//   }
-// }
-
-// retrieveSettings();
-
 const keyNavElements = document.querySelectorAll(".key-nav");
 [...keyNavElements].forEach((elem) => {
   elem.addEventListener("keydown", (event) => {

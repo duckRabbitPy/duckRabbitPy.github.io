@@ -45,7 +45,7 @@
     <section class="banner">
       <h1>Settings</h1>
     </section>
-    <div class="settings-container">
+    <div class="settings-container fade-in-content">
       <header id="main_content">Font size</header>
       <div class="font-size-buttons">
         <button id="medium_btn" data-size="large">Regular font</button>
@@ -65,6 +65,8 @@
       </div>
       <header>Language</header>
       <div id="google_translate_element"></div>
+      <header>Animations</header>
+      <button id="animationBtn">Disable animations</button>
     </div>
 
     <footer>
@@ -87,6 +89,7 @@
       const themeToggle = document.querySelector(".toggle-dark");
       const easyToggle = document.querySelector(".toggle-easy");
       const fontButtons = document.querySelectorAll(".font-size-buttons");
+      const animationBtn = document.getElementById("animationBtn");
 
       //font size buttons
       [...fontButtons].forEach((elem) => {
@@ -160,6 +163,12 @@
           "openDyslexic"
         );
         sessionStorage.setItem("storedFontFamily", "openD");
+      });
+
+      //disable animation
+      animationBtn.addEventListener("click", () => {
+        sessionStorage.setItem("animationState", "off");
+        alert("animations switched off");
       });
     </script>
   </body>

@@ -43,6 +43,16 @@ html[current-theme="easy-read-theme"] {
   --banner: #1f9c39;
 }
 
+html[animation-state="off"] {
+  --landing-animation: "none";
+  --soft-animation: "none";
+}
+
+html[animation-state="on"] {
+  --landing-animation: fadeIn 3s;
+  --soft-animation: fadeIn 0.8s;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -70,11 +80,19 @@ body a {
 
 .landing-img {
   max-height: 350px;
-  animation: fadeIn 3s;
-  -webkit-animation: fadeIn 3s;
-  -moz-animation: fadeIn 3s;
-  -o-animation: fadeIn 3s;
-  -ms-animation: fadeIn 3s;
+  animation: var(--landing-animation);
+  -webkit-animation: var(--landing-animation);
+  -moz-animation: var(--landing-animation);
+  -o-animation: var(--landing-animation);
+  -ms-animation: var(--landing-animation);
+}
+
+.fade-in-content {
+  animation: var(--soft-animation);
+  -webkit-animation: var(--soft-animation);
+  -moz-animation: var(--soft-animation);
+  -o-animation: var(--soft-animation);
+  -ms-animation: var(--soft-animation);
 }
 
 @keyframes fadeIn {
@@ -360,6 +378,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 #physical-section,
 #language-section,
 #community-section {
+  padding-top: 10px;
   margin: 20px;
 }
 
