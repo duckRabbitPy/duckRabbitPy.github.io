@@ -31,34 +31,34 @@ function smoothscroll() {
 //Although there is no return value, this is a recursive function in that it will effectively call itself through requestAnimation frame until the viewer is at the top (currentScroll = 0). currentScroll === 0 is the limit condition for the function, but it could in theory scroll billions of pixels if there was an extremlely long web page.
 //As you are scrolling up by an amount determined by currentScroll, and currentScroll is an ever decreasing value, this has the effect of 'slowing down' towards the top and therefore creating the smooth scroll effect.
 
-function retrieveSettings() {
-  let storedTheme = sessionStorage.getItem("storedColour");
-  if (storedTheme) {
-    document.documentElement.setAttribute("current-theme", storedTheme);
-  }
+// function retrieveSettings() {
+//   let storedTheme = sessionStorage.getItem("storedColour");
+//   if (storedTheme) {
+//     document.documentElement.setAttribute("current-theme", storedTheme);
+//   }
 
-  let storedSize = sessionStorage.getItem("storedFontSize");
-  if (storedSize) {
-    document.documentElement.style.setProperty("--font-size", storedSize);
-  }
+//   let storedSize = sessionStorage.getItem("storedFontSize");
+//   if (storedSize) {
+//     document.documentElement.style.setProperty("--font-size", storedSize);
+//   }
 
-  let storedFontFamily = sessionStorage.getItem("storedFontFamily");
-  if (storedFontFamily === "serif") {
-    document.documentElement.style.setProperty(
-      "--font-family",
-      "'serif', 'Georgia', 'Lucida'"
-    );
-  } else if (storedFontFamily === "sans") {
-    document.documentElement.style.setProperty(
-      "--font-family",
-      "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
-    );
-  } else if (storedFontFamily === "openD") {
-    document.documentElement.style.setProperty("--font-family", "openDyslexic");
-  }
-}
+//   let storedFontFamily = sessionStorage.getItem("storedFontFamily");
+//   if (storedFontFamily === "serif") {
+//     document.documentElement.style.setProperty(
+//       "--font-family",
+//       "'serif', 'Georgia', 'Lucida'"
+//     );
+//   } else if (storedFontFamily === "sans") {
+//     document.documentElement.style.setProperty(
+//       "--font-family",
+//       "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
+//     );
+//   } else if (storedFontFamily === "openD") {
+//     document.documentElement.style.setProperty("--font-family", "openDyslexic");
+//   }
+// }
 
-retrieveSettings();
+// retrieveSettings();
 
 const keyNavElements = document.querySelectorAll(".key-nav");
 [...keyNavElements].forEach((elem) => {

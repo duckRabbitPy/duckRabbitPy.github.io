@@ -11,7 +11,7 @@
   --font-size: "large";
   --secondary-color: rgb(158, 242, 178);
   --tertiary-color: #b5e6ffcb;
-  --vision-filter: "none";
+  --banner: #036264;
   --font-family: "-apple-system", "BlinkMacSystemFont", "Arial", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell";
 }
@@ -20,18 +20,27 @@ html[current-theme="light-theme"] {
   --background-color: white;
   --text-color: rgb(21, 20, 28);
   --link-color: blue;
+  --secondary-color: rgb(158, 242, 178);
+  --tertiary-color: #b5e6ffcb;
+  --banner: #036264;
 }
 
 html[current-theme="dark-theme"] {
   --background-color: rgb(29, 13, 45);
   --text-color: white;
   --link-color: yellow;
+  --secondary-color: rgb(158, 242, 178);
+  --tertiary-color: #b5e6ffcb;
+  --banner: #3a3a3a;
 }
 
 html[current-theme="easy-read-theme"] {
   --background-color: #f9f7d8;
   --text-color: #003275;
   --link-color: #1f9c39;
+  --secondary-color: rgb(158, 242, 178);
+  --tertiary-color: #b5e6ffcb;
+  --banner: #1f9c39;
 }
 
 body {
@@ -188,12 +197,26 @@ but becomes visible and clickable/enterable with keyboard focus */
   pointer-events: all;
 }
 
+/* banner and h1*/
+.banner {
+  background-color: var(--banner);
+  height: 150px;
+}
+
+.banner h1 {
+  padding-top: 1rem;
+  padding-left: 3rem;
+  margin: 0px;
+  color: white;
+  font-size: 100px;
+}
+
 /* about page css */
 .about-container,
 .inclusive-container,
 .tools-container,
 .settings-container {
-  margin: 0 2rem 0 2rem;
+  margin: 0.5rem 2rem 0 2rem;
 }
 
 .about-container {
@@ -202,7 +225,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .about-article {
-  margin: 20px;
+  margin: 0px 20px 20px 20px;
 }
 
 .about-img {
