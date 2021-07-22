@@ -25,11 +25,9 @@ function retrieveSettings() {
   }
 
   let animationState = sessionStorage.getItem("animationState");
-  console.log(animationState);
   if (animationState === "off") {
     document.documentElement.setAttribute("animation-state", "off");
   } else {
-    console.log("on");
     animationState = "on";
     document.documentElement.setAttribute("animation-state", "on");
   }

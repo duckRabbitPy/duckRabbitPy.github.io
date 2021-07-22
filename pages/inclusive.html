@@ -47,7 +47,7 @@
     <section class="banner">
       <h1>Inclusive development</h1>
     </section>
-    <div class="inclusive-container">
+    <div class="inclusive-container fade-in-content">
       <h2 id="main_content">Important factors:</h2>
       <div class="factor-container">
         <a href="#digital-section" class="inclusive-link"
@@ -316,6 +316,18 @@
         </p>
         <p><b>Try using google translate!</b></p>
         <div id="google_translate_element"></div>
+        <form id="analysis_form">
+        <p>It's also important to write in a way that is clear and easy to read.
+          Long complex sentences with unfamiliar words can make your content 
+          inaccessible. 
+
+          I've built my own sentence analysis tool can indicate how readable your
+          text is.
+        </p>
+        <textarea id="text_input" name="textInput" rows="10" cols="50"></textarea>
+        <button id="analyse_btn" type="submit">Analyse text</button>
+        <p id="complexity_result">Result:</p>
+        </form>
         <button class="scroll-top">Scroll to top</button>
       </section>
 
@@ -384,11 +396,16 @@
 
       const filterBtns = document.querySelectorAll(".filter-btn");
       const multiCImg = document.querySelectorAll(".multi_coloured");
-      const getImgBtn = document.getElementById("get_ImageUrl")
-      const customUrl = document.getElementById("customUrl")
-      const customImg = document.getElementById("cutomisable_Img")
+      const getImgBtn = document.getElementById("get_ImageUrl");
+      const customUrl = document.getElementById("customUrl");
+      const customImg = document.getElementById("cutomisable_Img");
 
-      const customUpload = document.getElementById("custom_upload")
+      const customUpload = document.getElementById("custom_upload");
+
+      const analyseForm = document.getElementById("analysis_form");
+      const textInput = document.getElementById("text_input");
+      const complexResult = document.getElementById("complexity_result");
+
 
       retrieveIconSvgTheme();
 
@@ -591,22 +608,17 @@
         newUser.randDevice();
         newUser.randAccessibility();
 
-        Promise.all([name, language, country])
-          .then((values) => {
-            //once asynch data has been collected, set properties on user object
-            newUser.Name = name;
-            newUser.PreferredLanguage = language;
-            newUser.CurrentlyLivingIn = country;
+        //once asynch data has been collected, set properties on user object
+        newUser.Name = name;
+        newUser.PreferredLanguage = language;
+        newUser.CurrentlyLivingIn = country;
 
-            userProperties.innerHTML = `<b>Name</b>: ${newUser.Name}
+        userProperties.innerHTML = `<b>Name</b>: ${newUser.Name}
           <br> <b>Age</b>: ${newUser.Age}
           <br> <b>Currently in </b>: ${newUser.CurrentlyLivingIn}
           <br> <b>Preferred language </b>: ${newUser.PreferredLanguage} <br> <b>Main device</b>: ${newUser.MainDevice}
           <br> <b> Accessibility consideration </b>: ${newUser.AccessibilityConsideration}`;
-          })
-          .catch((err) => {
-            throw err;
-          });
+    
       }
 
       getImgBtn.addEventListener('submit', (event) => {
@@ -625,6 +637,58 @@
         }
      
       })
+
+      analyseForm.addEventListener('submit', async function analyse(event){
+        event.preventDefault()
+        let inputWords = textInput.value;
+        let easyWordData = await fetchData("dale-chall");
+         daleChall(inputWords, easyWordData);
+
+      })
+
+
+      function daleChall(text, easyWords) {
+        console.log(easyWords)
+        let textData = text
+        let numSentences = 1;
+        text.includes('.') ? numSentences = text.split(".").length : textData += '.'
+        let sanitised = text.replace(/[^a-zA-Z\s]/g, "");
+        let hardWords = 0;
+        let numWords = 0;
+        let adjustment = 0;
+
+        sanitised.split(" ").forEach((word) => {
+        numWords++;
+        if (!easyWords.includes(word.toLowerCase())) {
+        hardWords++;}});
+
+        if (hardWords / numWords > 0.05 ) {
+          adjustment = 3.6365;
+          }
+
+        let score =
+          (0.1579 * ((hardWords / numWords) * 100) +
+          0.0496 * (numWords / numSentences) +
+          adjustment).toFixed(1);
+
+        let percentageHard = Math.floor(hardWords / numWords * 100)
+
+        console.log(percentageHard)
+
+        complexResult.innerHTML = `
+        <b>Overall score: ${score}<b> <br><br>
+        Number of words: ${numWords} <br><br>
+        Number of sentences: ${numSentences} <br><br>
+        Number of not 'easy' words: ${hardWords} <br><br>
+        Percentage not 'easy' words" ${percentageHard}%<br><br>
+         `
+      }
+
+              
+
+
+
+      
 
     </script>
     <script
