@@ -49,3 +49,35 @@ function googleTranslateElementInit() {
 console.log(
   "Note to console detectives: Syntax error on 119, 38 is internal to codepen"
 );
+
+//Flag issue
+let ptags = document.getElementsByTagName("p");
+
+document.addEventListener("keydown", (event) => {
+  if (event.keyCode === 49) {
+    flagForImprovement();
+  }
+});
+
+function flagForImprovement() {
+  let flagArray = [];
+  let selectedPara = window.getSelection().focusNode.data;
+  let selectedStr = window.getSelection().toString();
+
+  flagArray.push({
+    "flagged Word": selectedStr,
+    "From paragraph": selectedPara,
+  });
+
+  let storedFlags = sessionStorage.getItem("flagged");
+
+  if (storedFlags) {
+    parsedFlags = JSON.parse(storedFlags);
+    flagArray.push(parsedFlags);
+  }
+
+  let jsonArray = JSON.stringify(flagArray);
+  sessionStorage.setItem("flagged", jsonArray);
+
+  alert(`You have flagged **${selectedStr}**`);
+}

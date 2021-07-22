@@ -317,6 +317,7 @@
         <p><b>Try using google translate!</b></p>
         <div id="google_translate_element"></div>
         <form id="analysis_form">
+          <h4>Readability</h4>
         <p>It's also important to write in a way that is clear and easy to read.
           Long complex sentences with unfamiliar words can make your content 
           inaccessible. 
@@ -646,9 +647,8 @@
 
       })
 
-
+      //maybe include average sentence and word length too
       function daleChall(text, easyWords) {
-        console.log(easyWords)
         let textData = text
         let numSentences = 1;
         text.includes('.') ? numSentences = text.split(".").length : textData += '.'
@@ -656,11 +656,19 @@
         let hardWords = 0;
         let numWords = 0;
         let adjustment = 0;
+        let longWords = [];
 
         sanitised.split(" ").forEach((word) => {
         numWords++;
         if (!easyWords.includes(word.toLowerCase())) {
-        hardWords++;}});
+        hardWords++;}
+        if(word.length > 10){
+          //only push if unique
+          if(!longWords.includes(word.toLowerCase())){
+            longWords.push(word)
+          }
+        }
+        });
 
         if (hardWords / numWords > 0.05 ) {
           adjustment = 3.6365;
@@ -673,23 +681,19 @@
 
         let percentageHard = Math.floor(hardWords / numWords * 100)
 
-        console.log(percentageHard)
+        let uniqueLongWords = longWords.filter(word => word.upp)
 
         complexResult.innerHTML = `
-        <b>Overall score: ${score}<b> <br><br>
+        <b>Overall score: ${score}</b> <br><br>
         Number of words: ${numWords} <br><br>
+        Long words: ${longWords} <br><br>
         Number of sentences: ${numSentences} <br><br>
         Number of not 'easy' words: ${hardWords} <br><br>
         Percentage not 'easy' words" ${percentageHard}%<br><br>
          `
       }
 
-              
-
-
-
-      
-
+  
     </script>
     <script
       type="text/javascript"
