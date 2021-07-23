@@ -64,9 +64,20 @@ function flagForImprovement() {
   let selectedPara = window.getSelection().focusNode.data;
   let selectedStr = window.getSelection().toString();
 
+  let selectedIndex = selectedPara.indexOf(selectedStr);
+  let head = selectedPara.substring(0, selectedIndex);
+  let middle = `<mark>${selectedStr}</mark>`;
+  let tail = selectedPara.substring(
+    selectedIndex + selectedStr.length,
+    selectedPara.length
+  );
+
+  //iterate through rest and filter for duplicate individual words
+
+  let markedContent = head + middle + tail;
+
   flagArray.push({
-    "flagged Word": selectedStr,
-    "From paragraph": selectedPara,
+    flaggedContent: markedContent,
   });
 
   let storedFlags = sessionStorage.getItem("flagged");
@@ -80,4 +91,6 @@ function flagForImprovement() {
   sessionStorage.setItem("flagged", jsonArray);
 
   alert(`You have flagged **${selectedStr}**`);
+  let flagged = JSON.parse(sessionStorage.getItem("flagged"));
+  feedback.innerHTML = flagged[0].flaggedContent;
 }
