@@ -426,8 +426,7 @@
           <p id="feedback">None</p>
           <h4>Suggested amendment</h4>
           <textarea rows="5" cols="50"></textarea>
-          <!-- temporary button -->
-          <button onclick="{showF()}">Show feedback</button>
+          <button>Share feedback</button>
         </form>
         <button class="scroll-top">Scroll to top</button>
       </section>
@@ -500,6 +499,12 @@
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
                 elem.classList.add("onShow");
+
+                if (topic === "community") {
+                  //get any flagged text and update feedback innerHTML
+                  let flagged = JSON.parse(sessionStorage.getItem("flagged"));
+                  feedback.innerHTML = flagged[0].flaggedContent;
+                }
               } else {
                 elem.classList.remove("onShow");
                 elem.classList.add("hidden");

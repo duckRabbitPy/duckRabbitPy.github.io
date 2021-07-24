@@ -91,6 +91,4 @@ function flagForImprovement() {
   sessionStorage.setItem("flagged", jsonArray);
 
   alert(`You have flagged **${selectedStr}**`);
-  let flagged = JSON.parse(sessionStorage.getItem("flagged"));
-  feedback.innerHTML = flagged[0].flaggedContent;
 }
