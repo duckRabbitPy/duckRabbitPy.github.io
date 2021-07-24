@@ -417,17 +417,11 @@
         <p>What do you think?</p>
         <p>
           This website has a 'flag for amendment' feature enabled, keyboard
-          users if you select text and then press '1',the selected text will be
-          added to a feedback form. Once you have flagged all of the content
-          that you think could be improved, press '2' to add your own comments.
+          users if you select text and then <b>press '1'</b>,the selected text
+          will be added to the feedback form below. Once you have flagged all of
+          the content that you think could be improved, <b>tap '2'</b> twice to
+          add your own comments.
         </p>
-        <form>
-          <h4>Flagged Words In Context</h4>
-          <p id="feedback">None</p>
-          <h4>Suggested amendment</h4>
-          <textarea rows="5" cols="50"></textarea>
-          <button>Share feedback</button>
-        </form>
         <button class="scroll-top">Scroll to top</button>
       </section>
     </div>
@@ -478,8 +472,6 @@
       const textInput = document.getElementById("text_input");
       const complexResult = document.getElementById("complexity_result");
 
-      const feedback = document.getElementById("feedback");
-
       retrieveIconSvgTheme();
 
       //controls hiding and showing of sections
@@ -499,12 +491,6 @@
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
                 elem.classList.add("onShow");
-
-                if (topic === "community") {
-                  //get any flagged text and update feedback innerHTML
-                  let flagged = JSON.parse(sessionStorage.getItem("flagged"));
-                  feedback.innerHTML = flagged[0].flaggedContent;
-                }
               } else {
                 elem.classList.remove("onShow");
                 elem.classList.add("hidden");

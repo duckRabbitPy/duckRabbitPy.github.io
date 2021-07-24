@@ -28,7 +28,9 @@ const keyNavElements = document.querySelectorAll(".key-nav");
   elem.addEventListener("keydown", (event) => {
     if (event.keyCode === 13) {
       let newLocation = event.target.childNodes[1].href;
-      window.location.href = newLocation;
+      if (newLocation) {
+        window.location.href = newLocation;
+      }
     }
   });
 
@@ -36,7 +38,9 @@ const keyNavElements = document.querySelectorAll(".key-nav");
   //and hits some of the surrounding li tag, that they will still be sent to correct place
   elem.addEventListener("click", (event) => {
     let newLocation = event.target.childNodes[1].href;
-    window.location.href = newLocation;
+    if (newLocation) {
+      window.location.href = newLocation;
+    }
   });
 });
 
@@ -50,12 +54,16 @@ console.log(
   "Note to console detectives: Syntax error on 119, 38 is internal to codepen"
 );
 
-//Flag issue
-let ptags = document.getElementsByTagName("p");
+document.addEventListener("keydown", (event) => {
+  if (event.key === "1") {
+    flagForImprovement();
+  }
+});
 
 document.addEventListener("keydown", (event) => {
-  if (event.keyCode === 49) {
-    flagForImprovement();
+  //double tap to ensure class
+  if (event.key === "2") {
+    window.location = "/pages/feedback.html";
   }
 });
 
@@ -72,8 +80,6 @@ function flagForImprovement() {
     selectedPara.length
   );
 
-  //iterate through rest and filter for duplicate individual words
-
   let markedContent = head + middle + tail;
 
   flagArray.push({
@@ -84,7 +90,10 @@ function flagForImprovement() {
 
   if (storedFlags) {
     parsedFlags = JSON.parse(storedFlags);
-    flagArray.push(parsedFlags);
+
+    parsedFlags.forEach((flag) => {
+      flagArray.push(flag);
+    });
   }
 
   let jsonArray = JSON.stringify(flagArray);

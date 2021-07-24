@@ -390,6 +390,10 @@ but becomes visible and clickable/enterable with keyboard focus */
   display: block;
 }
 
+.feedback-form {
+  padding: 2rem;
+}
+
 .neuro-diversity:hover,
 .neuro-diversity:focus-visible,
 .physical-health-and-ability:hover,

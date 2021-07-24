@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" type="image/png" href="../images/everyone.svg" />
+    <title>feedback</title>
+    <script src="../retrieveSettings.js"></script>
+  </head>
+
+  <body>
+    <form class="feedback">
+      <h4>Flagged words in context</h4>
+      <p id="feedback">None</p>
+      <h4>Suggested amendment</h4>
+      <textarea rows="5" cols="50"></textarea>
+      <button>Share feedback</button>
+      <button>Return to main</button>
+    </form>
+  </body>
+
+  <footer>
+    <p>
+      <span><i id="github-icon" class="fab fa-github"></i></span>DuckRabbitPy
+    </p>
+  </footer>
+
+  <script>
+    const feedback = document.getElementById("feedback");
+
+    let flagged = JSON.parse(sessionStorage.getItem("flagged"));
+    let feedbackHTML = "";
+    flagged.forEach((elem) => {
+      feedbackHTML += `<li>${elem.flaggedContent}</li>`;
+    });
+    feedback.innerHTML = feedbackHTML;
+
+    // let flagged = JSON.parse(sessionStorage.getItem("flagged"));
+    // feedback.innerHTML = flagged[0].flaggedContent;
+  </script>
+</html>
