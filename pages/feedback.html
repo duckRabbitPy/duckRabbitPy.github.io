@@ -19,9 +19,11 @@
       <h4>Flagged words in context</h4>
       <p id="feedback">None</p>
       <h4>Suggested amendment</h4>
-      <textarea rows="5" cols="50"></textarea>
-      <button>Share feedback</button>
-      <button>Return to main</button>
+      <textarea id="suggestion" rows="5" cols="50"></textarea>
+      <button id="email">Share feedback</button>
+    </form>
+    <form class="feedback" action="/index.html">
+      <button type="submit">Return to main</button>
     </form>
   </body>
 
@@ -33,15 +35,37 @@
 
   <script>
     const feedback = document.getElementById("feedback");
+    const emailBtn = document.getElementById("email");
+    const suggestionTxt = document.getElementById("suggestion");
 
     let flagged = JSON.parse(sessionStorage.getItem("flagged"));
     let feedbackHTML = "";
-    flagged.forEach((elem) => {
-      feedbackHTML += `<li>${elem.flaggedContent}</li>`;
-    });
-    feedback.innerHTML = feedbackHTML;
+    let emailFlagged = "";
+    if (flagged) {
+      flagged.forEach((elem) => {
+        emailFlagged +=
+          elem.flaggedContent
+            .replace(/\s\s+/g, " ")
+            .replace(`<mark>`, `***`)
+            .replace(`</mark>`, `***`) + "%0D%0A%0D%0A";
 
-    // let flagged = JSON.parse(sessionStorage.getItem("flagged"));
-    // feedback.innerHTML = flagged[0].flaggedContent;
+        feedbackHTML += `<li>${elem.flaggedContent}</li>`;
+      });
+      feedback.innerHTML = feedbackHTML;
+    }
+
+    emailBtn.addEventListener("click", () => {
+      let suggestion = suggestionTxt.value;
+      let body =
+        "Dear Oli" +
+        "%0D%0A%0D%0A" +
+        `Please take a look at: ${emailFlagged}` +
+        "%0D%0A" +
+        "%0D%0A" +
+        `${suggestion}`;
+      window.open(
+        `mailto:duckrabbitpython@gmail.com?subject=website suggestion&body=${body}`
+      );
+    });
   </script>
 </html>

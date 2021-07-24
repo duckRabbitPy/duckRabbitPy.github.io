@@ -390,7 +390,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   display: block;
 }
 
-.feedback-form {
+.feedback {
   padding: 2rem;
 }
 
