@@ -48,10 +48,10 @@
     <div class="settings-container fade-in-content">
       <header id="main_content">Font size</header>
       <div class="font-size-buttons">
-        <button id="medium_btn" data-size="large">Regular font</button>
-        <button id="large_btn" data-size="x-large">Large font</button>
-        <button id="xl_btn" data-size="xx-large">Extra large font</button>
-        <button id="xxl_btn" data-size="xxx-large">Max size font</button>
+        <button id="large" class="size-btn">Regular font</button>
+        <button id="x-large" class="size-btn">Large font</button>
+        <button id="xx-large" class="size-btn">Extra large font</button>
+        <button id="xxx-large" class="size-btn">Max size font</button>
       </div>
       <header>Colours</header>
       <button class="toggle-dark">Toggle Dark Mode</button>
@@ -59,9 +59,9 @@
 
       <header>Font</header>
       <div class="font-family-buttons">
-        <button id="sans">Sans</button>
+        <button id="sans" class="active">Sans</button>
         <button id="serif">Serif</button>
-        <button id="open_D">OpenDyslexic</button>
+        <button id="openDyslexic">OpenDyslexic</button>
       </div>
       <header>Language</header>
       <div id="google_translate_element"></div>
@@ -88,22 +88,24 @@
 
       const themeToggle = document.querySelector(".toggle-dark");
       const easyToggle = document.querySelector(".toggle-easy");
-      const fontButtons = document.querySelectorAll(".font-size-buttons");
+      const fontButtons = document.querySelectorAll(".size-btn");
       const animationBtn = document.getElementById("animationBtn");
 
       //font size buttons
       [...fontButtons].forEach((elem) => {
         elem.addEventListener("click", (event) => {
-          let targetSize = event.target.dataset.size;
+          let targetSize = event.target.id;
           document.documentElement.style.setProperty("--font-size", targetSize);
           sessionStorage.setItem("storedFontSize", targetSize);
+          setOnState(event);
         });
       });
 
       //font-family buttons
       const sansButton = document.getElementById("sans");
       const serifButton = document.getElementById("serif");
-      const openDButton = document.getElementById("open_D");
+      const openDButton = document.getElementById("openDyslexic");
+      const fontFamilyBtns = [sansButton, serifButton, openDButton];
 
       //toggle button
       themeToggle.addEventListener("click", () => {
@@ -147,6 +149,7 @@
           "'serif', 'Georgia', 'Lucida'"
         );
         sessionStorage.setItem("storedFontFamily", "serif");
+        setOnState();
       });
 
       sansButton.addEventListener("click", () => {
@@ -155,6 +158,7 @@
           "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
         );
         sessionStorage.setItem("storedFontFamily", "sans");
+        setOnState();
       });
 
       openDButton.addEventListener("click", () => {
@@ -162,14 +166,45 @@
           "--font-family",
           "openDyslexic"
         );
-        sessionStorage.setItem("storedFontFamily", "openD");
+        sessionStorage.setItem("storedFontFamily", "openDyslexic");
+        setOnState();
       });
 
       //disable animation
-      animationBtn.addEventListener("click", () => {
+      animationBtn.addEventListener("click", (event) => {
         sessionStorage.setItem("animationState", "off");
         alert("animations switched off");
+        setOnState();
       });
+
+      function setOnState(event) {
+        let storedSize = sessionStorage.getItem("storedFontSize");
+        let storedFamily = sessionStorage.getItem("storedFontFamily");
+        let animationState = sessionStorage.getItem("animationState");
+
+        fontButtons.forEach((btn) => {
+          if (btn.id === storedSize) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        fontFamilyBtns.forEach((btn) => {
+          if (btn.id === storedFamily) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        console.log(animationState);
+        animationState === "off"
+          ? animationBtn.classList.add("active")
+          : animationBtn.classList.remove("active");
+      }
+
+      setOnState();
     </script>
   </body>
 </html>

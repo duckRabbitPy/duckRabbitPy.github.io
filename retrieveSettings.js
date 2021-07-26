@@ -20,7 +20,7 @@ function retrieveSettings() {
       "--font-family",
       "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
     );
-  } else if (storedFontFamily === "openD") {
+  } else if (storedFontFamily === "openDyslexic") {
     document.documentElement.style.setProperty("--font-family", "openDyslexic");
   }
 

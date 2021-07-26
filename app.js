@@ -61,7 +61,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  //double tap to ensure class
   if (event.key === "2") {
     window.location = "/pages/feedback.html";
   }

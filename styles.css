@@ -229,6 +229,13 @@ but becomes visible and clickable/enterable with keyboard focus */
   font-size: 100px;
 }
 
+/* general */
+
+.active {
+  background-color: var(--tertiary-color);
+  border: var(--text-color) solid 1px;
+}
+
 /* about page css */
 .about-container,
 .inclusive-container,
