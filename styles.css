@@ -499,7 +499,7 @@ button:focus-visible {
 
 .health-app {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 10fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   gap: 0px 0px;
@@ -514,46 +514,49 @@ button:focus-visible {
 
 .Mood {
   grid-area: Mood;
+  padding-left: 10px;
 }
 
 .Sleep {
   grid-area: Sleep;
+  padding-left: 10px;
 }
 
 .Nutrition {
   grid-area: Nutrition;
+  padding-left: 10px;
 }
 
 .Sociability {
   grid-area: Sociability;
+  padding-left: 10px;
 }
 
 .Exercise {
   grid-area: Exercise;
+  padding-left: 10px;
+}
+
+.Nutrition {
+  grid-area: Nutrition;
+  padding-left: 10px;
 }
 
 .View {
   grid-area: View;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-.Mood {
-  grid-area: Mood;
-}
-
-.Sleep {
-  grid-area: Sleep;
-}
-
-.Nutrition {
-  grid-area: Nutrition;
-}
-
-.Sociability {
-  grid-area: Sociability;
-}
-
-.Exercise {
-  grid-area: Exercise;
+.Mood:hover,
+.Sleep:hover,
+.Nutrition:hover,
+.Sociability:hover,
+.Exercise:hover,
+.Nutrition:hover {
+  background-color: darkcyan;
 }
 
 /* footer styles */

@@ -1,6 +1,10 @@
 //page agnostic Javascript
 const scrollButton = document.querySelectorAll(".scroll-top");
 
+console.log(
+  "Note to console detectives: Syntax error on 119, 38 is internal to codepen"
+);
+
 scrollButton.forEach((elem) => {
   //want to take to main_content if using keyboard, not top of page
   elem.addEventListener("keydown", (event) => {
@@ -50,9 +54,6 @@ function googleTranslateElementInit() {
     "google_translate_element"
   );
 }
-console.log(
-  "Note to console detectives: Syntax error on 119, 38 is internal to codepen"
-);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "1") {

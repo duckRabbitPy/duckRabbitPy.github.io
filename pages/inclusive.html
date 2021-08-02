@@ -250,7 +250,7 @@
           Not a problem. When the settings are applied, i've created a series of
           functions that can store the CSS variable or CSS property in session
           storage (locally on your device). Another function called
-          RetrieveSettings() is called whenvever app.js is run, which first
+          RetrieveSettings() is called whenever app.js is run, which first
           checks for the existence of stored settings, and then sets the CSS
           variables and properites using setAttribute() and setProperty()
           thereby maintaining 'state' upon page refresh!
@@ -375,8 +375,8 @@
           <p>
             It's also important to write in a way that is clear and easy to
             read. Long complex sentences with unfamiliar words can make your
-            content inaccessible. I've built my own sentence analysis tool can
-            indicate how readable your text is.
+            content inaccessible. I've built my own sentence analysis tool that
+            indicates how readable your text is.
           </p>
           <textarea
             id="text_input"
@@ -708,7 +708,6 @@
         daleChall(inputWords, easyWordData);
       });
 
-      //maybe include average sentence and word length too
       function daleChall(text, easyWords) {
         let textData = text;
         let numSentences = 1;
@@ -745,6 +744,7 @@
         ).toFixed(1);
 
         let percentageHard = Math.floor((hardWords / numWords) * 100);
+        let percentageEasy = 100 - percentageHard;
 
         let uniqueLongWords = longWords.filter((word) => word.upp);
 
@@ -753,8 +753,8 @@
         Number of words: ${numWords} <br><br>
         Long words: ${longWords} <br><br>
         Number of sentences: ${numSentences} <br><br>
-        Number of not 'easy' words: ${hardWords} <br><br>
-        Percentage not 'easy' words" ${percentageHard}%<br><br>
+        Number of more difficult words: ${hardWords} <br><br>
+        Percentage 'easy' words: ${percentageEasy}%<br><br>
          `;
       }
     </script>

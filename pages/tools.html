@@ -48,26 +48,86 @@
     <section class="banner">
       <h1>Digital health</h1>
     </section>
-    <div class="tools-container fade-in-content">
-      <div id="main_content" class="health-app">
-        <div class="Mood">
-          <button>Mood</button>
+      <div id="main_content" >
+        <div class="health-app fade-in-content">
+          <div class="Mood">
+            <button class="domain-btn" id="mood">Mood</button>
+          </div>
+          <div class="Sleep">
+            <button class="domain-btn"  id="sleep">Sleep</button>
+          </div>
+          <div class="Nutrition">
+            <button class="domain-btn"  id="nutrition">Nutrition</button>
+          </div>
+          <div class="Sociability">
+            <button class="domain-btn"  id="social">Sociability</button>
+          </div>
+          <div class="Exercise">
+            <button class="domain-btn"  id="exercise">Exercise</button>
+          </div>
+          <div class="View">
+            <div class="mood_container domain hidden">
+            <h3>How are you feeling today?</h3>
+            <div>
+              <input type="range" id="mood_slider" name="mood_slider"
+                     min="0" max="10" step=1 list="mood_score">
+              <label for="mood_slider">Mood</label>
+              <p id="display_mood"></p>
+              <button>submit</button>
+            </div>
+            </div>
+
+            <div class="sleep_container domain hidden">
+              <h3>How did you sleep last night?</h3>
+              <div>
+                <input type="range" id="sleep_slider" name="sleep_slider"
+                       min="0" max="10" step=1 list="sleep_score">
+                <label for="sleep_slider">Sleep</label>
+                <p id="display_sleep"></p>
+                <button>submit</button>
+              </div>
+            </div>
+
+            <div class="nutrition_container domain hidden">
+              <h3>How has your diet been?</h3>
+              <div>
+                <input type="range" id="nutrition_slider" name="nutrition_slider"
+                       min="0" max="10" step=1 list="nutrition_score">
+                <label for="nutrition_slider">Nutrition</label>
+                <p id="display_nutrition"></p>
+                <button>submit</button>
+              </div>
+            </div>
+
+            <div class="social_container domain hidden">
+              <h3>How socially active have you been?</h3>
+              <div>
+                <input type="range" id="social_slider" name="social_slider"
+                       min="0" max="10" step=1 list="social_score">
+                <label for="social_slider">Sociability</label>
+                <p id="display_social"></p>
+                <button>submit</button>
+              </div>
+            </div>
+
+            <div class="exercise_container domain hidden">
+              <h3>How fit and active have you been today?</h3>
+              <div>
+                <input type="range" id="exercise_slider" name="exercise_slider"
+                       min="0" max="10" step=1 list="exercise_score">
+                <label for="exercise_slider">Exercise</label>
+                <p id="display_exercise"></p>
+                <button>submit</button>
+              </div>
+            </div>
+
+
+
+          </div>
         </div>
-        <div class="Sleep">
-          <button>Sleep</button>
-        </div>
-        <div class="Nutrition">
-          <button>Nutrition</button>
-        </div>
-        <div class="Sociability">
-          <button>Sociability</button>
-        </div>
-        <div class="Exercise">
-          <button>Exercise</button>
-        </div>
-        <div class="View">
-          <img src="../images/neuroDarkTheme.svg" >
-        </div>
+
+      </div>
+       
       </div>
 
       
@@ -83,5 +143,59 @@
     type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
   ></script>
+  <script>
+    const domainBtns = document.querySelectorAll(".domain-btn");
+
+    const currentMood = document.getElementById("mood_slider");
+    const displayMood = document.getElementById("display_mood");
+
+    const currentSleep = document.getElementById("sleep_slider");
+    const displaySleep = document.getElementById("display_sleep");
+
+    const currentNutrition = document.getElementById("nutrition_slider");
+    const displayNutrition = document.getElementById("display_nutrition")
+
+    const currentSocial = document.getElementById("social_slider");
+    const displaySocial = document.getElementById("display_social");
+
+    const currentExercise = document.getElementById("exercise_slider");
+    const displayExercise = document.getElementById("display_exercise");
+    const containers = document.querySelectorAll(".domain");
+
+    [...domainBtns].forEach(btn => {
+      btn.addEventListener("click", (event) =>{
+        let domainPrefix = event.target.id;
+        [...containers].forEach(container => {
+          let containerClass = container.classList[0];
+          if(containerClass.includes(domainPrefix)){
+            container.classList.remove("hidden")
+          }
+          else{container.classList.add("hidden")}
+          })  
+      }) 
+    });
+
+    currentMood.addEventListener("input", () => {
+      displayMood.innerHTML = currentMood.value
+    })
+
+    currentSleep.addEventListener("input", () => {
+      displaySleep.innerHTML = currentSleep.value
+    })
+
+    currentNutrition.addEventListener("input", () => {
+      displayNutrition.innerHTML = currentNutrition.value
+    })
+
+    currentSocial.addEventListener("input", () => {
+      displaySocial.innerHTML = currentSocial.value
+    })
+
+    currentExercise.addEventListener("input", () => {
+      displayMood.innerHTML = currentExercise.value
+    })
+    
+
+  </script>
   </body>
 </html>
