@@ -50,29 +50,38 @@
     </section>
       <div id="main_content" >
         <div class="health-app fade-in-content">
-          <div class="Mood">
-            <button class="domain-btn" id="mood">Mood</button>
-          </div>
-          <div class="Sleep">
-            <button class="domain-btn"  id="sleep">Sleep</button>
-          </div>
-          <div class="Nutrition">
-            <button class="domain-btn"  id="nutrition">Nutrition</button>
-          </div>
-          <div class="Sociability">
-            <button class="domain-btn"  id="social">Sociability</button>
-          </div>
-          <div class="Exercise">
-            <button class="domain-btn"  id="exercise">Exercise</button>
-          </div>
+
           <div class="View">
+
+            <div class="digi-health-landing fade-in-content">
+              <div>
+              <h2>Welcome to digital health</h2>
+              <p>Sometimes it's hard to know where to start when we're looking to improve or maintain our health.
+                One approach is to start with the basics and build from there! This online tool will ask 5 questions
+                spanning several key domains deemed crucial for health and wellbeing.
+                <br><br>
+                Use the slider or keyboard to provide a score of (worst possible) 1 up to 9 (best possible).
+                <br><br>
+                Once you have completed the brief questionaire you will be directed to a range of resources that might be useful
+                based on your response.
+              </p>
+              <button id="start_quiz">Let's get started!</button>
+            </div>
+              
+            <div>
+              <img id="health_landing_img" src="../images/allDomains.svg">
+            </div>
+            </div>
+
+
             <div class="mood-container domain hidden">
             <h3>How has your mood and wellbeing been this week? (Q1/5)</h3>
+            <p>Use slider or press key 1 - 9</p>
             <div>
-              <input type="range" id="mood_slider" name="mood_slider"
+              <input type="range" id="mood_slider" class="slider" name="mood_slider"
                      min="1" max="9" step=1 value=5 list="mood_score">
               <label for="mood_slider">Mood</label>
-              <p id="display_mood"></p>
+              <p class="slider-display" id="display_mood"></p>
               <button class="next-btn">Next</button>
               <img class="domain-img" src="../images/mood.svg">
             </div>
@@ -80,23 +89,25 @@
 
             <div class="sleep-container domain hidden">
                 <h3>How have you been sleeping this week? (Q2/5)</h3>
+                <p>Use slider or press key 1 - 9</p>
                 <div>
-                <input type="range" id="sleep_slider" name="sleep_slider"
+                <input type="range" id="sleep_slider" class="slider" name="sleep_slider"
                        min="1" max="9" step=1 value=5 list="sleep_score">
                 <label for="sleep_slider">Sleep</label>
-                <p id="display_sleep"></p>
+                <p class="slider-display" id="display_sleep"></p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/owl.svg">
               </div>
             </div>
 
             <div class="nutrition-container domain hidden">
-              <h3>How has your diet been this weeek? (Q3/5)</h3>
+              <h3>How has your diet been this week? (Q3/5)</h3>
+              <p>Use slider or press key 1 - 9</p>
               <div>
-                <input type="range" id="nutrition_slider" name="nutrition_slider"
+                <input type="range" id="nutrition_slider" class="slider" name="nutrition_slider"
                        min="1" max="9" step=1 value=5 list="nutrition_score">
                 <label for="nutrition_slider">Nutrition</label>
-                <p id="display_nutrition"></p>
+                <p class="slider-display" id="display_nutrition"></p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/nutrition.svg">
               </div>
@@ -104,11 +115,12 @@
 
             <div class="social-container domain hidden">
               <h3>How socially active have you been this week? (Q4/5)</h3>
+              <p>Use slider or press key 1 - 9</p>
               <div>
-                <input type="range" id="social_slider" name="social_slider"
+                <input type="range" id="social_slider" class="slider" name="social_slider"
                        min="1" max="9" step=1 value=5 list="social_score">
                 <label for="social_slider">Sociability</label>
-                <p id="display_social"></p>
+                <p class="slider-display" id="display_social"></p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/social.svg">
               </div>
@@ -116,17 +128,20 @@
 
             <div class="exercise-container domain hidden">
               <h3>How fit and active have you been this week? (Q5/5)</h3>
+              <p>Use slider or press key 1 - 9</p>
               <div>
-                <input type="range" id="exercise_slider" name="exercise_slider"
+                <input type="range" id="exercise_slider" class="slider" name="exercise_slider"
                        min="1" max="9" step=1 value=5 list="exercise_score">
                 <label for="exercise_slider">Exercise</label>
-                <p id="display_exercise"></p>
+                <p class="slider-display" id="display_exercise"></p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/exercise.svg">
               </div>
             </div>
 
-
+            <div class="dashboard-container hidden">
+              <h3>Digi health dashboard</h3>
+            </div>
 
           </div>
         </div>
@@ -150,6 +165,7 @@
   ></script>
   <script>
     const domainBtns = document.querySelectorAll(".domain-btn");
+    const digiLanding = document.querySelector(".digi-health-landing");
 
     const currentMood = document.getElementById("mood_slider");
     const displayMood = document.getElementById("display_mood");
@@ -166,8 +182,20 @@
     const currentExercise = document.getElementById("exercise_slider");
     const displayExercise = document.getElementById("display_exercise");
     const containers = document.querySelectorAll(".domain");
+    const sliders = document.querySelectorAll(".slider");
+    const sliderDisplay = document.querySelectorAll(".slider-display")
 
+    const startBtn = document.getElementById("start_quiz")
     const nextBtns = document.querySelectorAll(".next-btn");
+
+
+
+    startBtn.addEventListener("click", () => {
+      [...containers][0].classList.remove("hidden");
+      digiLanding.style.display = "none"
+
+
+    });
 
     [...domainBtns].forEach(btn => {
       btn.addEventListener("click", (event) =>{
@@ -187,14 +215,27 @@
         [...containers].forEach((container, index) => {
           let containerClass = container.classList[0]
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index < 4){
-            [...containers][index].classList.add("hidden");
             [...containers][index + 1].classList.remove("hidden");
-          }
+            [...containers][index].classList.add("hidden");   
+          };
+          
         })
-    
       })
     })
 
+    document.addEventListener("keydown", (event) => {
+      [...sliders].forEach((slider) => {
+        let containerClass = slider.parentElement.parentElement.classList[0];
+        if (!containerClass.includes("hidden")) {
+          slider.value = event.key;
+          [...sliderDisplay].forEach((score) => {
+            if (containerClass.includes(score.id.slice(8))) {
+              score.innerHTML = scoreAndWord(slider.value);
+            }
+          });
+        }
+      });
+    });
 
 
     currentMood.addEventListener("input", () => {
