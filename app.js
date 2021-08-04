@@ -56,13 +56,13 @@ function googleTranslateElementInit() {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "1") {
+  if (event.key === "a") {
     flagForImprovement();
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "2") {
+  if (event.key === "f") {
     window.location = "/pages/feedback.html";
   }
 });
