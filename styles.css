@@ -504,6 +504,7 @@ button:focus-visible {
   grid-auto-columns: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
+  padding-top: 50px;
   grid-template-areas:
     "Mood View"
     "Sleep View"
@@ -514,32 +515,32 @@ button:focus-visible {
 
 .Mood {
   grid-area: Mood;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .Sleep {
   grid-area: Sleep;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .Nutrition {
   grid-area: Nutrition;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .Sociability {
   grid-area: Sociability;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .Exercise {
   grid-area: Exercise;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .Nutrition {
   grid-area: Nutrition;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .View {
@@ -550,13 +551,8 @@ button:focus-visible {
   align-content: center;
 }
 
-.Mood:hover,
-.Sleep:hover,
-.Nutrition:hover,
-.Sociability:hover,
-.Exercise:hover,
-.Nutrition:hover {
-  background-color: darkcyan;
+.domain-img {
+  max-height: 200px;
 }
 
 /* footer styles */

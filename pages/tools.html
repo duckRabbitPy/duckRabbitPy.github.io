@@ -66,29 +66,31 @@
             <button class="domain-btn"  id="exercise">Exercise</button>
           </div>
           <div class="View">
-            <div class="mood_container domain hidden">
+            <div class="mood-container domain hidden">
             <h3>How are you feeling today?</h3>
             <div>
               <input type="range" id="mood_slider" name="mood_slider"
                      min="0" max="10" step=1 list="mood_score">
               <label for="mood_slider">Mood</label>
               <p id="display_mood"></p>
-              <button>submit</button>
+              <button>Next</button>
+              <img class="domain-img" src="../images/mood.svg">
             </div>
             </div>
 
-            <div class="sleep_container domain hidden">
-              <h3>How did you sleep last night?</h3>
-              <div>
+            <div class="sleep-container domain hidden">
+                <h3>How did you sleep last night?</h3>
+                <div>
                 <input type="range" id="sleep_slider" name="sleep_slider"
                        min="0" max="10" step=1 list="sleep_score">
                 <label for="sleep_slider">Sleep</label>
                 <p id="display_sleep"></p>
-                <button>submit</button>
+                <button>Next</button>
+                <img class="domain-img" src="../images/owl.svg">
               </div>
             </div>
 
-            <div class="nutrition_container domain hidden">
+            <div class="nutrition-container domain hidden">
               <h3>How has your diet been?</h3>
               <div>
                 <input type="range" id="nutrition_slider" name="nutrition_slider"
@@ -96,10 +98,11 @@
                 <label for="nutrition_slider">Nutrition</label>
                 <p id="display_nutrition"></p>
                 <button>submit</button>
+                <img class="domain-img" src="../images/nutrition.svg">
               </div>
             </div>
 
-            <div class="social_container domain hidden">
+            <div class="social-container domain hidden">
               <h3>How socially active have you been?</h3>
               <div>
                 <input type="range" id="social_slider" name="social_slider"
@@ -107,10 +110,11 @@
                 <label for="social_slider">Sociability</label>
                 <p id="display_social"></p>
                 <button>submit</button>
+                <img class="domain-img" src="../images/social.svg">
               </div>
             </div>
 
-            <div class="exercise_container domain hidden">
+            <div class="exercise-container domain hidden">
               <h3>How fit and active have you been today?</h3>
               <div>
                 <input type="range" id="exercise_slider" name="exercise_slider"
@@ -118,6 +122,7 @@
                 <label for="exercise_slider">Exercise</label>
                 <p id="display_exercise"></p>
                 <button>submit</button>
+                <img class="domain-img" src="../images/exercise.svg">
               </div>
             </div>
 
@@ -176,25 +181,30 @@
     });
 
     currentMood.addEventListener("input", () => {
-      displayMood.innerHTML = currentMood.value
+      displayMood.innerHTML = scoreAndWord(currentMood.value)
     })
 
     currentSleep.addEventListener("input", () => {
-      displaySleep.innerHTML = currentSleep.value
+      displaySleep.innerHTML = scoreAndWord(currentSleep.value)
     })
 
     currentNutrition.addEventListener("input", () => {
-      displayNutrition.innerHTML = currentNutrition.value
+      displayNutrition.innerHTML = scoreAndWord(currentNutrition.value)
     })
 
     currentSocial.addEventListener("input", () => {
-      displaySocial.innerHTML = currentSocial.value
+      displaySocial.innerHTML = scoreAndWord(currentSocial.value)
     })
 
     currentExercise.addEventListener("input", () => {
-      displayMood.innerHTML = currentExercise.value
+      displayExercise.innerHTML = scoreAndWord(currentExercise.value)
     })
     
+
+    function scoreAndWord(score){
+      wordEquiv = ["the worst it could be", "extremely bad", "very bad", "bad", "not great", "Ok", "not bad", "good", "very good", "excellent", "the best it could be"] 
+      return `Score: <b>${score}</b> (${wordEquiv[score]})`
+    }
 
   </script>
   </body>
