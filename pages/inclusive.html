@@ -487,8 +487,19 @@
             //key event has co-ordinates 0,0
             return;
           } else {
-            let parentClass = event.target.parentNode.className;
-            let topic = parentClass.slice(0, parentClass.indexOf("-"));
+            let divClass = event.target.className;
+            let topic = "";
+
+            //if click is on div itself
+            if (divClass && !divClass.includes("img")) {
+              topic = divClass.slice(0, divClass.indexOf("-"));
+            }
+            //else if click is on content within div
+            else {
+              let parentClass = event.target.parentNode.className;
+              topic = parentClass.slice(0, parentClass.indexOf("-"));
+            }
+
             [...hiddenSections].forEach((elem) => {
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");

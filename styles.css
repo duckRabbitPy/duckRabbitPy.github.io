@@ -194,7 +194,6 @@ mark {
   padding: 1px;
 }
 
-/* consider polyfill for focus-visible, but keyboard focus still works on safari */
 .key-nav:focus-visible {
   background-color: var(--secondary-color);
 }
