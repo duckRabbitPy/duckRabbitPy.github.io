@@ -28,7 +28,7 @@ function smoothscroll() {
 }
 
 const keyNavElements = document.querySelectorAll(".key-nav");
-[...keyNavElements].forEach((elem) => {
+keyNavElements.forEach((elem) => {
   elem.addEventListener("keydown", (event) => {
     if (event.keyCode === 13) {
       let newLocation = event.target.childNodes[1].href;

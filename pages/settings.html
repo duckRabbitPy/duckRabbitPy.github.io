@@ -92,7 +92,7 @@
       const animationBtn = document.getElementById("animationBtn");
 
       //font size buttons
-      [...fontButtons].forEach((elem) => {
+      fontButtons.forEach((elem) => {
         elem.addEventListener("click", (event) => {
           let targetSize = event.target.id;
           document.documentElement.style.setProperty("--font-size", targetSize);

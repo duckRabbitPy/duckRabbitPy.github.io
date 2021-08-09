@@ -197,10 +197,10 @@
 
     });
 
-    [...domainBtns].forEach(btn => {
+    domainBtns.forEach(btn => {
       btn.addEventListener("click", (event) =>{
         let domainPrefix = event.target.id;
-        [...containers].forEach(container => {
+        containers.forEach(container => {
           let containerClass = container.classList[0];
           if(containerClass.includes(domainPrefix)){
             container.classList.remove("hidden")
@@ -210,9 +210,9 @@
       }) 
     });
 
-    [...nextBtns].forEach(btn => {
+    nextBtns.forEach(btn => {
       btn.addEventListener("click", (event) => {
-        [...containers].forEach((container, index) => {
+        containers.forEach((container, index) => {
           let containerClass = container.classList[0]
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index < 4){
             [...containers][index + 1].classList.remove("hidden");
@@ -224,11 +224,11 @@
     })
 
     document.addEventListener("keydown", (event) => {
-      [...sliders].forEach((slider) => {
+      sliders.forEach((slider) => {
         let containerClass = slider.parentElement.parentElement.classList[0];
         if (!containerClass.includes("hidden")) {
           slider.value = event.key;
-          [...sliderDisplay].forEach((score) => {
+          sliderDisplay.forEach((score) => {
             if (containerClass.includes(score.id.slice(8))) {
               score.innerHTML = scoreAndWord(slider.value);
             }

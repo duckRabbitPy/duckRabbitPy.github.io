@@ -397,7 +397,7 @@
       >
         <h3>Community diversity</h3>
         <p>
-          One of the great things about the internet is that it brings an
+          One of the best things about the internet is that it brings an
           incredibly diverse community of people together from around the world.
           A successful web application could have thousands of people of
           different communities, genders, ethnicities, personal histories,
@@ -500,7 +500,7 @@
               topic = parentClass.slice(0, parentClass.indexOf("-"));
             }
 
-            [...hiddenSections].forEach((elem) => {
+            hiddenSections.forEach((elem) => {
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
                 elem.classList.add("onShow");
@@ -519,7 +519,7 @@
           if (event.keyCode === 13) {
             let inclusiveClass = event.target.className;
             let topic = inclusiveClass.slice(0, inclusiveClass.indexOf("-"));
-            [...hiddenSections].forEach((elem) => {
+            hiddenSections.forEach((elem) => {
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
                 elem.classList.add("onShow");
@@ -554,7 +554,7 @@
         }
       }
 
-      [...filterBtns].forEach((elem) => {
+      filterBtns.forEach((elem) => {
         elem.addEventListener("click", (event) => {
           let filter = event.target.dataset.filter;
           if (filter === "sightLoss") {
