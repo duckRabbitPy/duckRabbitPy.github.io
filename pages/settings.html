@@ -194,6 +194,9 @@
         });
 
         fontFamilyBtns.forEach((btn) => {
+          if (storedFamily === null) {
+            return;
+          }
           if (btn.id === storedFamily) {
             btn.classList.add("active");
           } else {
