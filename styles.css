@@ -439,6 +439,11 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .user-container {
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: black 1px groove;
   display: flex;
   flex-direction: row;
   justify-items: left;
@@ -483,6 +488,11 @@ but becomes visible and clickable/enterable with keyboard focus */
   height: 100px;
 }
 
+.scroll-top {
+  margin-top: 10px;
+  margin-left: 90%;
+}
+
 button {
   font-size: var(--font-size);
   font-family: var(--font-family);
@@ -494,7 +504,7 @@ button:focus-visible {
   background-color: var(--secondary-color);
 }
 
-/* tools styles */
+/* digi health tools styles */
 
 .health-app {
   display: flex;

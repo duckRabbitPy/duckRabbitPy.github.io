@@ -48,7 +48,7 @@
     <div class="settings-container fade-in-content">
       <header id="main_content">Font size</header>
       <div class="font-size-buttons">
-        <button id="large" class="size-btn">Regular font</button>
+        <button id="large" class="size-btn active">Regular font</button>
         <button id="x-large" class="size-btn">Large font</button>
         <button id="xx-large" class="size-btn">Extra large font</button>
         <button id="xxx-large" class="size-btn">Max size font</button>
@@ -183,6 +183,9 @@
         let animationState = sessionStorage.getItem("animationState");
 
         fontButtons.forEach((btn) => {
+          if (storedSize === null) {
+            return;
+          }
           if (btn.id === storedSize) {
             btn.classList.add("active");
           } else {
