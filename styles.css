@@ -79,7 +79,7 @@ body a {
 }
 
 .landing-img {
-  max-height: 350px;
+  max-height: 50vh;
   animation: var(--landing-animation);
   -webkit-animation: var(--landing-animation);
   -moz-animation: var(--landing-animation);
@@ -428,6 +428,8 @@ but becomes visible and clickable/enterable with keyboard focus */
 
 .nav-tut {
   margin: 1rem;
+  padding: 0.5rem;
+  border: 0.5px var(--text-color) dashed;
 }
 
 .inclusive-link {
@@ -484,8 +486,17 @@ but becomes visible and clickable/enterable with keyboard focus */
   filter: blur(35px) grayscale();
 }
 
+#custom_upload {
+  margin: 0.5rem;
+}
+
 #dice {
   height: 100px;
+}
+
+#text_input {
+  width: 70vw;
+  height: 10vw;
 }
 
 .scroll-top {
@@ -538,6 +549,7 @@ footer {
   font-size: var(--font-size);
 }
 
+/* Ipad */
 @media (max-width: 1000px) {
   .factor-container {
     padding-top: 0.5rem;
@@ -555,6 +567,7 @@ footer {
   }
 }
 
+/* moblie */
 @media (max-width: 700px) {
   .factor-container {
     padding-top: 2rem;
@@ -595,7 +608,7 @@ footer {
     max-height: 200px;
   }
 
-  /* consider whether this is best option for mobile */
+  /* consider whether this is best accessibility option for mobile? */
   #skip_to_content {
     display: none;
   }
@@ -610,5 +623,12 @@ footer {
     margin: 0px;
     color: white;
     font-size: 50px;
+  }
+
+  .filter-btn-container {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }

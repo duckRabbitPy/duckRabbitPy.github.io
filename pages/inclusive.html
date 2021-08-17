@@ -302,13 +302,13 @@
           </li>
 
           <li class="nav-tut">
-            Next I set the href of the 'skip to main content' to the
+            I then set the href of the 'skip to main content' to the
             #main_content id which is the location of the first piece of
             meaningful content on the page (outside the nav).
           </li>
 
           <li class="nav-tut">
-            The opacacity of the skip link is set to 0 initially. focus:visible
+            The opacity of the skip link is set to 0 initially. focus:visible
             styling is applied when the li element has been keyboard focused
             making the skip link visible!
           </li>
@@ -378,12 +378,7 @@
             content inaccessible. I've built my own sentence analysis tool that
             indicates how readable your text is.
           </p>
-          <textarea
-            id="text_input"
-            name="textInput"
-            rows="10"
-            cols="50"
-          ></textarea>
+          <textarea id="text_input" name="textInput"></textarea>
           <button id="analyse_btn" type="submit">Analyse text</button>
           <p id="complexity_result">Result:</p>
         </form>
@@ -413,15 +408,15 @@
           developer that actively engages with the vast and diverse digital
           community in a meaningful way through involvement and feedback.
         </p>
-        <p>So what do <em>you</em> think?</p>
+        <p>So what do <em>you</em> think and feel about the site?</p>
         <p>
           This website has a 'flag for amendment' feature enabled, keyboard
-          users if you select text and then <b>press 'a'</b>,the selected text
-          will be added to the feedback form below. Once you have flagged all of
-          the content that you think could be improved, <b>tap 'f'</b> to
-          quickly navigate to the feedback form from any page on this site.
-          Alternatively, if you're not using a keyboard, I invite you to leave
-          your comments directly on the
+          users if you select text and then <u><b>press 'a'</b></u
+          >,the selected text will be added to a feedback form. Once you have
+          flagged all of the content that you think could be improved,
+          <u><b>tap 'f'</b></u> to quickly navigate to the feedback form from
+          any page on this site. Alternatively, if you're not using a keyboard,
+          I invite you to leave your comments directly on the
           <a href="feedback.html">feedback page</a>
         </p>
         <button class="scroll-top">Scroll to top</button>
@@ -536,7 +531,6 @@
       function retrieveIconSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
 
-        //think about if can be done by mapping over node list
         if (storedTheme === "dark-theme") {
           neuroSvg.src = "/images/neuroDarkTheme.svg";
           handSvg.src = "/images/handDarkTheme.svg";
@@ -569,7 +563,7 @@
         });
       });
 
-      //dice roll 'animation'
+      //dice roll 'animation' using nested setTimeouts
       randomUserBtn.addEventListener("click", () => {
         setTimeout(() => {
           rollDice();
@@ -577,6 +571,7 @@
             rollDice();
             setTimeout(() => {
               rollDice();
+              //call createUser function and set properties on user object
               createUser();
             }, 300);
           }, 300);
@@ -589,6 +584,10 @@
       }
 
       //random user generator
+      //user object starts off with 'not set' for all properties
+      //when createUser() is called, the data is fetched from data files and random properties are set
+      //fun foray into object oriented programming
+
       let user = {
         Name: "not set",
         Age: "not set",
