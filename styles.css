@@ -635,6 +635,32 @@ button:focus-visible {
   border-radius: 9px;
 }
 
+.bar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.positive_icon {
+  max-width: 7vh;
+  margin-left: 10px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
 /* footer styles */
 footer {
   display: flex;

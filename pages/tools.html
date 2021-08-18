@@ -76,12 +76,12 @@
 
             <div class="mood-container domain hidden fade-in-content">
             <h3>How has your mood and wellbeing been this week? (Q1/5)</h3>
-            <p>Use slider or press key 1 - 9</p>
+            <p>Use slider or press key 1 - 9 and hit 'Enter'</p>
             <div>
               <input type="range" id="mood_slider" class="slider" name="mood_slider"
                      min="1" max="9" step=1 value=5 list="mood_score">
               <label for="mood_slider">Mood</label>
-              <p class="slider-display" id="display_mood"></p>
+              <p class="slider-display" id="display_mood">Score: <b>5</b> (Ok)</p>
               <button class="next-btn">Next</button>
               <img class="domain-img" src="../images/mood.svg">
             </div>
@@ -89,12 +89,12 @@
 
             <div class="sleep-container domain hidden fade-in-content">
                 <h3>How have you been sleeping this week? (Q2/5)</h3>
-                <p>Use slider or press key 1 - 9</p>
+                <p>Use slider or press key 1 - 9 and hit 'Enter'</p>
                 <div>
                 <input type="range" id="sleep_slider" class="slider" name="sleep_slider"
                        min="1" max="9" step=1 value=5 list="sleep_score">
                 <label for="sleep_slider">Sleep</label>
-                <p class="slider-display" id="display_sleep"></p>
+                <p class="slider-display" id="display_sleep">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/owl.svg">
               </div>
@@ -102,12 +102,12 @@
 
             <div class="nutrition-container domain hidden fade-in-content">
               <h3>How has your diet and nutrition been this week? (Q3/5)</h3>
-              <p>Use slider or press key 1 - 9</p>
+              <p>Use slider or press key 1 - 9 and hit 'Enter'</p>
               <div>
                 <input type="range" id="nutrition_slider" class="slider" name="nutrition_slider"
                        min="1" max="9" step=1 value=5 list="nutrition_score">
                 <label for="nutrition_slider">Nutrition</label>
-                <p class="slider-display" id="display_nutrition"></p>
+                <p class="slider-display" id="display_nutrition">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/nutrition.svg">
               </div>
@@ -115,12 +115,12 @@
 
             <div class="social-container domain hidden fade-in-content">
               <h3>How socially active have you been this week? (Q4/5)</h3>
-              <p>Use slider or press key 1 - 9</p>
+              <p>Use slider or press key 1 - 9 and hit 'Enter'</p>
               <div>
                 <input type="range" id="social_slider" class="slider" name="social_slider"
                        min="1" max="9" step=1 value=5 list="social_score">
                 <label for="social_slider">Sociability</label>
-                <p class="slider-display" id="display_social"></p>
+                <p class="slider-display" id="display_social">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/social.svg">
               </div>
@@ -128,12 +128,12 @@
 
             <div class="exercise-container domain hidden fade-in-content">
               <h3>How fit and active have you been this week? (Q5/5)</h3>
-              <p>Use slider or press key 1 - 9</p>
+              <p>Use slider or press key 1 - 9 and hit 'Enter'</p>
               <div>
                 <input type="range" id="exercise_slider" class="slider" name="exercise_slider"
                        min="1" max="9" step=1 value=5 list="exercise_score">
                 <label for="exercise_slider">Exercise</label>
-                <p class="slider-display" id="display_exercise"></p>
+                <p class="slider-display" id="display_exercise">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
                 <img class="domain-img" src="../images/exercise.svg">
               </div>
@@ -142,29 +142,45 @@
             <div class="dashboard-container hidden fade-in-content">
               <h3>Digi health dashboard</h3>
             
-                <div id="mood_result"></div>
-                <div>
-                  <div id="mood_bar"></div>
+              
+                <div class="bar-container">
+                  <div>
+                    <div id="mood_result"></div>
+                    <div id="mood_bar"></div>
+                  </div>
+                  <img id="mood_icon" class="positive_icon hidden" src="../images/positive.svg">
                 </div>
-
-                <div id="sleep_result"></div>
-                <div>
-                  <div id="sleep_bar"></div>
+                
+                <div class="bar-container">
+                  <div>
+                    <div id="sleep_result"></div>
+                    <div id="sleep_bar"></div>
+                  </div>
+                    <img id="sleep_icon" class="positive_icon hidden" src="../images/positive.svg">
                 </div>
-
-                <div id="nutrition_result"></div>
-                <div>
-                  <div id="nutrition_bar"></div>
+                
+                <div class="bar-container">
+                  <div>
+                    <div id="nutrition_result"></div>
+                    <div id="nutrition_bar"></div>
+                  </div>
+                    <img id="nutrition_icon" class="positive_icon hidden" src="../images/positive.svg">
                 </div>
-
-                <div id="social_result"></div>
-                <div>
-                  <div id="social_bar"></div>
+                
+                <div class="bar-container">
+                  <div>
+                    <div id="social_result"></div>
+                    <div id="social_bar"></div>
+                  </div>
+                    <img id="social_icon" class="positive_icon hidden" src="../images/positive.svg">
                 </div>
-
-                <div id="exercise_result"></div>
-                <div>
+                
+                <div class="bar-container">
+                  <div>
+                  <div id="exercise_result"></div>
                   <div id="exercise_bar"></div>
+                </div>
+                  <img id="exercise_icon" class="positive_icon hidden" src="../images/positive.svg">
                 </div>
 
               </div>
@@ -220,9 +236,15 @@
 
     const moodResult = document.getElementById('mood_result');
     const sleepResult = document.getElementById('sleep_result');
-    const nutritionResult = document.getElementById('nutrition_result')
-    const socialResult = document.getElementById('social_result')
-    const exerciseResult = document.getElementById('exercise_result')
+    const nutritionResult = document.getElementById('nutrition_result');
+    const socialResult = document.getElementById('social_result');
+    const exerciseResult = document.getElementById('exercise_result');
+
+    const moodIcon = document.getElementById('mood_icon');
+    const sleepIcon = document.getElementById('sleep_icon');
+    const nutritionIcon = document.getElementById('nutrition_icon');
+    const socialIcon = document.getElementById('social_icon');
+    const exerciseIcon = document.getElementById('exercise_icon');
   
 
     let scoresObject = {};
@@ -269,6 +291,12 @@
             socialResult.innerHTML = `Social score: ${scoresObject.social_slider}`;
             exerciseResult.innerHTML = `Exercise score: ${scoresObject.exercise_slider}`;
 
+            showPositiveIcon(scoresObject.mood_slider, moodIcon)
+            showPositiveIcon(scoresObject.sleep_slider, sleepIcon)
+            showPositiveIcon(scoresObject.nutrition_slider, nutritionIcon)
+            showPositiveIcon(scoresObject.social_slider, socialIcon)
+            showPositiveIcon(scoresObject.exercise_slider, exerciseIcon)
+
             document.documentElement.style.setProperty("--moodbar-width", `${scoresObject.mood_slider * 10}%`);
             document.documentElement.style.setProperty("--sleepbar-width", `${scoresObject.sleep_slider * 10}%`);
             document.documentElement.style.setProperty("--nutritionbar-width", `${scoresObject.nutrition_slider * 10}%`);
@@ -278,6 +306,11 @@
         })
       })
     })
+
+    function showPositiveIcon(sliderScore, iconType){
+      if(sliderScore > 5){
+        iconType.classList.remove("hidden")
+      }}
 
     //for keyboard users wanting to use 'Enter' instead of tabbing to button
     document.addEventListener("keydown", (event) => {
