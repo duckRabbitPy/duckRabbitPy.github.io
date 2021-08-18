@@ -101,7 +101,7 @@
             </div>
 
             <div class="nutrition-container domain hidden fade-in-content">
-              <h3>How has your diet been this week? (Q3/5)</h3>
+              <h3>How has your diet and nutrition been this week? (Q3/5)</h3>
               <p>Use slider or press key 1 - 9</p>
               <div>
                 <input type="range" id="nutrition_slider" class="slider" name="nutrition_slider"
@@ -141,6 +141,7 @@
 
             <div class="dashboard-container hidden">
               <h3>Digi health dashboard</h3>
+              <div id="dashboard_scores"></div>
             </div>
 
           </div>
@@ -188,6 +189,12 @@
     const startBtn = document.getElementById("start_quiz")
     const nextBtns = document.querySelectorAll(".next-btn");
 
+    const dashBoard = document.querySelector('.dashboard-container');
+    const finalScores = document.getElementById('dashboard_scores')
+
+
+    let scoresObject = {};
+
 
 
     startBtn.addEventListener("click", () => {
@@ -212,13 +219,26 @@
 
     nextBtns.forEach(btn => {
       btn.addEventListener("click", (event) => {
+        let chosenValue = event.target.parentNode.firstElementChild.value
+        let sliderType = event.target.parentNode.firstElementChild.name
+        scoresObject[sliderType] = chosenValue
         containers.forEach((container, index) => {
           let containerClass = container.classList[0]
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index < 4){
             [...containers][index + 1].classList.remove("hidden");
             [...containers][index].classList.add("hidden");   
-          };
-          
+          }
+          if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index === 4){
+            [...containers][index].classList.add("hidden"); 
+            dashBoard.classList.remove("hidden")
+            finalScores.innerHTML =  `
+            Mood score: ${scoresObject.mood_slider} <br><br>
+            Sleep score: ${scoresObject.sleep_slider} <br><br>
+            Nutrition score: ${scoresObject.nutrition_slider} <br><br>
+            Social score: ${scoresObject.social_slider} <br><br>
+            Exercise score: ${scoresObject.exercise_slider} <br><br>
+            `
+          }
         })
       })
     })
