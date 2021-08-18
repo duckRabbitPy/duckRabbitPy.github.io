@@ -53,11 +53,13 @@ html[current-theme="easy-read-theme"] {
 html[animation-state="off"] {
   --landing-animation: "none";
   --soft-animation: "none";
+  --pulse-animation: "none";
 }
 
 html[animation-state="on"] {
   --landing-animation: fadeIn 3s;
   --soft-animation: fadeIn 0.8s;
+  --pulse-animation: pulse 2s infinite;
 }
 
 body {
@@ -289,6 +291,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   padding: 3px;
   box-shadow: 2px 4px 10px -2px rgba(0, 0, 0, 0.5);
   border: solid 1px rgba(0, 0, 0, 0);
+  animation: var(--pulse-animation);
 }
 
 .profile-links:hover {
@@ -437,6 +440,10 @@ but becomes visible and clickable/enterable with keyboard focus */
   margin: 1rem;
   padding: 0.5rem;
   border: 0.5px var(--text-color) dashed;
+}
+
+.nav-tut:hover {
+  border: 0.5px var(--text-color) solid;
 }
 
 .inclusive-link {
@@ -644,7 +651,7 @@ button:focus-visible {
 .positive_icon {
   max-width: 7vh;
   margin-left: 10px;
-  animation: pulse 2s infinite;
+  animation: var(--pulse-animation);
 }
 
 @keyframes pulse {
