@@ -14,6 +14,13 @@
   --banner: #036264;
   --font-family: "-apple-system", "BlinkMacSystemFont", "Arial", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell";
+
+  /* digital app result bar variable */
+  --moodbar-width: 50%;
+  --sleepbar-width: 50%;
+  --nutritionbar-width: 50%;
+  --socialbar-width: 50%;
+  --exercisebar-width: 50%;
 }
 
 html[current-theme="light-theme"] {
@@ -535,7 +542,97 @@ button:focus-visible {
 }
 
 #health_landing_img {
-  max-height: 400px;
+  max-width: 60vw;
+}
+
+#mood_bar {
+  background: #333;
+  border-radius: 13px;
+  height: 20px;
+  width: 300px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+#mood_bar:after {
+  content: "";
+  display: block;
+  background: var(--tertiary-color);
+  width: var(--moodbar-width);
+  height: 100%;
+  border-radius: 9px;
+}
+
+#sleep_bar {
+  background: #333;
+  border-radius: 13px;
+  height: 20px;
+  width: 300px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+#sleep_bar:after {
+  content: "";
+  display: block;
+  background: var(--tertiary-color);
+  width: var(--sleepbar-width);
+  height: 100%;
+  border-radius: 9px;
+}
+
+#nutrition_bar {
+  background: #333;
+  border-radius: 13px;
+  height: 20px;
+  width: 300px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+#nutrition_bar:after {
+  content: "";
+  display: block;
+  background: var(--tertiary-color);
+  width: var(--nutritionbar-width);
+  height: 100%;
+  border-radius: 9px;
+}
+
+#social_bar {
+  background: #333;
+  border-radius: 13px;
+  height: 20px;
+  width: 300px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+#social_bar:after {
+  content: "";
+  display: block;
+  background: var(--tertiary-color);
+  width: var(--socialbar-width);
+  height: 100%;
+  border-radius: 9px;
+}
+
+#exercise_bar {
+  background: #333;
+  border-radius: 13px;
+  height: 20px;
+  width: 300px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+#exercise_bar:after {
+  content: "";
+  display: block;
+  background: var(--tertiary-color);
+  width: var(--exercisebar-width);
+  height: 100%;
+  border-radius: 9px;
 }
 
 /* footer styles */

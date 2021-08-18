@@ -139,9 +139,36 @@
               </div>
             </div>
 
-            <div class="dashboard-container hidden">
+            <div class="dashboard-container hidden fade-in-content">
               <h3>Digi health dashboard</h3>
-              <div id="dashboard_scores"></div>
+            
+                <div id="mood_result"></div>
+                <div>
+                  <div id="mood_bar"></div>
+                </div>
+
+                <div id="sleep_result"></div>
+                <div>
+                  <div id="sleep_bar"></div>
+                </div>
+
+                <div id="nutrition_result"></div>
+                <div>
+                  <div id="nutrition_bar"></div>
+                </div>
+
+                <div id="social_result"></div>
+                <div>
+                  <div id="social_bar"></div>
+                </div>
+
+                <div id="exercise_result"></div>
+                <div>
+                  <div id="exercise_bar"></div>
+                </div>
+
+              </div>
+              
             </div>
 
           </div>
@@ -186,12 +213,17 @@
     const sliders = document.querySelectorAll(".slider");
     const sliderDisplay = document.querySelectorAll(".slider-display")
 
-    const startBtn = document.getElementById("start_quiz")
+    const startBtn = document.getElementById("start_quiz");
     const nextBtns = document.querySelectorAll(".next-btn");
 
     const dashBoard = document.querySelector('.dashboard-container');
-    const finalScores = document.getElementById('dashboard_scores')
 
+    const moodResult = document.getElementById('mood_result');
+    const sleepResult = document.getElementById('sleep_result');
+    const nutritionResult = document.getElementById('nutrition_result')
+    const socialResult = document.getElementById('social_result')
+    const exerciseResult = document.getElementById('exercise_result')
+  
 
     let scoresObject = {};
 
@@ -231,18 +263,23 @@
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index === 4){
             [...containers][index].classList.add("hidden"); 
             dashBoard.classList.remove("hidden")
-            finalScores.innerHTML =  `
-            Mood score: ${scoresObject.mood_slider} <br><br>
-            Sleep score: ${scoresObject.sleep_slider} <br><br>
-            Nutrition score: ${scoresObject.nutrition_slider} <br><br>
-            Social score: ${scoresObject.social_slider} <br><br>
-            Exercise score: ${scoresObject.exercise_slider} <br><br>
-            `
+            moodResult.innerHTML = `Mood score: ${scoresObject.mood_slider}`;
+            sleepResult.innerHTML = `Sleep score: ${scoresObject.sleep_slider}`;
+            nutritionResult.innerHTML = `Nutrition score: ${scoresObject.nutrition_slider}`;
+            socialResult.innerHTML = `Social score: ${scoresObject.social_slider}`;
+            exerciseResult.innerHTML = `Exercise score: ${scoresObject.exercise_slider}`;
+
+            document.documentElement.style.setProperty("--moodbar-width", `${scoresObject.mood_slider * 10}%`);
+            document.documentElement.style.setProperty("--sleepbar-width", `${scoresObject.sleep_slider * 10}%`);
+            document.documentElement.style.setProperty("--nutritionbar-width", `${scoresObject.nutrition_slider * 10}%`);
+            document.documentElement.style.setProperty("--socialbar-width", `${scoresObject.social_slider * 10}%`);
+            document.documentElement.style.setProperty("--exercisebar-width", `${scoresObject.exercise_slider * 10}%`);
           }
         })
       })
     })
 
+    //for keyboard users wanting to use 'Enter' instead of tabbing to button
     document.addEventListener("keydown", (event) => {
       if(event.key === 'Enter'){
         let currBtn = [...nextBtns].filter(btn => btn.offsetParent !== null)[0]
