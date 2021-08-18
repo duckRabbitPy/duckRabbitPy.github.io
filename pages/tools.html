@@ -244,6 +244,13 @@
     })
 
     document.addEventListener("keydown", (event) => {
+      if(event.key === 'Enter'){
+        let currBtn = [...nextBtns].filter(btn => btn.offsetParent !== null)[0]
+        currBtn.click()
+      }
+    })
+  
+    document.addEventListener("keydown", (event) => {
       sliders.forEach((slider) => {
         let containerClass = slider.parentElement.parentElement.classList[0];
         if (!containerClass.includes("hidden")) {
