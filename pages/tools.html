@@ -16,8 +16,7 @@
   </head>
 
   <nav>
-    <nav>
-      <ul role="navigation">
+      <ul>
         <li tabindex="0" class="key-nav" id="skip_to_content">
           <a href="#main_content">Skip to main content</a>
         </li>
@@ -69,7 +68,7 @@
             </div>
               
             <div>
-              <img id="health_landing_img" src="../images/allDomains.svg">
+              <img id="health_landing_img" src="../images/allDomains.svg" alt="picture showing 5 domains of health, mood, sleep, nutrition, social and exercise">
             </div>
             </div>
 
@@ -80,10 +79,22 @@
             <div>
               <input type="range" id="mood_slider" class="slider" name="mood_slider"
                      min="1" max="9" step=1 value=5 list="mood_score">
+                     <!-- datalist for accessibility -->
+                     <datalist id="mood_score">
+                       <option>1</option>
+                       <option>2</option>
+                       <option>3</option>
+                       <option>4</option>
+                       <option>5</option>
+                       <option>6</option>
+                       <option>7</option>
+                       <option>8</option>
+                       <option>9</option>
+                     </datalist>
               <label for="mood_slider">Mood</label>
               <p class="slider-display" id="display_mood">Score: <b>5</b> (Ok)</p>
               <button class="next-btn">Next</button>
-              <img class="domain-img" src="../images/mood.svg">
+              <img class="domain-img" src="../images/mood.svg" alt="image of two people thinking, symbolising mood">
             </div>
             </div>
 
@@ -93,10 +104,22 @@
                 <div>
                 <input type="range" id="sleep_slider" class="slider" name="sleep_slider"
                        min="1" max="9" step=1 value=5 list="sleep_score">
+                       <!-- datalist for accessibility -->
+                      <datalist id="sleep_score">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                      </datalist>
                 <label for="sleep_slider">Sleep</label>
                 <p class="slider-display" id="display_sleep">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
-                <img class="domain-img" src="../images/owl.svg">
+                <img class="domain-img" src="../images/owl.svg" alt="owl illustration symbolising of sleep">
               </div>
             </div>
 
@@ -106,10 +129,22 @@
               <div>
                 <input type="range" id="nutrition_slider" class="slider" name="nutrition_slider"
                        min="1" max="9" step=1 value=5 list="nutrition_score">
+                       <!-- datalist for accessibility -->
+                      <datalist id="nutrition_score">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                      </datalist>
                 <label for="nutrition_slider">Nutrition</label>
                 <p class="slider-display" id="display_nutrition">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
-                <img class="domain-img" src="../images/nutrition.svg">
+                <img class="domain-img" src="../images/nutrition.svg" alt="fruit and vegetables symbolising nutrition">
               </div>
             </div>
 
@@ -119,10 +154,22 @@
               <div>
                 <input type="range" id="social_slider" class="slider" name="social_slider"
                        min="1" max="9" step=1 value=5 list="social_score">
+                       <!-- datalist for accessibility -->
+                      <datalist id="social_score">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                      </datalist>
                 <label for="social_slider">Sociability</label>
                 <p class="slider-display" id="display_social">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
-                <img class="domain-img" src="../images/social.svg">
+                <img class="domain-img" src="../images/social.svg" alt="a group of friends symbolising sociability">
               </div>
             </div>
 
@@ -132,10 +179,22 @@
               <div>
                 <input type="range" id="exercise_slider" class="slider" name="exercise_slider"
                        min="1" max="9" step=1 value=5 list="exercise_score">
+                       <!-- datalist for accessibility -->
+                      <datalist id="exercise_score">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                      </datalist>
                 <label for="exercise_slider">Exercise</label>
                 <p class="slider-display" id="display_exercise">Score: <b>5</b> (Ok)</p>
                 <button class="next-btn">Next</button>
-                <img class="domain-img" src="../images/exercise.svg">
+                <img class="domain-img" src="../images/exercise.svg" alt="a person running, symbolising exercise">
               </div>
             </div>
 
@@ -148,7 +207,7 @@
                     <div id="mood_result"></div>
                     <div id="mood_bar"></div>
                   </div>
-                  <img id="mood_icon" class="positive_icon hidden" src="../images/positive.svg">
+                  <img id="mood_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
                 
                 <div class="bar-container">
@@ -156,7 +215,7 @@
                     <div id="sleep_result"></div>
                     <div id="sleep_bar"></div>
                   </div>
-                    <img id="sleep_icon" class="positive_icon hidden" src="../images/positive.svg">
+                    <img id="sleep_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
                 
                 <div class="bar-container">
@@ -164,7 +223,7 @@
                     <div id="nutrition_result"></div>
                     <div id="nutrition_bar"></div>
                   </div>
-                    <img id="nutrition_icon" class="positive_icon hidden" src="../images/positive.svg">
+                    <img id="nutrition_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
                 
                 <div class="bar-container">
@@ -172,7 +231,7 @@
                     <div id="social_result"></div>
                     <div id="social_bar"></div>
                   </div>
-                    <img id="social_icon" class="positive_icon hidden" src="../images/positive.svg">
+                    <img id="social_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
                 
                 <div class="bar-container">
@@ -180,7 +239,7 @@
                   <div id="exercise_result"></div>
                   <div id="exercise_bar"></div>
                 </div>
-                  <img id="exercise_icon" class="positive_icon hidden" src="../images/positive.svg">
+                  <img id="exercise_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
 
               </div>

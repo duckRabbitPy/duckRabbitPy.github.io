@@ -545,7 +545,7 @@ button:focus-visible {
 }
 
 .domain-img {
-  max-height: 200px;
+  max-height: 30vh;
 }
 
 #health_landing_img {
@@ -670,6 +670,7 @@ button:focus-visible {
 
 /* footer styles */
 footer {
+  font-size: large;
   display: flex;
   flex-direction: row;
   justify-content: center;
