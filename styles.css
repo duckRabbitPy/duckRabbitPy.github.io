@@ -88,7 +88,7 @@ body a {
 }
 
 .landing-img {
-  height: 50vh;
+  max-height: 50vh;
   animation: var(--landing-animation);
   -webkit-animation: var(--landing-animation);
   -moz-animation: var(--landing-animation);
@@ -158,7 +158,7 @@ nav [aria-current="page"] {
 nav li {
   list-style: none;
   color: #000;
-  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  padding: 0rem;
   /* transparent border to keep sizing consistent on hover */
   border-bottom: 4px solid rgba(244, 192, 20, 0);
   border-right: 0.5px solid white;
@@ -188,9 +188,19 @@ nav ul {
 }
 
 nav a {
-  font-size: x-large;
+  font-size: xx-large;
   color: rgb(0, 0, 0);
   text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+nav i {
+  font-size: x-large;
+  padding: 1rem;
 }
 
 i {
@@ -249,7 +259,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 .inclusive-container,
 .tools-container,
 .settings-container {
-  margin: 0.5rem 2rem 0 2rem;
+  margin: 0.5rem 4rem 0rem 3rem;
 }
 
 .about-container {
@@ -513,11 +523,6 @@ but becomes visible and clickable/enterable with keyboard focus */
   height: 10vw;
 }
 
-#word_input_container {
-  display: flex;
-  flex-direction: column;
-}
-
 .scroll-top {
   margin-top: 10px;
   margin-left: 90%;
@@ -550,7 +555,7 @@ button:focus-visible {
 }
 
 .domain-img {
-  max-height: 30vh;
+  max-height: 200px;
 }
 
 #health_landing_img {
@@ -675,7 +680,6 @@ button:focus-visible {
 
 /* footer styles */
 footer {
-  font-size: large;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -700,6 +704,19 @@ footer {
     width: 100%;
     height: 100%;
     justify-content: center;
+  }
+
+  nav a {
+    font-size: x-large;
+  }
+
+  nav i {
+    font-size: large;
+    padding: 0.5rem;
+  }
+
+  i {
+    font-size: small;
   }
 }
 
@@ -728,6 +745,11 @@ footer {
   }
   i {
     font-size: small;
+  }
+
+  nav i {
+    font-size: small;
+    padding: 0.2rem;
   }
 
   nav ul {
