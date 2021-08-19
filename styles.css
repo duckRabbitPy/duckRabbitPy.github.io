@@ -88,7 +88,7 @@ body a {
 }
 
 .landing-img {
-  max-height: 50vh;
+  height: 50vh;
   animation: var(--landing-animation);
   -webkit-animation: var(--landing-animation);
   -moz-animation: var(--landing-animation);
@@ -511,6 +511,11 @@ but becomes visible and clickable/enterable with keyboard focus */
 #text_input {
   width: 70vw;
   height: 10vw;
+}
+
+#word_input_container {
+  display: flex;
+  flex-direction: column;
 }
 
 .scroll-top {
