@@ -391,7 +391,10 @@
             content inaccessible. I've built my own sentence analysis tool that
             indicates how readable your text is.
           </p>
-          <textarea id="text_input" name="textInput"></textarea>
+          <div id="word_input_container">
+            <label for="text_input">Paste text here:</label>
+            <textarea id="text_input" name="textInput"></textarea>
+          </div>
           <button id="analyse_btn" type="submit">Analyse text</button>
           <p id="complexity_result">Result:</p>
         </form>
