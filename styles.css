@@ -461,6 +461,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .factor-img {
+  height: 22vh;
   max-width: 200px;
 }
 

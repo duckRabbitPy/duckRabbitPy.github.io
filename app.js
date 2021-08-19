@@ -37,15 +37,6 @@ keyNavElements.forEach((elem) => {
       }
     }
   });
-
-  //This function ensures that any user that misses the a tag link
-  //and hits some of the surrounding li tag, that they will still be sent to correct place
-  elem.addEventListener("click", (event) => {
-    let newLocation = event.target.childNodes[1].href;
-    if (newLocation) {
-      window.location.href = newLocation;
-    }
-  });
 });
 
 function googleTranslateElementInit() {
@@ -56,13 +47,14 @@ function googleTranslateElementInit() {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "a") {
+  console.log(event.key);
+  if (event.key === "*") {
     flagForImprovement();
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "f") {
+  if (event.key === "!") {
     window.location = "/pages/feedback.html";
   }
 });
