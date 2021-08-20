@@ -721,7 +721,7 @@ footer {
   }
 }
 
-/* moblie */
+/* wide screen moblie or below */
 @media (max-width: 700px) {
   .factor-container {
     padding-top: 2rem;
@@ -734,6 +734,13 @@ footer {
     flex-direction: column;
   }
 
+  .about-container,
+  .inclusive-container,
+  .tools-container,
+  .settings-container {
+    margin: 0.5rem 0.5rem 0rem 0.5rem;
+  }
+
   .about-img {
     margin: 2rem;
     height: 250px;
@@ -741,16 +748,20 @@ footer {
     border-radius: 2.5%;
   }
 
+  .profile-items {
+    padding-left: 0;
+  }
+
   nav a {
-    font-size: small;
+    font-size: large;
   }
   i {
     font-size: small;
   }
 
   nav i {
-    font-size: small;
-    padding: 0.2rem;
+    font-size: smaller;
+    padding: 0.1rem;
   }
 
   nav ul {
@@ -772,15 +783,15 @@ footer {
   }
 
   .banner {
-    height: 150px;
+    height: 90px;
   }
 
   .banner h1 {
-    padding-top: 1rem;
-    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
     margin: 0px;
     color: white;
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .filter-btn-container {
@@ -788,5 +799,15 @@ footer {
     margin-bottom: 0.5rem;
     flex-direction: column;
     justify-content: space-evenly;
+  }
+}
+
+/* narrow mobile */
+@media (max-width: 440px) {
+  nav a {
+    font-size: small;
+  }
+  nav i {
+    font-size: smaller;
   }
 }
