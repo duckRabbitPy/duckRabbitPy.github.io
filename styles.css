@@ -167,7 +167,6 @@ nav li {
 }
 
 nav li:hover {
-  /* background-color: rgb(244, 191, 20); */
   background-color: var(--secondary-color);
   color: #000;
   border-bottom: 3px solid #444;
@@ -215,7 +214,12 @@ mark {
   padding: 1px;
 }
 
-.key-nav:focus-visible {
+.key-nav:focus {
+  background-color: var(--secondary-color);
+}
+
+/* for safari */
+.key-nav:focus {
   background-color: var(--secondary-color);
 }
 
@@ -291,11 +295,11 @@ but becomes visible and clickable/enterable with keyboard focus */
   list-style-type: none;
 }
 
-.profile-li:focus-visible {
+.profile-li:focus {
   background-color: var(--secondary-color);
 }
 
-.profile-figure:focus-visible {
+.profile-figure:focus {
   background-color: var(--secondary-color);
 }
 
@@ -407,7 +411,15 @@ but becomes visible and clickable/enterable with keyboard focus */
 #physical-section,
 #language-section,
 #community-section {
-  padding-top: 10px;
+  /* Debated whether outline is needed for accessibility here */
+  /* My reasoning is no, because boundary does not demarcate content */
+  /* In firefox no styling is provided and that feels right */
+  /* section semantics should be sufficient for screen readers */
+
+  /* ?? */
+  /* outline: thin solid var(--tertiary-color); */
+  outline: none;
+  padding: 10px;
   margin: 20px;
 }
 
@@ -424,17 +436,17 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .neuro-diversity:hover,
-.neuro-diversity:focus-visible,
+.neuro-diversity:focus,
 .physical-health-and-ability:hover,
-.physical-health-and-ability:focus-visible,
+.physical-health-and-ability:focus,
 .language-area:hover,
-.language-area:focus-visible,
+.language-area:focus,
 .community-diversity:hover,
-.community-diversity:focus-visible,
+.community-diversity:focus,
 .visual-impairment:hover,
-.visual-impairment:focus-visible,
+.visual-impairment:focus,
 .digital-inclusion:hover,
-.digital-inclusion:focus-visible {
+.digital-inclusion:focus {
   border: var(--text-color);
   background-color: var(--tertiary-color);
   border-style: solid;
@@ -474,7 +486,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  border: black 1px groove;
+  border: var(--tertiary-color) 1px groove;
   display: flex;
   flex-direction: row;
   justify-items: left;
@@ -486,8 +498,6 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .filter-btn {
-  width: 100%;
-  height: 100%;
   margin: 5px;
 }
 
@@ -536,6 +546,11 @@ but becomes visible and clickable/enterable with keyboard focus */
   height: 10vw;
 }
 
+#word_input_container {
+  display: flex;
+  flex-direction: column;
+}
+
 .scroll-top {
   margin-top: 10px;
   margin-left: 90%;
@@ -548,7 +563,7 @@ button {
 }
 
 button:hover,
-button:focus-visible {
+button:focus {
   background-color: var(--secondary-color);
 }
 
