@@ -723,7 +723,7 @@ footer {
   }
 }
 
-/* wide screen moblie or below */
+/* wide screen or landscape mobile or below */
 @media (max-width: 700px) {
   .factor-container {
     padding-top: 2rem;
@@ -756,7 +756,7 @@ footer {
 
   nav a {
     padding-left: 3px;
-    font-size: large;
+    font-size: 15px;
   }
   i {
     font-size: small;
@@ -801,7 +801,7 @@ footer {
   nav a {
     padding-left: 4px;
     padding-right: 4px;
-    font-size: large;
+    font-size: 14px;
   }
   nav i {
     position: absolute;
@@ -819,7 +819,7 @@ footer {
   nav a {
     padding-left: 2px;
     padding-right: 2px;
-    font-size: small;
+    font-size: 12px;
   }
   nav i {
     position: absolute;
