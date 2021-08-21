@@ -48,13 +48,13 @@ function googleTranslateElementInit() {
 
 document.addEventListener("keydown", (event) => {
   console.log(event.key);
-  if (event.key === "*") {
+  if (event.key === "8" && event.ctrlKey) {
     flagForImprovement();
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "!") {
+  if (event.key === "9" && event.ctrlKey) {
     window.location = "/pages/feedback.html";
   }
 });
