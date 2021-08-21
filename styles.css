@@ -194,13 +194,14 @@ nav a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
+  width: fit-content;
   height: 100%;
+  padding: 5px;
 }
 
 nav i {
   font-size: x-large;
-  padding: 1rem;
+  padding: 5px;
 }
 
 i {
@@ -236,15 +237,16 @@ but becomes visible and clickable/enterable with keyboard focus */
 /* banner and h1*/
 .banner {
   background-color: var(--banner);
-  height: 150px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
 
 .banner h1 {
-  padding-top: 1rem;
-  padding-left: 3rem;
-  margin: 0px;
   color: white;
   font-size: 100px;
+  padding: 0;
+  margin: 10px;
 }
 
 /* general */
@@ -708,12 +710,12 @@ footer {
   }
 
   nav a {
+    padding-left: 3px;
     font-size: x-large;
   }
 
   nav i {
     font-size: large;
-    padding: 0.5rem;
   }
 
   i {
@@ -753,6 +755,7 @@ footer {
   }
 
   nav a {
+    padding-left: 3px;
     font-size: large;
   }
   i {
@@ -761,7 +764,6 @@ footer {
 
   nav i {
     font-size: smaller;
-    padding: 0.1rem;
   }
 
   nav ul {
@@ -782,16 +784,8 @@ footer {
     display: none;
   }
 
-  .banner {
-    height: 90px;
-  }
-
   .banner h1 {
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;
-    margin: 0px;
-    color: white;
-    font-size: 40px;
+    font-size: 70px;
   }
 
   .filter-btn-container {
@@ -802,12 +796,34 @@ footer {
   }
 }
 
-/* narrow mobile */
-@media (max-width: 440px) {
+/* normal mobile */
+@media (max-width: 480px) {
   nav a {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: large;
+  }
+  nav i {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+  }
+
+  .banner h1 {
+    font-size: 60px;
+  }
+}
+
+/* narrow mobile */
+@media (max-width: 370px) {
+  nav a {
+    padding-left: 2px;
+    padding-right: 2px;
     font-size: small;
   }
   nav i {
-    font-size: smaller;
+    position: absolute;
+    visibility: hidden;
+    display: none;
   }
 }
