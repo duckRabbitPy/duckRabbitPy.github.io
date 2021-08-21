@@ -89,6 +89,7 @@ body a {
 
 .landing-img {
   max-height: 50vh;
+  width: 80vw;
   animation: var(--landing-animation);
   -webkit-animation: var(--landing-animation);
   -moz-animation: var(--landing-animation);
@@ -445,6 +446,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 .community-diversity header,
 .visual-impairment header,
 .digital-inclusion header {
+  font-size: large;
   padding: 10px;
 }
 
@@ -484,28 +486,36 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .filter-btn {
-  width: 150px;
-  height: min-content;
+  width: 100%;
+  height: 100%;
+  margin: 5px;
 }
 
 .filter-btn-container {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 .multi_coloured {
-  max-width: 40vw;
+  width: 40vw;
   border-radius: 10%;
   filter: var(--vision-filter);
 }
 
 .comparison-container {
+  width: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.comparison-figure {
+  margin: 10px;
 }
 
 .sightLoss {
@@ -692,7 +702,7 @@ footer {
   font-size: var(--font-size);
 }
 
-/* Ipad */
+/* Ipad width or lower*/
 @media (max-width: 1000px) {
   .factor-container {
     padding-top: 0.5rem;
@@ -729,6 +739,16 @@ footer {
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
+  }
+
+  .neuro-diversity header,
+  .physical-health-and-ability header,
+  .language-area header,
+  .community-diversity header,
+  .visual-impairment header,
+  .digital-inclusion header {
+    padding: 10px;
+    width: 250px;
   }
 
   .about-container {
@@ -775,8 +795,14 @@ footer {
     padding: 0;
   }
 
-  .landing-img {
-    max-height: 200px;
+  .filter-btn-container {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
   }
 
   /* consider whether this is best accessibility option for mobile? */
@@ -786,13 +812,6 @@ footer {
 
   .banner h1 {
     font-size: 70px;
-  }
-
-  .filter-btn-container {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    flex-direction: column;
-    justify-content: space-evenly;
   }
 }
 
