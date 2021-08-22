@@ -586,6 +586,18 @@ button:hover {
   max-width: 60vw;
 }
 
+.suggestions {
+  margin-left: 3rem;
+}
+
+.suggestion-vid {
+  margin-left: 2rem;
+}
+
+.suggestion-item {
+  margin: 10px;
+}
+
 #mood_bar {
   background: #333;
   border-radius: 13px;
@@ -747,6 +759,17 @@ footer {
 
   i {
     font-size: small;
+  }
+
+  .health-app {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding-left: 50px;
+  }
+
+  .suggestions {
+    margin-left: 0;
   }
 }
 

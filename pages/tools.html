@@ -198,13 +198,12 @@
               </div>
             </div>
 
-            <div class="dashboard-container hidden fade-in-content">
-              <h3>Digi health dashboard</h3>
-            
-              
+          <section class="dashboard-container fade-in-content hidden">
+            <div class="result-container hidden">
+              <h2>Digi health results </h2>
                 <div class="bar-container">
                   <div>
-                    <div id="mood_result"></div>
+                    <div tabindex="0" id="mood_result"></div>
                     <div id="mood_bar"></div>
                   </div>
                   <img id="mood_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
@@ -212,7 +211,7 @@
                 
                 <div class="bar-container">
                   <div>
-                    <div id="sleep_result"></div>
+                    <div tabindex="0" id="sleep_result"></div>
                     <div id="sleep_bar"></div>
                   </div>
                     <img id="sleep_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
@@ -220,7 +219,7 @@
                 
                 <div class="bar-container">
                   <div>
-                    <div id="nutrition_result"></div>
+                    <div tabindex="0" id="nutrition_result"></div>
                     <div id="nutrition_bar"></div>
                   </div>
                     <img id="nutrition_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
@@ -228,7 +227,7 @@
                 
                 <div class="bar-container">
                   <div>
-                    <div id="social_result"></div>
+                    <div tabindex="0" id="social_result"></div>
                     <div id="social_bar"></div>
                   </div>
                     <img id="social_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
@@ -236,15 +235,34 @@
                 
                 <div class="bar-container">
                   <div>
-                  <div id="exercise_result"></div>
+                  <div tabindex="0" id="exercise_result"></div>
                   <div id="exercise_bar"></div>
                 </div>
                   <img id="exercise_icon" class="positive_icon hidden" src="../images/positive.svg" alt="positive icon">
                 </div>
-
               </div>
               
             </div>
+
+            <div class="suggestions hidden">
+              <h2>Suggestions</h2>
+              <p>It's great to see that your Mood has been good this week, keep it going!</p>
+              <p>
+                It looks like next week you could do with working on improving your sleep!
+                Follow the links for some great resources that can help boost your health and wellbeing</p>
+              
+              <h3>Sleep resources</h3>
+              <div id="sleep_suggestions">
+                <ul>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.mentalhealth.org.uk/publications/how-sleep-better">How to sleep better</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.sleepfoundation.org/sleep-hygiene">Sleep Hygiene</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://pzizz.com/">Sleep App</a></li>
+                </ul>
+              <iframe class="suggestion-vid" width="560" height="315" src="https://www.youtube.com/embed/t0kACis_dJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+
+          </section>
 
           </div>
         </div>
@@ -292,6 +310,8 @@
     const nextBtns = document.querySelectorAll(".next-btn");
 
     const dashBoard = document.querySelector('.dashboard-container');
+    const resultContainer = document.querySelector('.result-container');
+    const suggestions = document.querySelector('.suggestions');
 
     const moodResult = document.getElementById('mood_result');
     const sleepResult = document.getElementById('sleep_result');
@@ -343,7 +363,9 @@
           }
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index === 4){
             [...containers][index].classList.add("hidden"); 
-            dashBoard.classList.remove("hidden")
+            dashBoard.classList.remove("hidden");
+            resultContainer.classList.remove("hidden");
+            suggestions.classList.remove("hidden");
             moodResult.innerHTML = `Mood score: ${scoresObject.mood_slider}`;
             sleepResult.innerHTML = `Sleep score: ${scoresObject.sleep_slider}`;
             nutritionResult.innerHTML = `Nutrition score: ${scoresObject.nutrition_slider}`;
