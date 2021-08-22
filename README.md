@@ -6,8 +6,6 @@ This is my application website for the Founders and Coders programme available a
 
 ## Technologies and techniques used:
 
-<br>
-
 - HTML
 
   - Semantic HTML
