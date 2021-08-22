@@ -69,6 +69,7 @@ body {
   font-size: var(--font-size);
   font-family: var(--font-family);
   background: var(--background-color);
+  min-width: 250px;
 }
 
 body a {
@@ -578,6 +579,10 @@ button:hover {
   justify-content: center;
 }
 
+#health_landing_text {
+  margin-right: 20px;
+}
+
 .domain-img {
   max-height: 200px;
 }
@@ -588,10 +593,11 @@ button:hover {
 
 .suggestions {
   margin-left: 3rem;
+  margin-right: 1rem;
 }
 
-.suggestion-vid {
-  margin-left: 2rem;
+.suggestion-list {
+  padding: 0;
 }
 
 .suggestion-item {
@@ -768,6 +774,11 @@ footer {
     padding-left: 50px;
   }
 
+  .digi-health-landing {
+    display: flex;
+    flex-direction: column;
+  }
+
   .suggestions {
     margin-left: 0;
   }
@@ -843,6 +854,14 @@ footer {
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
+  }
+
+  #mood_bar,
+  #sleep_bar,
+  #nutrition_bar,
+  #social_bar,
+  #exercise_bar {
+    width: 250px;
   }
 
   /* consider whether this is best accessibility option for mobile? */

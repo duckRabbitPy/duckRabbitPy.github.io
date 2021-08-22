@@ -50,10 +50,10 @@
       <div id="main_content" >
         <div class="health-app fade-in-content">
 
-          <div class="View">
+          <div class="view">
 
             <div class="digi-health-landing fade-in-content">
-              <div>
+              <div id="health_landing_text">
               <h2>Welcome to digital health</h2>
               <p>Sometimes it's hard to know where to start when we're looking to improve or maintain our health.
                 One approach is to start with the basics and build from there! This online tool will ask 5 questions
@@ -246,20 +246,61 @@
 
             <div class="suggestions hidden">
               <h2>Suggestions</h2>
-              <p>It's great to see that your Mood has been good this week, keep it going!</p>
-              <p>
-                It looks like next week you could do with working on improving your sleep!
-                Follow the links for some great resources that can help boost your health and wellbeing</p>
+              <p id="high_scoring"></p>
+              <p id="low_scoring"></p>
               
-              <h3>Sleep resources</h3>
-              <div id="sleep_suggestions">
-                <ul>
+              
+              <div id="mood_suggestions" class="hidden">
+                <h3>Mood resources</h3>
+                <ul class="suggestion-list">
+                  <li class="suggestion-item"><a target="_blank" href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/depression/self-care/">Low mood tips</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.nhs.uk/apps-library/catch-it/">Free CBT App</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://buddhify.com/">Mindfulness App</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/mental-wellbeing-audio-guides/">Mental wellbeing audio guides</a></li>
+                </ul>
+              <iframe class="suggestion-vid" width="90%" height="300vh" src="https://www.youtube.com/embed/ytKCcYxUU04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div id="sleep_suggestions" class="hidden">
+                <h3>Sleep resources</h3>
+                <ul class="suggestion-list">
                   <li class="suggestion-item"><a target="_blank" href="https://www.mentalhealth.org.uk/publications/how-sleep-better">How to sleep better</a></li>
                   <li class="suggestion-item"><a target="_blank" href="https://www.sleepfoundation.org/sleep-hygiene">Sleep Hygiene</a></li>
                   <li class="suggestion-item"><a target="_blank" href="https://pzizz.com/">Sleep App</a></li>
                 </ul>
-              <iframe class="suggestion-vid" width="560" height="315" src="https://www.youtube.com/embed/t0kACis_dJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe class="suggestion-vid" width="90%" height="300vh" src="https://www.youtube.com/embed/t0kACis_dJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
+
+              <div id="nutrition_suggestions" class="hidden">
+                <h3>Nutrition resources</h3>
+                <ul class="suggestion-list">
+                  <li class="suggestion-item"><a target="_blank" href="https://www.bbcgoodfood.com/howto/guide/what-is-dash-diet">DASH diet</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.nhs.uk/live-well/eat-well/eight-tips-for-healthy-eating/">Healthy eating tips</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.PHE.smartrecipes&hl=en_GB&gl=US">Easy Meals App</a></li>
+                </ul>
+                <iframe class="suggestion-vid" width="90%" height="300vh" src="https://www.youtube.com/embed/Uj8_Na-3YBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div id="social_suggestions" class="hidden">
+                <h3>Social connectedness resources</h3>
+                <ul class="suggestion-list">
+                  <li class="suggestion-item"><a target="_blank" href="https://www.betterup.com/blog/how-to-stay-socially-connected-to-society-your-life-depends-on-it">Staying connected</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.meetup.com/">Meet Up</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.seechum.com/">Social connection app</a></li>
+                </ul>
+                <iframe class="suggestion-vid" width="90%" height="300vh" src="https://www.youtube.com/embed/8az-gfljEbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div id="exercise_suggestions" class="hidden">
+                <h3>Exercise resources</h3>
+                <ul class="suggestion-list">
+                  <li class="suggestion-item"><a target="_blank" href="https://www.healthline.com/nutrition/10-benefits-of-exercise#TOC_TITLE_HDR_3">Benefits of exercise</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://www.nhs.uk/live-well/exercise/10-minute-workouts/">10 minute work outs</a></li>
+                  <li class="suggestion-item"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.phe.couchto5K">Couch to 5k app</a></li>
+                </ul>
+                <iframe class="suggestion-vid" width="90%" height="300vh" src="https://www.youtube.com/watch?v=G2HU4NJ_M3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
             </div>
 
           </section>
@@ -319,6 +360,14 @@
     const socialResult = document.getElementById('social_result');
     const exerciseResult = document.getElementById('exercise_result');
 
+    const lowScoringAlert = document.getElementById('low_scoring')
+    const highScoringAlert = document.getElementById('high_scoring')
+    const moodSuggestions = document.getElementById('mood_suggestions')
+    const sleepSuggestions = document.getElementById('sleep_suggestions')
+    const nutritionSuggestions = document.getElementById('nutrition_suggestions')
+    const socialSuggestions = document.getElementById('social_suggestions')
+    const exerciseSuggestions = document.getElementById('exercise_suggestions')
+
     const moodIcon = document.getElementById('mood_icon');
     const sleepIcon = document.getElementById('sleep_icon');
     const nutritionIcon = document.getElementById('nutrition_icon');
@@ -327,7 +376,8 @@
   
 
     let scoresObject = {};
-
+    let lowScoring = [];
+    let highScoring = [];
 
 
     startBtn.addEventListener("click", () => {
@@ -362,7 +412,10 @@
             [...containers][index].classList.add("hidden");   
           }
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index === 4){
+            //hide slider containers
             [...containers][index].classList.add("hidden"); 
+
+            //reveal results dashboard and suggestions
             dashBoard.classList.remove("hidden");
             resultContainer.classList.remove("hidden");
             suggestions.classList.remove("hidden");
@@ -378,6 +431,30 @@
             showPositiveIcon(scoresObject.social_slider, socialIcon)
             showPositiveIcon(scoresObject.exercise_slider, exerciseIcon)
 
+            let scoreEntries = Object.entries(scoresObject)
+            scoreEntries.forEach(entry => {
+              let breakIndex = entry[0].indexOf('_')
+              let domain = entry[0].slice(0,breakIndex)
+              if(entry[1] < 5){
+                lowScoring.push(domain)
+                revealSuggestion(domain)
+              }
+              if(entry[1] > 5){
+                highScoring.push(domain)
+                welldoneMsg(domain)
+
+              }
+            })
+
+            //If all scores are 5's
+            if(lowScoring.length === 0 && highScoring.length === 0 ){
+            highScoringAlert.innerHTML = "All 5's! Straight down the middle is a good the place to be, so no suggestions this week!"
+            }
+    
+
+            //generate suggestion text based on score values
+            generateSuggestionText()
+
             document.documentElement.style.setProperty("--moodbar-width", `${scoresObject.mood_slider * 10}%`);
             document.documentElement.style.setProperty("--sleepbar-width", `${scoresObject.sleep_slider * 10}%`);
             document.documentElement.style.setProperty("--nutritionbar-width", `${scoresObject.nutrition_slider * 10}%`);
@@ -387,6 +464,45 @@
         })
       })
     })
+
+
+    function generateSuggestionText (){
+      let area = lowScoring.length > 1 ? 'domains' : 'domain';
+      let lowDomains = lowScoring.join('+');
+
+      if(lowDomains){
+      lowScoringAlert.innerHTML = `It looks like next week you could do with working on the ${[lowDomains]} ${area} of health!
+      Follow the links for some great resources that can help boost your health
+      and wellbeing`}
+      
+    }
+
+    function welldoneMsg(domain){
+      let area = highScoring.length > 1 ? 'domains' : 'domain';
+      let pastTense = highScoring.length > 1 ? 'have' : 'has';
+      let highDomains = highScoring.join('+');
+      if(highDomains){
+        highScoringAlert.innerHTML = `It's great to see that your ${highDomains} ${area} of health ${pastTense} been good this week, keep it going!!`
+      }
+    }
+
+    function revealSuggestion(domain){
+              if(domain === 'mood'){
+                moodSuggestions.classList.remove('hidden')
+              }
+              else if(domain === 'sleep'){
+                sleepSuggestions.classList.remove('hidden')
+              }
+              else if(domain === 'nutrition'){
+                nutritionSuggestions.classList.remove('hidden')
+              }
+              else if(domain === 'social'){
+                socialSuggestions.classList.remove('hidden')
+              }
+              else if (domain === 'exercise'){
+                exerciseSuggestions.classList.remove('hidden')
+              }
+            }
 
     function showPositiveIcon(sliderScore, iconType){
       if(sliderScore > 5){
