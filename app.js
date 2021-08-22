@@ -47,7 +47,6 @@ function googleTranslateElementInit() {
 }
 
 document.addEventListener("keydown", (event) => {
-  console.log(event.key);
   if (event.key === "8" && event.ctrlKey) {
     flagForImprovement();
   }

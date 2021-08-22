@@ -567,8 +567,7 @@ button {
   border: 1px solid rgba(0, 0, 0);
 }
 
-button:hover,
-button:focus {
+button:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.5);
   background-color: var(--secondary-color);
 }
@@ -696,6 +695,12 @@ button:focus {
   max-width: 7vh;
   margin-left: 10px;
   animation: var(--pulse-animation);
+}
+
+/* settings */
+
+#reset_img {
+  height: 10vh;
 }
 
 @keyframes pulse {

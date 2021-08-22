@@ -71,7 +71,9 @@
       <header>Language</header>
       <div id="google_translate_element"></div>
       <header>Animations</header>
-      <button id="animationBtn">Disable animations</button>
+      <button id="animation_btn">Disable animations</button>
+      <header>Reset <i class="fas fa-undo"></i></header>
+      <button id="reset_btn">Reset settings to default</button>
     </div>
 
     <footer>
@@ -94,12 +96,22 @@
       const themeToggle = document.querySelector(".toggle-dark");
       const easyToggle = document.querySelector(".toggle-easy");
       const fontButtons = document.querySelectorAll(".size-btn");
-      const animationBtn = document.getElementById("animationBtn");
+      const animationBtn = document.getElementById("animation_btn");
+      const resetBtn = document.getElementById("reset_btn");
+
+      const translateElem = document.getElementById("google_translate_element");
 
       //font size buttons
       fontButtons.forEach((elem) => {
         elem.addEventListener("click", (event) => {
           let targetSize = event.target.id;
+
+          //if user has used google translate it messes up the event target
+          //so if the id is not retrieved, get the parent parent id which should be correct
+          if (!event.target.id) {
+            targetSize = event.target.parentElement.parentElement.id;
+          }
+
           document.documentElement.style.setProperty("--font-size", targetSize);
           sessionStorage.setItem("storedFontSize", targetSize);
           setOnState(event);
@@ -186,7 +198,6 @@
         let storedSize = sessionStorage.getItem("storedFontSize");
         let storedFamily = sessionStorage.getItem("storedFontFamily");
         let animationState = sessionStorage.getItem("animationState");
-
         fontButtons.forEach((btn) => {
           if (storedSize === null) {
             return;
@@ -209,11 +220,18 @@
           }
         });
 
-        console.log(animationState);
         animationState === "off"
           ? animationBtn.classList.add("active")
           : animationBtn.classList.remove("active");
       }
+
+      resetBtn.addEventListener("click", () => {
+        sessionStorage.clear();
+        //set google translate cookie expiration date to a date that has passed
+        document.cookie =
+          "googtrans" + "=;Path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+        location.reload();
+      });
 
       setOnState();
     </script>
