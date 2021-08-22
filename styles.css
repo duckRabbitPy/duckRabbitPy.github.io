@@ -218,15 +218,6 @@ mark {
   background-color: var(--secondary-color);
 }
 
-/* for safari */
-.key-nav:focus {
-  background-color: var(--secondary-color);
-}
-
-nav:focus {
-  background-color: var(--secondary-color);
-}
-
 /* skip to content li is invisible to sighted readers, 
 but becomes visible and clickable/enterable with keyboard focus */
 #skip_to_content {

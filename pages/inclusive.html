@@ -291,18 +291,17 @@
         </p>
         <p>
           I want to be a developer that ensures all core functionality is
-          accessible via the keyboard and provides different styling when
-          elements are keyboard focused. Reading up about accessibility options
-          I came across creating a 'skip to main' link in the navigation bar
-          which can save users from repetitive tabbing. Toggle more information
-          to see how I built my accessible nav bar.
+          accessible via the keyboard. Reading up about accessibility options
+          I came across the practice of creating 'skip to main' links in the navigation bar
+          which can save users from repetitive tabbing. Check out the steps below and the 
+          codepen example to see how I built the nav bar for this site.
         </p>
 
         <h4>Building an accessible navbar:</h4>
         <p></p>
         <ol>
           <li class="nav-tut">
-            To started off with I positioned 'a tags' within an unordered list
+            To start off with I positioned 'a tags' within an unordered list
             and wrapped the code block in a semantic 'nav' element. Nav elements
             can help screen readers know when they are iterating through options
             in a menu. <br /><br />
@@ -320,6 +319,12 @@
           </li>
 
           <li class="nav-tut">
+            The height of each a tag is set to 100% and the width is set to fit-content, the icons
+            are also wrapped within the a tag. This means that you will always hit the link 
+            when you click on the nav menu option.
+          </li>
+
+          <li class="nav-tut">
             I then set the href of the 'skip to main content' to the
             #main_content id which is the location of the first piece of
             meaningful content on the page (outside the nav).
@@ -331,16 +336,6 @@
             making the skip link visible!
           </li>
 
-          <li class="nav-tut">
-            Finally there is the issue of navigating with the keyboard, on some
-            screen readers there is no need for JavaScript because they
-            recognise the "a" tags however it can be clunky, so to make sure I
-            have added keydown event listeners, that listen for character 13
-            which is the enter key. On 'enter' the event targets the element,
-            and finds the child "a" tag and href. Window.location is used to
-            then take the user to the page. I have used this keyboard safe
-            approach with many other elements on my site.'
-          </li>
         </ol>
         <p
           class="codepen"
@@ -402,6 +397,8 @@
           </div>
           <button id="analyse_btn" type="submit">Analyse text</button>
           <p id="complexity_result">Result:</p>
+        
+
         </form>
         <button class="scroll-top">Scroll to top</button>
       </section>
@@ -783,13 +780,32 @@
 
         let uniqueLongWords = longWords.filter((word) => word.upp);
 
+        let comprehension = "not calculated"
+
+        if(score < 4){
+          comprehension = "Nursery level English";
+        }
+        else if(score < 8){
+          comprehension = "Primary School level English";
+        }
+        else if(score < 12){
+          comprehension = "High school level English";
+        }
+        else if(score < 16){
+          comprehension = "College level English";
+        }
+        else if (score > 16){
+          comprehension = "Graduate or specialised field level English"
+        }
+
+
         complexResult.innerHTML = `
-        <b>Overall score: ${score}</b> <br><br>
-        Number of words: ${numWords} <br><br>
-        Long words: ${longWords} <br><br>
-        Number of sentences: ${numSentences} <br><br>
-        Number of more difficult words: ${hardWords} <br><br>
-        Percentage 'easy' words: ${percentageEasy}%<br><br>
+        <b>Overall score: ${score}</b> (Requires at least ${comprehension}) <br><br>
+        <b> Number of words:</b> ${numWords} <br><br>
+        <b> Long words:</b> ${longWords} <br><br>
+        <b> Number of sentences:</b> ${numSentences} <br><br>
+        <b> Number of more difficult words:</b> ${hardWords} <br><br>
+        <b> Percentage 'easy' words:</b> ${percentageEasy}%<br><br>
          `;
       }
     </script>
