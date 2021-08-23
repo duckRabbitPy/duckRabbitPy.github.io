@@ -1,10 +1,10 @@
+/* import openDyslexic font */
 @font-face {
   font-family: "openDyslexic";
   src: url("./OpenDyslexic-Regular.woff");
 }
 
 :root {
-  /* --background-color: white; */
   --background-color: white;
   --text-color: black;
   --link-color: blue;
@@ -23,6 +23,7 @@
   --exercisebar-width: 50%;
 }
 
+/* light theme */
 html[current-theme="light-theme"] {
   --background-color: white;
   --text-color: rgb(21, 20, 28);
@@ -32,6 +33,7 @@ html[current-theme="light-theme"] {
   --banner: #036264;
 }
 
+/* dark theme */
 html[current-theme="dark-theme"] {
   --background-color: rgb(29, 13, 45);
   --text-color: white;
@@ -41,6 +43,7 @@ html[current-theme="dark-theme"] {
   --banner: #3a3a3a;
 }
 
+/* pastel or easy read theme */
 html[current-theme="easy-read-theme"] {
   --background-color: #f9f7d8;
   --text-color: #003275;
@@ -50,12 +53,14 @@ html[current-theme="easy-read-theme"] {
   --banner: #1f9c39;
 }
 
+/* animation state off */
 html[animation-state="off"] {
   --landing-animation: "none";
   --soft-animation: "none";
   --pulse-animation: "none";
 }
 
+/* animation state on */
 html[animation-state="on"] {
   --landing-animation: fadeIn 3s;
   --soft-animation: fadeIn 0.8s;
@@ -104,6 +109,12 @@ body a {
   -moz-animation: var(--soft-animation);
   -o-animation: var(--soft-animation);
   -ms-animation: var(--soft-animation);
+}
+
+mark {
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+  padding: 1px;
 }
 
 @keyframes fadeIn {
@@ -209,12 +220,6 @@ i {
   font-size: medium;
 }
 
-mark {
-  background-color: var(--secondary-color);
-  border-radius: 2px;
-  padding: 1px;
-}
-
 .key-nav:focus {
   background-color: var(--secondary-color);
 }
@@ -244,13 +249,6 @@ but becomes visible and clickable/enterable with keyboard focus */
   font-size: 100px;
   padding: 0;
   margin: 10px;
-}
-
-/* general */
-
-.active {
-  background-color: var(--tertiary-color);
-  border: var(--text-color) solid 1px;
 }
 
 /* about page css */
@@ -408,8 +406,6 @@ but becomes visible and clickable/enterable with keyboard focus */
   /* In firefox no styling is provided and that feels right */
   /* section semantics should be sufficient for screen readers */
 
-  /* ?? */
-  /* outline: thin solid var(--tertiary-color); */
   outline: none;
   padding: 10px;
   margin: 20px;
@@ -421,10 +417,6 @@ but becomes visible and clickable/enterable with keyboard focus */
 
 .onShow {
   display: block;
-}
-
-.feedback {
-  padding: 2rem;
 }
 
 .neuro-diversity:hover,
@@ -450,7 +442,7 @@ but becomes visible and clickable/enterable with keyboard focus */
 .community-diversity header,
 .visual-impairment header,
 .digital-inclusion header {
-  font-size: large;
+  font-size: x-large;
   padding: 10px;
 }
 
@@ -562,6 +554,16 @@ button {
 button:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.5);
   background-color: var(--secondary-color);
+}
+
+.active {
+  background-color: var(--tertiary-color);
+  border: var(--text-color) solid 1px;
+}
+
+/* feedback form */
+.feedback {
+  padding: 2rem;
 }
 
 /* digi health tools styles */
@@ -706,7 +708,7 @@ button:hover {
   animation: var(--pulse-animation);
 }
 
-/* settings */
+/* settings page */
 
 #reset_img {
   height: 10vh;
@@ -864,7 +866,6 @@ footer {
     width: 250px;
   }
 
-  /* consider whether this is best accessibility option for mobile? */
   #skip_to_content {
     display: none;
   }

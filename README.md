@@ -4,6 +4,8 @@ Hi my name is Oli,
 
 This is my application website for the Founders and Coders programme available at: https://duckrabbitpy.github.io/
 
+For the best experience use Google Chrome or Firefox browser.
+
 ## Technologies and techniques used:
 
 - HTML
@@ -19,6 +21,7 @@ This is my application website for the Founders and Coders programme available a
   - CSS Variables
   - CSS Grid and Flexbox
   - CSS Media queries
+  - CSS @keyframe animations
 
 <br>
 
@@ -51,7 +54,7 @@ This is my application website for the Founders and Coders programme available a
 
 - Whenever I wanted to change the navbar or a complex element that repeats e.g. the input sliders (even a tiny change!) I had to do this over and over, which was repetitive and at times frustrating
 - Sometimes I found targeting elements that were spatially seperate from the button being clicked or the key being pressed quite difficult as I could not use event.target in a straightforward way. I ended up using properties such as parentNode, firstElementChild and childNode, which worked well but it felt like I was 'hacking the DOM' and I'm sure there are better ways out there to acheive the same result
-- I'm getting better but I did at times find achieving a truly responsive design challenging, and ended up with a very large css file! It was especially difficult because I was committed to providing the option to change font sizes which has a large impact on the layout
+- I'm getting better but I did at times find achieving a truly responsive design challenging, and ended up with a very large css file! It was especially difficult because I was committed to providing the option to change font sizes which has a large impact on the layout. I also found after feedback from friends and family that certain things look/behave differently across browsers and devices such as the file uploader, input sliders and default buttons.
 
 <br>
 
