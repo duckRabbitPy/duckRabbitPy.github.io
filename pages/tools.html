@@ -59,7 +59,7 @@
             <div class="digi-health-landing fade-in-content">
               <div id="health_landing_text">
               <h2>Welcome to digital health</h2>
-              <p>Sometimes it's hard to know where to start when we're looking to improve or maintain our health.
+              <p>Sometimes it's hard to know where to start when we're looking to improve or maintain our mental health.
                 One approach is to start with the basics and build from there! This online tool will ask 5 questions
                 spanning several key domains deemed crucial for health and wellbeing.
                 <br><br>
@@ -332,6 +332,7 @@
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
   ></script>
   <script>
+    //digital health page specific JavaScript
     const domainBtns = document.querySelectorAll(".domain-btn");
     const digiLanding = document.querySelector(".digi-health-landing");
 
@@ -381,47 +382,50 @@
     const exerciseIcon = document.getElementById('exercise_icon');
   
 
+    //create object to hold scores and arrays to store high and low scores
     let scoresObject = {};
     let lowScoring = [];
     let highScoring = [];
 
 
+    //display first slider container and hide landing container when 'lets get started is clicked'
     startBtn.addEventListener("click", () => {
       [...containers][0].classList.remove("hidden");
       digiLanding.style.display = "none"
-
-
     });
 
-    domainBtns.forEach(btn => {
-      btn.addEventListener("click", (event) =>{
-        let domainPrefix = event.target.id;
-        containers.forEach(container => {
-          let containerClass = container.classList[0];
-          if(containerClass.includes(domainPrefix)){
-            container.classList.remove("hidden")
-          }
-          else{container.classList.add("hidden")}
-          })  
-      }) 
-    });
 
+    //next button
+    //this function controls the flow through the mood sliders and sets the results and suggestions
     nextBtns.forEach(btn => {
       btn.addEventListener("click", (event) => {
+        //chosen value is the resting slider value coupled with the current next button
+        //sliderType is the domain that the slider coupled with the current next button
         let chosenValue = event.target.parentNode.firstElementChild.value
         let sliderType = event.target.parentNode.firstElementChild.name
+
+        //add the sliderType and chosenValue to the scoresObject
         scoresObject[sliderType] = chosenValue
+
+        //reveals next container in sequence and hides all others
         containers.forEach((container, index) => {
+          //iterate through the array of containers and get the class of each container
           let containerClass = container.classList[0]
+          //if the class name of the container is included in the class string coupled with the current next button
+          //AND the index in the iteration of containers is less than 4 (i.e is not the final container in array)
+          //remove hidden from the 'next' container in the array, thereby revealing the next health domain container
+          //for all other containers, add hidden
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index < 4){
             [...containers][index + 1].classList.remove("hidden");
             [...containers][index].classList.add("hidden");   
           }
+          //when index is 4 all sliders have been completed, so reveal dashboard and results
           if(containerClass.includes(btn.parentElement.parentNode.classList[0]) && index === 4){
             //hide slider containers
             [...containers][index].classList.add("hidden"); 
 
-            //reveal results dashboard and suggestions
+            //reveal results dashboard and suggestions 
+            //set score inner HTML utilising the scoresObject to get values
             dashBoard.classList.remove("hidden");
             resultContainer.classList.remove("hidden");
             suggestions.classList.remove("hidden");
@@ -431,12 +435,17 @@
             socialResult.innerHTML = `Social score: ${scoresObject.social_slider}`;
             exerciseResult.innerHTML = `Exercise score: ${scoresObject.exercise_slider}`;
 
+            //show positive icons for those domains with scores > 5
             showPositiveIcon(scoresObject.mood_slider, moodIcon)
             showPositiveIcon(scoresObject.sleep_slider, sleepIcon)
             showPositiveIcon(scoresObject.nutrition_slider, nutritionIcon)
             showPositiveIcon(scoresObject.social_slider, socialIcon)
             showPositiveIcon(scoresObject.exercise_slider, exerciseIcon)
 
+            //iterate through scoreObject using object.entries()
+            //parse the first part of the entry key name to get the domain
+            //if score is less than 5 push domain into low scoring array and reveal suggestion for that domain
+            //if score is greater than 5 push domain into high scoring array and reveal suggestion for that domain
             let scoreEntries = Object.entries(scoresObject)
             scoreEntries.forEach(entry => {
               let breakIndex = entry[0].indexOf('_')
@@ -461,6 +470,7 @@
             //generate suggestion text based on score values
             generateSuggestionText()
 
+            //set percentage width of score bars based on respective scores
             document.documentElement.style.setProperty("--moodbar-width", `${scoresObject.mood_slider * 10}%`);
             document.documentElement.style.setProperty("--sleepbar-width", `${scoresObject.sleep_slider * 10}%`);
             document.documentElement.style.setProperty("--nutritionbar-width", `${scoresObject.nutrition_slider * 10}%`);
@@ -471,11 +481,14 @@
       })
     })
 
-
+    //Generate suggestion text based on scores provided
     function generateSuggestionText (){
+      //if plural set to domains, if singular set to domain
       let area = lowScoring.length > 1 ? 'domains' : 'domain';
+      //join multiple low domains with a + sign
       let lowDomains = lowScoring.join('+');
 
+      //if there are scores lower than 5 set suggestion message for domains to work on
       if(lowDomains){
       lowScoringAlert.innerHTML = `It looks like next week you could do with working on the ${[lowDomains]} ${area} of health!
       Follow the links for some great resources that can help boost your health
@@ -484,14 +497,20 @@
     }
 
     function welldoneMsg(domain){
+      //if plural set to domains, if singular set to domain
       let area = highScoring.length > 1 ? 'domains' : 'domain';
+      //if plural set to have, if singular set to has
       let pastTense = highScoring.length > 1 ? 'have' : 'has';
+      //join multiple high domains with a + sign
       let highDomains = highScoring.join('+');
+
+      //if there are scores higher than 5 set well done message
       if(highDomains){
         highScoringAlert.innerHTML = `It's great to see that your ${highDomains} ${area} of health ${pastTense} been good this week, keep it going!!`
       }
     }
 
+    //takes in a domain as an argument and reveals corresponding suggestion
     function revealSuggestion(domain){
               if(domain === 'mood'){
                 moodSuggestions.classList.remove('hidden')
@@ -523,12 +542,18 @@
       }
     })
   
+    //allows keyboard users to use sliders
     document.addEventListener("keydown", (event) => {
       sliders.forEach((slider) => {
+        //get the current container class by accessing the slider parent's parent element
         let containerClass = slider.parentElement.parentElement.classList[0];
         if (!containerClass.includes("hidden")) {
+          //if the container class is not currently hidded, i.e it is the active container 
+          // get the event.key value and set the slider value to that value (a number between 1 and 9)
           slider.value = event.key;
           sliderDisplay.forEach((score) => {
+            //if the container class matches the id of the display score p tag
+            //set the display score p tag inner text to the numeric value on the slider
             if (containerClass.includes(score.id.slice(8))) {
               score.innerHTML = scoreAndWord(slider.value);
             }
@@ -537,7 +562,9 @@
       });
     });
 
-
+    //updates the score displayed in realtime when score is changed
+    //on change to the slider position call the scoreAndWord function on the current value 
+    //this generates an english word 'translation' of the score 
     currentMood.addEventListener("input", () => {
       displayMood.innerHTML = scoreAndWord(currentMood.value)
     })
@@ -558,7 +585,7 @@
       displayExercise.innerHTML = scoreAndWord(currentExercise.value)
     })
     
-
+    //generate word equivalent of score by using score to get index of equivalent word
     function scoreAndWord(score){
       wordEquiv = ["", "the worst it could be", "extremely bad", "very bad", "bad", "Ok", "good", "very good", "excellent", "the best it could be"] 
       return `Score: <b>${score}</b> (${wordEquiv[score]})`

@@ -95,8 +95,7 @@
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     ></script>
     <script>
-      //page specific JavaScript
-
+      //settings page specific JavaScript
       const themeToggle = document.querySelector(".toggle-dark");
       const easyToggle = document.querySelector(".toggle-easy");
       const fontButtons = document.querySelectorAll(".size-btn");
@@ -128,7 +127,9 @@
       const openDButton = document.getElementById("openDyslexic");
       const fontFamilyBtns = [sansButton, serifButton, openDButton];
 
-      //toggle button
+      //dark theme toggle button
+      //if current theme is light or easy read or null, set dark theme
+      //by default teh fallback target theme is light
       themeToggle.addEventListener("click", () => {
         let currentTheme =
           document.documentElement.getAttribute("current-theme");
@@ -143,9 +144,13 @@
         }
 
         document.documentElement.setAttribute("current-theme", targetTheme);
+        //set storedColour to target Theme in session storage
         sessionStorage.setItem("storedColour", targetTheme);
       });
 
+      //easy read (pastel mode) toggle button
+      //if current theme is light or dark or null, set easy read theme
+      //by default teh fallback target theme is light
       easyToggle.addEventListener("click", () => {
         let currentTheme =
           document.documentElement.getAttribute("current-theme");
@@ -163,13 +168,15 @@
         sessionStorage.setItem("storedColour", targetTheme);
       });
 
-      //font buttons
+      //font family buttons
+      //store chosen font in session storage as a string
       serifButton.addEventListener("click", () => {
         document.documentElement.style.setProperty(
           "--font-family",
           "'serif', 'Georgia', 'Lucida'"
         );
         sessionStorage.setItem("storedFontFamily", "serif");
+        //reconfigure on state of all buttons
         setOnState();
       });
 
@@ -179,6 +186,7 @@
           "'-apple-system', 'BlinkMacSystemFont', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell'"
         );
         sessionStorage.setItem("storedFontFamily", "sans");
+        //reconfigure on state of all buttons
         setOnState();
       });
 
@@ -188,16 +196,20 @@
           "openDyslexic"
         );
         sessionStorage.setItem("storedFontFamily", "openDyslexic");
+        //reconfigure on state of all buttons
         setOnState();
       });
 
       //disable animation
+      //store animation state as 'off' (this button doesn't toggle but can be reset)
       animationBtn.addEventListener("click", (event) => {
         sessionStorage.setItem("animationState", "off");
         alert("animations switched off");
+        //reconfigure on state of all buttons
         setOnState();
       });
 
+      //sets styling of button based on whether the button has been selected
       function setOnState(event) {
         let storedSize = sessionStorage.getItem("storedFontSize");
         let storedFamily = sessionStorage.getItem("storedFontFamily");
@@ -206,6 +218,7 @@
           if (storedSize === null) {
             return;
           }
+          //if button id matches that which is stored in session storage, add active class, else remove
           if (btn.id === storedSize) {
             btn.classList.add("active");
           } else {
@@ -217,6 +230,7 @@
           if (storedFamily === null) {
             return;
           }
+          //if button id matches that which is stored in session storage, add active class, else remove
           if (btn.id === storedFamily) {
             btn.classList.add("active");
           } else {
@@ -224,19 +238,24 @@
           }
         });
 
+        //if animationState is 'off' add active class, else remove
         animationState === "off"
           ? animationBtn.classList.add("active")
           : animationBtn.classList.remove("active");
       }
 
       resetBtn.addEventListener("click", () => {
+        //clear all from session storage
         sessionStorage.clear();
         //set google translate cookie expiration date to a date that has passed
+        //as the cookie is expired the language selected will reset on refresh
         document.cookie =
           "googtrans" + "=;Path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+        //reload page
         location.reload();
       });
 
+      //setOnState called first time page is loaded
       setOnState();
     </script>
   </body>

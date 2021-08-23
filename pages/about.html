@@ -199,11 +199,11 @@
     ></script>
     <script src="../app.js"></script>
     <script>
-      //page specific javaScript
+      //about page specific JavaScript, allows key navigation to profile links
       const profileListItems = document.querySelectorAll(".profile-li");
       profileListItems.forEach((elem) => {
         elem.addEventListener("keydown", (event) => {
-          if (event.keyCode === 13) {
+          if (event.key === "Enter") {
             //user must have pop ups enabled for this approach to work
             let newLocation = event.target.childNodes[1].firstElementChild.href;
             window.open(newLocation, "_blank");

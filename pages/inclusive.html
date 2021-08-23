@@ -463,8 +463,8 @@
     ></script>
     <script src="../app.js"></script>
     <script>
-      //page specific JavaScript
-      //keep all selectors up top if possible
+      
+      //inclusive page specific JavaScript
       const neuroSvg = document.getElementById("neuro_icon");
       const handSvg = document.getElementById("hand_icon");
       const languageSvg = document.getElementById("language_icon");
@@ -496,17 +496,19 @@
 
       retrieveIconSvgTheme();
 
-      //controls hiding and showing of sections
+      //controls hiding and showing of inclusive sections, utilises array methods for efficient code
       options.forEach((option) => {
         option.addEventListener("click", (event) => {
+          //key event also emits a click event if element is in focus,
+          //so need to check if 'true' mouse click
+          //key event has co-ordinates 0,0 so !x && !y evaluates to true and returns early
           var x = event.x || event.clientX;
           var y = event.y || event.clientY;
           if (!x && !y) {
-            //key event also emits a click event if element is in focus,
-            //so need to check if 'true' mouse click
-            //key event has co-ordinates 0,0
             return;
           } else {
+            //get topic name
+
             let divClass = event.target.className;
             let topic = "";
 
@@ -520,6 +522,8 @@
               topic = parentClass.slice(0, parentClass.indexOf("-"));
             }
 
+            //iterate through all sections, if the selected id matches the topic remove 'hidden' and add 'onShow' class
+            //else add hidden class
             hiddenSections.forEach((elem) => {
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
@@ -536,10 +540,13 @@
       //for keyboard users
       options.forEach((option) => {
         option.addEventListener("keydown", (event) => {
-          if (event.keyCode === 13) {
+          if (event.key === 'Enter') {
+            //get topic
             let inclusiveClass = event.target.className;
             let topic = inclusiveClass.slice(0, inclusiveClass.indexOf("-"));
             hiddenSections.forEach((elem) => {
+              //iterate through all sections, if the selected id matches the topic remove 'hidden' and add 'onShow' class
+              //else add hidden class
               if (elem.id.includes(topic)) {
                 elem.classList.remove("hidden");
                 elem.classList.add("onShow");
@@ -554,8 +561,10 @@
 
       //theming with icons
       function retrieveIconSvgTheme() {
+        //get teh stored theme from session storage if it exists
         let storedTheme = sessionStorage.getItem("storedColour");
 
+        //if dark-theme set to dark svg image set
         if (storedTheme === "dark-theme") {
           neuroSvg.src = "/images/neuroDarkTheme.svg";
           handSvg.src = "/images/handDarkTheme.svg";
@@ -563,7 +572,9 @@
           diversitySvg.src = "/images/diversityDarkTheme.svg";
           visualSvg.src = "/images/visualDarkTheme.svg";
           digitalSvg.src = "/images/digiDarkTheme.svg";
-        } else {
+        } 
+        //if light-theme or easy-read-theme set to default svg image set
+        else {
           neuroSvg.src = "/images/neuro.svg";
           handSvg.src = "/images/hand.svg";
           languageSvg.src = "/images/language.svg";
@@ -573,12 +584,17 @@
         }
       }
 
+      //visual impairment section, 
       filterBtns.forEach((elem) => {
         elem.addEventListener("click", (event) => {
+          //each button has a data-filter attribute
+          //get the filter attribute
           let filter = event.target.dataset.filter;
           if (filter === "sightLoss") {
+            //if attribute is sightLoss, add sightLoss class to multi-coloured image
             multiCImg.forEach((elem) => elem.classList.add("sightLoss"));
           } else {
+            //otherwise, set --vision-filter css variable to the data-filter attribute e.g. "hue-rotate(25deg) saturate(50%) sepia(5%)"
             document.documentElement.style.setProperty(
               "--vision-filter",
               filter
@@ -588,6 +604,30 @@
         });
       });
 
+      //visual impairment section
+      //sets image that user chooses via local file upload or web URL path
+      getImgBtn.addEventListener("submit", (event) => {
+        event.preventDefault();
+        //gets value from custom upload input
+        if (customUpload.value) {
+          //create a local file src from customUpload.files, this is a path to the local file
+          //set the custom image src to the local file src
+          let localFileSrc = window.URL.createObjectURL(customUpload.files[0]);
+          customImg.src = localFileSrc;
+          //clear the custom upload field to allow new entry
+          customUpload.value = "";
+        } 
+        //if there is no custom upload, check to see if user as input a url instead
+        //if so set the custom image src to the url
+        else if (customUrl.value) {
+          let newSrc = customUrl.value;
+          customImg.src = newSrc;
+          //clear the custom URL field to allow new entry
+          customUrl.value = "";
+        }
+      });
+
+
       //dice roll 'animation' using nested setTimeouts
       randomUserBtn.addEventListener("click", () => {
         setTimeout(() => {
@@ -596,7 +636,7 @@
             rollDice();
             setTimeout(() => {
               rollDice();
-              //call createUser function and set properties on user object
+              //finally call createUser function and set properties on user object
               createUser();
             }, 300);
           }, 300);
@@ -611,7 +651,7 @@
       //random user generator
       //user object starts off with 'not set' for all properties
       //when createUser() is called, the data is fetched from data files and random properties are set
-      //fun foray into object oriented programming
+      //fun foray into object oriented programming!
 
       let user = {
         Name: "not set",
@@ -711,7 +751,7 @@
         newUser.randDevice();
         newUser.randAccessibility();
 
-        //once asynch data has been collected, set properties on user object
+        //once async data has been collected, set properties on user object
         newUser.Name = name;
         newUser.PreferredLanguage = language;
         newUser.CurrentlyLivingIn = country;
@@ -724,40 +764,38 @@
           <br> <b> Accessibility consideration </b>: ${newUser.AccessibilityConsideration}`;
       }
 
-      getImgBtn.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (customUpload.value) {
-          let localFileSrc = window.URL.createObjectURL(customUpload.files[0]);
-          customImg.src = localFileSrc;
-          //clear
-          customUpload.value = "";
-        } else if (customUrl.value) {
-          let newSrc = customUrl.value;
-          customImg.src = newSrc;
-          //clear
-          customUrl.value = "";
-        }
-      });
 
+      //language section readability analysis
+      //based on a readability formula found on wikipedia https://en.wikipedia.org/wiki/Dale%E2%80%93Chall_readability_formula
+      //asynchronous because fetching list of 3000 words from data folder
       analyseForm.addEventListener("submit", async function analyse(event) {
         event.preventDefault();
+        //get user input words
         let inputWords = textInput.value;
+        //collect easy words from data folder
         let easyWordData = await fetchData("dale-chall");
+        //feed input words and easy words into daleChall function
         daleChall(inputWords, easyWordData);
       });
+
 
       function daleChall(text, easyWords) {
         let textData = text;
         let numSentences = 1;
+        //count sentences by splitting on full stops and counting array length
         text.includes(".")
           ? (numSentences = text.split(".").length)
           : (textData += ".");
+        
+        //remove anything that isn't a letter or a space and set measurement variables
         let sanitised = text.replace(/[^a-zA-Z\s]/g, "");
         let hardWords = 0;
         let numWords = 0;
         let adjustment = 0;
         let longWords = [];
 
+        //iterate through words, if word is isn't in easy words list increment hardWords
+        //if word is over 10 characters in length and isn't already in array, push to long words array
         sanitised.split(" ").forEach((word) => {
           numWords++;
           if (!easyWords.includes(word.toLowerCase())) {
@@ -771,21 +809,26 @@
           }
         });
 
+        //dale chall adjustment formula
         if (hardWords / numWords > 0.05) {
           adjustment = 3.6365;
         }
 
+        //dale chall formula
         let score = (
           0.1579 * ((hardWords / numWords) * 100) +
           0.0496 * (numWords / numSentences) +
           adjustment
         ).toFixed(1);
 
+        //calculate percentage easy words
         let percentageHard = Math.floor((hardWords / numWords) * 100);
         let percentageEasy = 100 - percentageHard;
 
+        //secondary test to ensure unique
         let uniqueLongWords = longWords.filter((word) => word.upp);
 
+        //set comprehension variable and change according to score
         let comprehension = "not calculated"
 
         if(score < 4){
@@ -804,7 +847,7 @@
           comprehension = "Graduate or specialised field level English"
         }
 
-
+        //set innerHTML message with results
         complexResult.innerHTML = `
         <b>Overall score: ${score}</b> (Requires at least ${comprehension}) <br><br>
         <b> Number of words:</b> ${numWords} <br><br>

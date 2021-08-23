@@ -83,6 +83,7 @@
     ></script>
     <script>
       //page specific JS
+      //if current theme is darkTheme set dark theme landing page svg
       const landingSvg = document.querySelector(".landing-img");
       function retrieveSvgTheme() {
         let storedTheme = sessionStorage.getItem("storedColour");
@@ -92,6 +93,7 @@
           landingSvg.src = "/images/everyone.svg";
         }
       }
+      //retrieve theme
       retrieveSvgTheme();
     </script>
     <script

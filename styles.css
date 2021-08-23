@@ -182,7 +182,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgb(204, 205, 206);
+  background-color: rgb(220, 221, 221);
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;

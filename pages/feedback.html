@@ -38,13 +38,18 @@
   </footer>
 
   <script>
+    // feedback page specific JavaScript
     const feedback = document.getElementById("feedback");
     const emailBtn = document.getElementById("email");
     const suggestionTxt = document.getElementById("suggestion");
 
+    // get array of flagged objects
     let flagged = JSON.parse(sessionStorage.getItem("flagged"));
     let feedbackHTML = "";
     let emailFlagged = "";
+
+    // iterate through array, replace flaggecContent double spaces with single spaces, replace mark tags with asterisks,
+    // add to emailFlagged variable and also display text as list item
     if (flagged) {
       flagged.forEach((elem) => {
         emailFlagged +=
@@ -58,6 +63,7 @@
       feedback.innerHTML = feedbackHTML;
     }
 
+    //When clicked open a new email window with template text and populate with contents of emailFlagged string
     emailBtn.addEventListener("click", () => {
       let suggestion = suggestionTxt.value;
       let body =
