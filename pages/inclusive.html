@@ -68,8 +68,8 @@
               alt="digital inclusion icon"
             /></div
         ></a>
-        <a href="#visual-section" class="inclusive-link">
-          <div class="visual-impairment" tabindex="0">
+        <a href="#visual-section" class="inclusive-link" id="visual">
+          <div class="visual-impairment">
             <header>Visual impairment</header>
             <img
               src="../images/visual.svg"
@@ -88,8 +88,8 @@
               alt="neurodiversity icon"
             /></div
         ></a>
-        <a href="#physical-section" class="inclusive-link"
-          ><div class="physical-health-and-ability" tabindex="0">
+        <a href="#physical-section" class="inclusive-link" id="physical"
+          ><div class="physical-health-and-ability">
             <header>Physical health & ability</header>
             <img
               src="../images/hand.svg"
@@ -309,8 +309,12 @@
           <li class="nav-tut">
             To start off with I positioned 'a tags' within an unordered list
             and wrapped the code block in a semantic 'nav' element. Nav elements
-            can help screen readers know when they are iterating through options
+            can help screen readers know when they are to iterate through options
             in a menu. <br /><br />
+           
+          </li>
+
+          <li class="nav-tut">
             To help people with colour blindness, I ensured that a change in
             mouse hover state changes the border as well as the colour of the
             nav element. The aria="current" attribute tells screen readers what
@@ -319,27 +323,20 @@
           </li>
 
           <li class="nav-tut">
-            Next I gave each nav li element a tab index of 0, this means that if
-            a visitor is on the page, they will be able to tab through the nav
-            links with ease.
-          </li>
-
-          <li class="nav-tut">
-            The height of each a tag is set to 100% and the width is set to fit-content, the icons
-            are also wrapped within the a tag. This means that you will always hit the link 
+            The height of each 'a tag' is set to 100% and the width is set to fit-content, the icons
+            are also wrapped within the 'a tag'. This means that you will always hit the link 
             when you click on the nav menu option.
           </li>
 
           <li class="nav-tut">
-            I then set the href of the 'skip to main content' to the
+            I then set the href of 'skip to main content' to the
             #main_content id which is the location of the first piece of
-            meaningful content on the page (outside the nav).
+            meaningful content on each page (outside the nav).
           </li>
 
           <li class="nav-tut">
-            The opacity of the skip link is set to 0 initially. The focus: pseudoselector
-            styling is applied when the li element has been keyboard focused
-            making the skip link visible!
+            The opacity of the skip link is set to 0 initially. The focus:within pseudoselector
+            styling is applied to the li element when the 'a tag' is keyboard focused, making the skip link visible!
           </li>
 
         </ol>
@@ -508,19 +505,9 @@
             return;
           } else {
             //get selected topic name
-            let topic = "";
-            let linkID = event.target.id;
-            let parentID = event.target.parentElement.parentElement.id;
-
-            //if user has clicked directly on <a> tag
-              if (linkID && !linkID.includes("icon")) {
-              topic = linkID;
-            }
-
-            //else set to <a> tag id which is the parent elem
-              else {
-              topic = parentID;
-            }
+            //event.currentTarget refers to element that eventListener is on
+            //the event will bubble up if clicked on by children
+            let topic = event.currentTarget.id;
 
             //iterate through all sections, if the selected id matches the topic remove 'hidden' and add 'onShow' class
             //else add hidden class
