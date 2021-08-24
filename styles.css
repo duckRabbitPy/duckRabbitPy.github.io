@@ -304,7 +304,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   list-style-type: none;
 }
 
-.profile-li:focus {
+.profile-li:focus-within {
   background-color: var(--secondary-color);
 }
 
