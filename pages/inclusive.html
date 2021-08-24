@@ -685,11 +685,11 @@
         },
 
         randAge() {
-          this.Age = Math.floor(Math.random() * (110 - 12) + 12);
+          this.Age = Math.floor(gaussianRand() * (100 - 12) + 12);
         },
 
         randInternetSpeed() {
-          this.InternetSpeed = `${Math.floor(Math.random() * 120)} mb/s`;
+          this.InternetSpeed = `${Math.floor(gaussianRand() * 90)} mb/s`;
         },
 
         randDevice() {
@@ -725,6 +725,15 @@
             considerations[Math.floor(Math.random() * considerations.length)];
         },
       };
+
+      //create an aproximately normal distribution betwen 0 and 1
+      function gaussianRand() {
+        let rand = 0;
+        for (var i = 0; i < 6; i += 1) {
+          rand += Math.random();}
+          return rand / 6;
+      }
+
 
       async function fetchData(dataField) {
         let data = await fetch(`../data/${dataField}.json`)

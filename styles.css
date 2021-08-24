@@ -114,6 +114,7 @@ body a {
   text-decoration: none;
   padding: 3px;
   color: black;
+  font-size: var(--font-size);
   background-color: var(--secondary-color);
   border-radius: 5px;
   box-shadow: 2px 4px 10px -2px rgba(0, 0, 0, 0.5);
