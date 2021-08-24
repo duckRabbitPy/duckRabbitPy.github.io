@@ -6,6 +6,8 @@ This is my application website for the Founders and Coders programme available a
 
 For the best experience use Google Chrome or Firefox browser.
 
+Note you will find most of the JavaScript within script tags within each HTML file in the pages folder, personally I find it easier to keep the HTML and JS close together when developing. However i've created an unlinked <b>merged.js</b> file that contains all the JS and might more convienient to browse.
+
 ## Technologies and techniques used:
 
 - HTML
