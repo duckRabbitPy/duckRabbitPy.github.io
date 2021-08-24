@@ -28,19 +28,6 @@ function smoothscroll() {
   }
 }
 
-//allows keyboard navigation with nav bar, as links nested within li tags ensures correct focus
-const keyNavElements = document.querySelectorAll(".key-nav");
-keyNavElements.forEach((elem) => {
-  elem.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      let newLocation = event.target.childNodes[1].href;
-      if (newLocation) {
-        window.location.href = newLocation;
-      }
-    }
-  });
-});
-
 //initialises google translate element
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(

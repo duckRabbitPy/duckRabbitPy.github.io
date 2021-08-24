@@ -21,29 +21,29 @@
 
   <nav>
     <ul>
-      <li tabindex="0" class="key-nav" id="skip_to_content">
+      <li class="key-nav" id="skip_to_content">
         <a href="#main_content">Skip to main content</a>
       </li>
-      <li tabindex="0" class="key-nav">
+      <li class="key-nav">
         <a href="/">Home <i class="fas fa-home" aria-hidden="true"></i></a>
       </li>
-      <li tabindex="0" class="key-nav">
+      <li class="key-nav">
         <a href="../pages/about.html"
           >About me <i class="far fa-address-card" aria-hidden="true"></i
         ></a>
       </li>
-      <li tabindex="0" class="key-nav" id="current_page">
+      <li class="key-nav" id="current_page">
         <a href="../pages/inclusive.html" aria-current="page"
           >Inclusive development
           <i class="fas fa-user-check" aria-hidden="true"></i
         ></a>
       </li>
-      <li tabindex="0" class="key-nav">
+      <li class="key-nav">
         <a href="../pages/tools.html"
           >Digital health <i class="fas fa-spa" aria-hidden="true"></i
         ></a>
       </li>
-      <li tabindex="0" class="key-nav">
+      <li class="key-nav">
         <a href="../pages/settings.html"
           >Settings <i class="fas fa-cog" aria-hidden="true"></i
         ></a>
@@ -58,8 +58,8 @@
     <div class="inclusive-container fade-in-content" id="main_content">
       <h2>Important factors:</h2>
       <div class="factor-container">
-        <a href="#digital-section" class="inclusive-link"
-          ><div class="digital-inclusion" tabindex="0">
+        <a href="#digital-section" class="inclusive-link" id="digital"
+          ><div class="digital-inclusion">
             <header>Digital inclusion</header>
             <img
               src="../images/digi.svg"
@@ -78,8 +78,8 @@
               alt="visual impairment icon"
             /></div
         ></a>
-        <a href="#neuro-section" class="inclusive-link"
-          ><div class="neuro-diversity" tabindex="0">
+        <a href="#neuro-section" class="inclusive-link" id="neuro"
+          ><div class="neuro-diversity">
             <header>Neurodiversity</header>
             <img
               src="../images/neuro.svg"
@@ -98,8 +98,8 @@
               alt="physical health and ability icon"
             /></div
         ></a>
-        <a href="#language-section" class="inclusive-link"
-          ><div class="language-area" tabindex="0">
+        <a href="#language-section" class="inclusive-link" id="language"
+          ><div class="language-area">
             <header>Language</header>
             <img
               src="../images/language.svg"
@@ -108,8 +108,8 @@
               alt="language icon"
             /></div
         ></a>
-        <a href="#community-section" class="inclusive-link"
-          ><div class="community-diversity" tabindex="0">
+        <a href="#community-section" class="inclusive-link" id="community"
+          ><div class="community-diversity">
             <header>Community diversity</header>
             <img
               src="../images/diversity.svg"
@@ -507,19 +507,19 @@
           if (!x && !y) {
             return;
           } else {
-            //get topic name
-
-            let divClass = event.target.className;
+            //get selected topic name
             let topic = "";
+            let linkID = event.target.id;
+            let parentID = event.target.parentElement.parentElement.id;
 
-            //if click is on div itself
-            if (divClass && !divClass.includes("img")) {
-              topic = divClass.slice(0, divClass.indexOf("-"));
+            //if user has clicked directly on <a> tag
+              if (linkID && !linkID.includes("icon")) {
+              topic = linkID;
             }
-            //else if click is on content within div
-            else {
-              let parentClass = event.target.parentNode.className;
-              topic = parentClass.slice(0, parentClass.indexOf("-"));
+
+            //else set to <a> tag id which is the parent elem
+              else {
+              topic = parentID;
             }
 
             //iterate through all sections, if the selected id matches the topic remove 'hidden' and add 'onShow' class
@@ -542,8 +542,7 @@
         option.addEventListener("keydown", (event) => {
           if (event.key === 'Enter') {
             //get topic
-            let inclusiveClass = event.target.className;
-            let topic = inclusiveClass.slice(0, inclusiveClass.indexOf("-"));
+            let topic = event.target.id;
             hiddenSections.forEach((elem) => {
               //iterate through all sections, if the selected id matches the topic remove 'hidden' and add 'onShow' class
               //else add hidden class

@@ -238,7 +238,7 @@ i {
   font-size: medium;
 }
 
-.key-nav:focus {
+nav li:focus-within {
   background-color: var(--secondary-color);
 }
 
@@ -249,7 +249,7 @@ but becomes visible and clickable/enterable with keyboard focus */
   pointer-events: none;
 }
 
-#skip_to_content:focus {
+#skip_to_content:focus-within {
   opacity: 1;
   pointer-events: all;
 }
@@ -438,17 +438,22 @@ but becomes visible and clickable/enterable with keyboard focus */
 }
 
 .neuro-diversity:hover,
-.neuro-diversity:focus,
 .physical-health-and-ability:hover,
-.physical-health-and-ability:focus,
 .language-area:hover,
-.language-area:focus,
 .community-diversity:hover,
-.community-diversity:focus,
 .visual-impairment:hover,
-.visual-impairment:focus,
-.digital-inclusion:hover,
-.digital-inclusion:focus {
+.digital-inclusion:hover {
+  border: var(--text-color);
+  background-color: var(--tertiary-color);
+  border-style: solid;
+}
+
+#neuro:focus,
+#physical:focus,
+#language:focus,
+#community:focus,
+#visual:focus,
+#digital:focus {
   border: var(--text-color);
   background-color: var(--tertiary-color);
   border-style: solid;
