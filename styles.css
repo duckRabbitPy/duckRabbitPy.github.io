@@ -568,6 +568,20 @@ but becomes visible and clickable/enterable with keyboard focus */
   max-width: 20px;
 }
 
+#community-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#community_header {
+  margin: 0;
+  padding: 0;
+}
+
+#community_img {
+  height: 90vh;
+}
+
 .scroll-top {
   margin-top: 10px;
   margin-left: 90%;
