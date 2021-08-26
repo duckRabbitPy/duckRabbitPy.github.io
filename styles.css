@@ -562,6 +562,12 @@ but becomes visible and clickable/enterable with keyboard focus */
   flex-direction: column;
 }
 
+#complexity_result {
+  display: inline;
+  overflow-wrap: break-word;
+  max-width: 20px;
+}
+
 .scroll-top {
   margin-top: 10px;
   margin-left: 90%;
